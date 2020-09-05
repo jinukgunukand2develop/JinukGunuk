@@ -26,16 +26,9 @@ public class PlayerMove : MonoBehaviour
         MovePlayer();
         IdlePlayer();
         StartCoroutine(JumpPlayer());
-        ResetPlayerLocation();
     }
 
-    private void ResetPlayerLocation()
-    {
-        if(transform.localPosition.y < -5)
-        {
-            transform.localPosition = new Vector2(0.5f, -0.15f);
-        }
-    }
+
 
     private void IdlePlayer()
     {

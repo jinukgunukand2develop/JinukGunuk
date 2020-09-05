@@ -31,16 +31,16 @@ TextureImporter:
     second: Player_Move_5
   - first:
       213: -8141543143071777719
-    second: kz
+    second: sprite1_9
   - first:
       213: -2048163736357222904
     second: sprite1_10
   - first:
       213: 1991798887789871252
-    second: sz
+    second: sprite1_11
   - first:
       213: -2467444553674921849
-    second: zr
+    second: sprite1_12
   - first:
       213: -8091161636268029857
     second: Player_Jump_1
@@ -372,12 +372,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kz
+      name: sprite1_9
       rect:
         serializedVersion: 2
         x: 17
         y: 415
-        width: 30
+        width: 14
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -393,7 +393,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sz
+      name: sprite1_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 415
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8064794fee57393e0800000000000000
+      internalID: -2048163736357222904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite1_11
       rect:
         serializedVersion: 2
         x: 66
@@ -414,7 +435,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zr
+      name: sprite1_12
       rect:
         serializedVersion: 2
         x: 113
