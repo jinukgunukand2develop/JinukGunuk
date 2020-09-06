@@ -14,7 +14,6 @@ public class FollowSky : MonoBehaviour
         gameObject = FindObjectOfType<PlayerMove>();
     }
 
-
     void Update()
     {
         transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 11);

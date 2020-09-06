@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerAttack : MonoBehaviour
 {
+
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        // TODO : 다 만든 스크립트가 아님
+        // TODO : 다 만든 코드가 아님
         if (Input.GetKeyDown(KeyCode.Z))
         {
             gameObject.SetActive(true);

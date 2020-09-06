@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float fPlayerSpeed = 5f;
     [SerializeField] private float fJumpForce = 5f;
 
-    private Rigidbody2D rigidBody = null;
+    public Rigidbody2D rigidBody = null;
     private Animator animator = null;
     private SpriteRenderer spriteRenderer = null;
 
