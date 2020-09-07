@@ -64,6 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerDead.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerMove.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\RNGBackgroundMove.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\RNGGroundMove.cs" />
+    <Compile Include="Assets\Scripts\RunAndGun\RNGWeaponFollowingPlayer.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowSky.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\PlayerAttack.cs" />

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/RunAndGun.unity
+    guid: 5cacfa116c49739499fef140cddedcbe
+  - enabled: 1
+    path: Assets/Scenes/Dead.unity
+    guid: 67f9b3658c507114d816a45d0f183515
   m_configObjects: {}

@@ -16,6 +16,6 @@ public class FollowSky : MonoBehaviour
 
     void Update()
     {
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 11);
+        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, (gameObject.transform.localPosition.y + 1.4f) * 0.5f, 11);
     }
 }
