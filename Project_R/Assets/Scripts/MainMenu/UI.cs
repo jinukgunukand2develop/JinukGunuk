@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
 
     public void OnClickStartButton()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Loading");
     }
 
     public void OnClickOptionButton() 
