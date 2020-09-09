@@ -72,13 +72,18 @@
     <Compile Include="Assets\Scripts\RunAndGun\RNGBackgroundMove.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\RNGGroundMove.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\RNGWeaponFollowingPlayer.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Event\TutorialFinishEvent.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Event\TutorialInfoEvent.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowSky.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Player\Attack\UseWeapon.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\PlayerDead.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Teemo.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\WeaponFollowingPlayer.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackKZ.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackSZ.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackZR.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponFollowingPlayer.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
