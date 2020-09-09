@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MainMenu\Loading.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\UI.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerAttack.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerDead.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerMove.cs" />
