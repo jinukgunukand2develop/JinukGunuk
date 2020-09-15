@@ -208,22 +208,22 @@ TextureImporter:
     second: AllSkiilEffects_67
   - first:
       213: -9075712134747946330
-    second: AllSkiilEffects_68
+    second: sz w 1
   - first:
       213: 315625910357607791
-    second: AllSkiilEffects_69
+    second: sz w 2
   - first:
       213: 3408430665209810264
     second: AllSkiilEffects_70
   - first:
       213: -3186603470394767469
-    second: AllSkiilEffects_71
+    second: sz w 3
   - first:
       213: 8940443051461631011
-    second: AllSkiilEffects_72
+    second: sz w 4
   - first:
       213: -348218348690260714
-    second: AllSkiilEffects_73
+    second: sz w 5
   - first:
       213: 1287113475424810153
     second: AllSkiilEffects_74
@@ -1650,15 +1650,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AllSkiilEffects_68
+      name: sz w 1
       rect:
         serializedVersion: 2
         x: 810
         y: 406
         width: 85
         height: 33
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1671,15 +1671,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AllSkiilEffects_69
+      name: sz w 2
       rect:
         serializedVersion: 2
         x: 938
         y: 406
         width: 86
         height: 20
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.57}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1713,15 +1713,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AllSkiilEffects_71
+      name: sz w 3
       rect:
         serializedVersion: 2
         x: 1066
         y: 406
         width: 86
         height: 15
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.76}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1734,15 +1734,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AllSkiilEffects_72
+      name: sz w 4
       rect:
         serializedVersion: 2
         x: 1194
         y: 406
         width: 86
         height: 14
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.82}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1755,15 +1755,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AllSkiilEffects_73
+      name: sz w 5
       rect:
         serializedVersion: 2
         x: 1322
         y: 406
         width: 86
         height: 14
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.82}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

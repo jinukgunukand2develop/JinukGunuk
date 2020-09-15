@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class WeaponAttackSZ : MonoBehaviour
 {
+    private Animator animator = null;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.Play("sz idle");
+    }
+
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             AttackQ();
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            AttackW();
+            StartCoroutine(AttackW());
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -26,9 +35,11 @@ public class WeaponAttackSZ : MonoBehaviour
         Debug.Log("세주아니 Q");
     }
 
-    private void AttackW()
+    private IEnumerator AttackW()
     {
-        Debug.Log("세주아니 W");
+        animator.Play("sz w");
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("sz idle");
     }
 
     private void AttackE()

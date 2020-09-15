@@ -7,13 +7,9 @@ public class UseWeapon : MonoBehaviour
     private WeaponAttackKZ kzWeapon = null;
     private WeaponAttackSZ szWeapon = null;
     private WeaponAttackZR zrWeapon = null;
-    private Teemo teemo = null;
-
-    private Vector2 V2AttackDistanceCheck = Vector2.zero;
-
 
     // 0 = 자르반, 1 = 카직스, 2 = 세주아니
-    private int iCurrentWeapon = 0;
+    private byte iCurrentWeapon = 0;
 
 
     void Start()
@@ -22,7 +18,8 @@ public class UseWeapon : MonoBehaviour
         kzWeapon = FindObjectOfType<WeaponAttackKZ>();
         szWeapon = FindObjectOfType<WeaponAttackSZ>();
         zrWeapon = FindObjectOfType<WeaponAttackZR>();
-        teemo = FindObjectOfType<Teemo>();
+
+        
     }
 
     void Update()
@@ -39,14 +36,7 @@ public class UseWeapon : MonoBehaviour
 
     void Attack()
     {
-        V2AttackDistanceCheck.x = Mathf.Abs(teemo.transform.localPosition.x - transform.localPosition.x);
-        V2AttackDistanceCheck.y = Mathf.Abs(teemo.transform.localPosition.y - transform.localPosition.y);
-        if (V2AttackDistanceCheck.x <= 0.4f && V2AttackDistanceCheck.y <= 0.4f)
-        {
-            // TODO : 넉백 시스탬, 채력 감소
-            //teemo.rigidbody2d.AddForce(new Vector2(2f, 0.1f));
-            //--teemo.iTeemoHP;
-        }
+        
     }
 
     // TODO : 보기 불편함

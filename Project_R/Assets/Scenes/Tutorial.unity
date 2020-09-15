@@ -858,6 +858,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -918,7 +923,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &265674377 stripped
 Transform:
@@ -933,6 +939,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -993,7 +1004,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &287629762 stripped
 Transform:
@@ -1008,6 +1020,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1068,7 +1085,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &304478865 stripped
 Transform:
@@ -1174,8 +1192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &337994557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2493,7 +2512,7 @@ GameObject:
   - component: {fileID: 710776050}
   - component: {fileID: 710776054}
   m_Layer: 0
-  m_Name: Finish_0
+  m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2666,8 +2685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &783036125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3535,6 +3555,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3595,7 +3620,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &1162684933 stripped
 Transform:
@@ -3610,6 +3636,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3670,7 +3701,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &1217810528 stripped
 Transform:
@@ -3702,8 +3734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &1377301589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3791,6 +3824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3851,7 +3889,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &1416800003 stripped
 Transform:
@@ -3871,6 +3910,8 @@ GameObject:
   - component: {fileID: 1501639974}
   - component: {fileID: 1501639975}
   - component: {fileID: 1501639976}
+  - component: {fileID: 1501639978}
+  - component: {fileID: 1501639977}
   m_Layer: 0
   m_Name: sz
   m_TagString: Untagged
@@ -3967,6 +4008,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d542339c4ac1f394889a2e15d801bfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &1501639977
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501639972}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &1501639978
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501639972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ae3cc05fdb8a8e49969583bcff8d6af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1529798195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4145,8 +4220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &1593478959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4315,8 +4391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &1649178265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4565,8 +4642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1 &1835593920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,6 +4931,7 @@ GameObject:
   - component: {fileID: 1875431007}
   - component: {fileID: 1875431014}
   - component: {fileID: 1875431015}
+  - component: {fileID: 1875431016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5046,6 +5125,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818ebfa7e886b174eac6001f98572bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1875431016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875431006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dbe5574ddae1347b66b9c754ef68d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iPlayerHP: 100
 --- !u!1001 &1876496221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5255,8 +5347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1 &2044880916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
@@ -5275,8 +5368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iTeemoHP: 5
-  rigidbody2d: {fileID: 0}
+  iHp: 15
+  collisionDamage: 20
+  fCollisionDamageDelay: 1
 --- !u!1001 &2075826224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5287,37 +5381,37 @@ PrefabInstance:
     - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -5349,7 +5443,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!1001 &2097654615
 PrefabInstance:
@@ -5438,6 +5533,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 725977222}
     m_Modifications:
+    - target: {fileID: 420376553197266272, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5498,7 +5598,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dead_Teemo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 81a225d8cac09cc4ba9d8b8389d131c8, type: 3}
 --- !u!4 &3030854586429830324 stripped
 Transform:

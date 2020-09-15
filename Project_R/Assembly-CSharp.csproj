@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Tutorial\Event\TutorialInfoEvent.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\Tutorial\FollowSky.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Player\Attack\PlayerHP.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\Attack\UseWeapon.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\PlayerDead.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Player\PlayerMove.cs" />
