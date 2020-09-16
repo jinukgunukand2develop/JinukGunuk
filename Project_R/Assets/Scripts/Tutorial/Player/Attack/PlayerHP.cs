@@ -23,7 +23,7 @@ public class PlayerHP : MonoBehaviour
 
     private void Start()
     {
-        slider.value = (float)iPlayerHP / (float)maxPlayerHP;
+        slider.value = (int) iPlayerHP / (int)maxPlayerHP;
     }
 
 
@@ -35,15 +35,12 @@ public class PlayerHP : MonoBehaviour
             Debug.Log("HP reset to 100");
             iPlayerHP = 100;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            iPlayerHP -= 10;
-        }
+    
         HandleHP();
     }
     void HandleHP() 
     {
-        slider.value = (float)iPlayerHP / (float)maxPlayerHP;
+        slider.value = (int)iPlayerHP / (int)maxPlayerHP;
     }
 
 }
