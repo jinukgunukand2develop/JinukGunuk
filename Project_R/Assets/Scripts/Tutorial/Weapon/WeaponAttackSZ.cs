@@ -5,27 +5,38 @@ using UnityEngine;
 public class WeaponAttackSZ : MonoBehaviour
 {
     private Animator animator = null;
+    private UseWeapon useWeapon = null;
+
 
     private void Start()
     {
+        useWeapon = FindObjectOfType<UseWeapon>();
         animator = GetComponent<Animator>();
         animator.Play("sz idle");
     }
 
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Q))
+        if((useWeapon.bWeaponStatus ^ 2) != 0)
         {
-            AttackQ();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartCoroutine(AttackW());
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AttackE();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                animator.Play("sz q");
+                AttackQ();
+                animator.Play("sz idle");
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                animator.Play("sz w");
+                StartCoroutine(AttackW());
+                animator.Play("sz idle");
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                animator.Play("sz e");
+                AttackE();
+                animator.Play("sz idle");
+            }
         }
     }
 
@@ -37,9 +48,9 @@ public class WeaponAttackSZ : MonoBehaviour
 
     private IEnumerator AttackW()
     {
-        animator.Play("sz w");
+        
         yield return new WaitForSeconds(0.5f);
-        animator.Play("sz idle");
+        
     }
 
     private void AttackE()

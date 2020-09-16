@@ -5,14 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField]
-    private int maxPlayerHP = 100;
-    [SerializeField] 
-    private int iPlayerHP = 100;
+    [SerializeField] private int maxPlayerHP = 100;
+    [SerializeField] private int iPlayerHP = 100;
 
     
-    [SerializeField]
-    private Slider slider;
+    [SerializeField] private Slider slider = null;
 
 
     public void DecreaseHealth(int collisionDamage)

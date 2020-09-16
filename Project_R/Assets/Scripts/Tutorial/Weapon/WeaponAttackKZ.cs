@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class WeaponAttackKZ : MonoBehaviour
 {
+    private Animator animator = null;
+    private UseWeapon useWeapon = null;
+
+
+    private void Start()
+    {
+        useWeapon = FindObjectOfType<UseWeapon>();
+        animator = GetComponent<Animator>();
+    }
+
+
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if ((useWeapon.bWeaponStatus ^ 1) != 0)
         {
-            AttackQ();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AttackW();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AttackE();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                animator.Play("kz q");
+                AttackQ();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                animator.Play("kz w");
+                AttackW();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                animator.Play("kz e");
+                AttackE();
+            }
         }
     }
 

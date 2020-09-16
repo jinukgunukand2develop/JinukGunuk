@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class WeaponAttackZR : MonoBehaviour
 {
+    private Animator animator = null;
+    private UseWeapon useWeapon = null;
+
+
+    private void Start()
+    {
+        useWeapon = FindObjectOfType<UseWeapon>();
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if ((useWeapon.bWeaponStatus ^ 4) != 0)
         {
-            AttackQ();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AttackW();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AttackE();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                animator.Play("zr q");
+                AttackQ();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                AttackW();
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                AttackE();
+            }
         }
     }
 

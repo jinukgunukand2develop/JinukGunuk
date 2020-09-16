@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackSZ.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackZR.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponFollowingPlayer.cs" />
+    <None Include="Assets\Sprites\SkillEffects\ReadmeSkillDescription.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
