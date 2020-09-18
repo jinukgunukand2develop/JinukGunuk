@@ -1,12 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UseWeapon : MonoBehaviour
 {
     private WeaponAttackKZ kzWeapon = null;
     private WeaponAttackSZ szWeapon = null;
     private WeaponAttackZR zrWeapon = null;
+    
+    [SerializeField]
+    private Slider weaponPointKz = null;
+    [SerializeField]
+    private Slider weaponPointSz = null;
+    [SerializeField]
+    private Slider weaponPointZr = null;
+    [SerializeField]
+    private int kzMaxWP = 100;
+    [SerializeField]
+    private int szMaxWP = 100;
+    [SerializeField]
+    private int zrMaxWP = 100;
+    [SerializeField]
+    private int kzCurWP = 100;
+    [SerializeField]
+    private int szCurWP = 100;
+    [SerializeField]
+    private int zrCurWP = 100;
 
     public byte bWeaponStatus = 0;
     // 비트 연산
@@ -25,6 +45,10 @@ public class UseWeapon : MonoBehaviour
         kzWeapon = FindObjectOfType<WeaponAttackKZ>();
         szWeapon = FindObjectOfType<WeaponAttackSZ>();
         zrWeapon = FindObjectOfType<WeaponAttackZR>();
+
+        weaponPointKz.value = (int)kzCurWP / (int)kzMaxWP;
+        weaponPointSz.value = (int)szCurWP / (int)szMaxWP;
+        weaponPointZr.value = (int)zrCurWP / (int)zrMaxWP;
     }
 
     void Update()
@@ -33,6 +57,12 @@ public class UseWeapon : MonoBehaviour
         {
             WeaponCycle();
         }
+        HandleWPKz();
+        HandleWPSz();
+        HandleWPZr();
+
+
+
     }
 
     // TODO : 보기 불편함
@@ -47,6 +77,15 @@ public class UseWeapon : MonoBehaviour
                         if (transform.Find("zr")) zrWeapon.gameObject.SetActive(false); bWeaponStatus |= 4;
                         kzWeapon.gameObject.SetActive(true);
                         bCurrentWeapon = 1;
+                        kzCurWP -= 25;
+                        if (szCurWP < 91) 
+                        {
+                            szCurWP += 20;
+                        }
+                        if (zrCurWP < 91) 
+                        {
+                            zrCurWP += 20;
+                        }
                         break;
                     }
                 case 1:
@@ -54,6 +93,15 @@ public class UseWeapon : MonoBehaviour
                         if (transform.Find("kz")) kzWeapon.gameObject.SetActive(false); bWeaponStatus |= 1;
                         szWeapon.gameObject.SetActive(true);
                         bCurrentWeapon = 2;
+                        szCurWP -= 25;
+                        if (kzCurWP < 91)
+                        {
+                            kzCurWP += 20;
+                        }
+                        if (zrCurWP < 91)
+                        {
+                            zrCurWP += 20;
+                        }
                         break;
                     }
                 case 2:
@@ -61,9 +109,32 @@ public class UseWeapon : MonoBehaviour
                         if (transform.Find("sz")) szWeapon.gameObject.SetActive(false); bWeaponStatus |= 2;
                         zrWeapon.gameObject.SetActive(true);
                         bCurrentWeapon = 0;
+                        zrCurWP -= 25;
+                        if (kzCurWP < 91)
+                        {
+                            kzCurWP += 20;
+                        }
+                        if (szCurWP < 91)
+                        {
+                            szCurWP += 20;
+                        }
                         break;
                     }
             }
         }
     }
+
+    void HandleWPKz() 
+    {
+        weaponPointKz.value = (int)kzCurWP / (int)kzMaxWP;
+    }
+    void HandleWPSz()
+    {
+        weaponPointSz.value = (int)szCurWP / (int)szMaxWP;
+    }
+    void HandleWPZr()
+    {
+        weaponPointZr.value = (int)zrCurWP / (int)zrMaxWP;
+    }
+
 }
