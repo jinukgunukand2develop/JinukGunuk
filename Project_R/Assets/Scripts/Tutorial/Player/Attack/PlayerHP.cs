@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField] private int maxPlayerHP = 100;
-    [SerializeField] private int iPlayerHP = 100;
+    [SerializeField] private float maxPlayerHP = 100;
+    [SerializeField] private float iPlayerHP = 10000;
 
     
     [SerializeField] private Slider slider = null;
@@ -20,12 +20,16 @@ public class PlayerHP : MonoBehaviour
 
     private void Start()
     {
-        slider.value = (int) iPlayerHP / (int)maxPlayerHP;
+        slider.value = (float) iPlayerHP / (float)maxPlayerHP;
     }
 
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            iPlayerHP -= 10;
+        }
         if(iPlayerHP <= 0)
         {
             Debug.Log("HP equal or less then 0");
@@ -37,7 +41,7 @@ public class PlayerHP : MonoBehaviour
     }
     void HandleHP() 
     {
-        slider.value = (int)iPlayerHP / (int)maxPlayerHP;
+        slider.value = (float)iPlayerHP / (float)maxPlayerHP;
     }
 
 }

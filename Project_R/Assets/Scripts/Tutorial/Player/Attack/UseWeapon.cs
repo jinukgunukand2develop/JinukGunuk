@@ -46,9 +46,9 @@ public class UseWeapon : MonoBehaviour
         szWeapon = FindObjectOfType<WeaponAttackSZ>();
         zrWeapon = FindObjectOfType<WeaponAttackZR>();
 
-        weaponPointKz.value = (int)kzCurWP / (int)kzMaxWP;
-        weaponPointSz.value = (int)szCurWP / (int)szMaxWP;
-        weaponPointZr.value = (int)zrCurWP / (int)zrMaxWP;
+        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
+        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
     }
 
     void Update()
@@ -74,49 +74,58 @@ public class UseWeapon : MonoBehaviour
             {
                 case 0:
                     {
-                        if (transform.Find("zr")) zrWeapon.gameObject.SetActive(false); bWeaponStatus |= 4;
-                        kzWeapon.gameObject.SetActive(true);
-                        bCurrentWeapon = 1;
-                        kzCurWP -= 25;
-                        if (szCurWP < 91) 
+                        if (kzCurWP > 25)
                         {
-                            szCurWP += 20;
-                        }
-                        if (zrCurWP < 91) 
-                        {
-                            zrCurWP += 20;
+                            if (transform.Find("zr")) zrWeapon.gameObject.SetActive(false); bWeaponStatus |= 4;
+                            kzWeapon.gameObject.SetActive(true);
+                            bCurrentWeapon = 1;
+                            kzCurWP -= 25;
+                            if (szCurWP < 91)
+                            {
+                                szCurWP += 20;
+                            }
+                            if (zrCurWP < 91)
+                            {
+                                zrCurWP += 20;
+                            }
                         }
                         break;
                     }
                 case 1:
                     {
-                        if (transform.Find("kz")) kzWeapon.gameObject.SetActive(false); bWeaponStatus |= 1;
-                        szWeapon.gameObject.SetActive(true);
-                        bCurrentWeapon = 2;
-                        szCurWP -= 25;
-                        if (kzCurWP < 91)
+                        if (szCurWP > 25) 
                         {
-                            kzCurWP += 20;
-                        }
-                        if (zrCurWP < 91)
-                        {
-                            zrCurWP += 20;
+                            if (transform.Find("kz")) kzWeapon.gameObject.SetActive(false); bWeaponStatus |= 1;
+                            szWeapon.gameObject.SetActive(true);
+                            bCurrentWeapon = 2;
+                            szCurWP -= 25;
+                            if (kzCurWP < 91)
+                            {
+                                kzCurWP += 20;
+                            }
+                            if (zrCurWP < 91)
+                            {
+                                zrCurWP += 20;
+                            }
                         }
                         break;
                     }
                 case 2:
                     {
-                        if (transform.Find("sz")) szWeapon.gameObject.SetActive(false); bWeaponStatus |= 2;
-                        zrWeapon.gameObject.SetActive(true);
-                        bCurrentWeapon = 0;
-                        zrCurWP -= 25;
-                        if (kzCurWP < 91)
+                        if (zrCurWP > 25) 
                         {
-                            kzCurWP += 20;
-                        }
-                        if (szCurWP < 91)
-                        {
-                            szCurWP += 20;
+                            if (transform.Find("sz")) szWeapon.gameObject.SetActive(false); bWeaponStatus |= 2;
+                            zrWeapon.gameObject.SetActive(true);
+                            bCurrentWeapon = 0;
+                            zrCurWP -= 25;
+                            if (kzCurWP < 91)
+                            {
+                                kzCurWP += 20;
+                            }
+                            if (szCurWP < 91)
+                            {
+                                szCurWP += 20;
+                            }
                         }
                         break;
                     }
@@ -126,15 +135,15 @@ public class UseWeapon : MonoBehaviour
 
     void HandleWPKz() 
     {
-        weaponPointKz.value = (int)kzCurWP / (int)kzMaxWP;
-    }
-    void HandleWPSz()
-    {
-        weaponPointSz.value = (int)szCurWP / (int)szMaxWP;
-    }
-    void HandleWPZr()
-    {
-        weaponPointZr.value = (int)zrCurWP / (int)zrMaxWP;
+        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
+    }                          
+    void HandleWPSz()          
+    {                          
+        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+    }                          
+    void HandleWPZr()          
+    {                          
+        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
     }
 
 }
