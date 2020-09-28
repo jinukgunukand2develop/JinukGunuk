@@ -5,33 +5,34 @@ using UnityEngine;
 public class WeaponAttackKZ : MonoBehaviour
 {
     private Animator animator = null;
-    private UseWeapon useWeapon = null;
+    private GameManager gameManager = null;
 
 
     private void Start()
     {
-        useWeapon = FindObjectOfType<UseWeapon>();
+        gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
 
-
-
     void Update()
     {
-        if ((useWeapon.bWeaponStatus ^ 1) != 0)
+        if (((gameManager.bWeaponStatus & 1) == 1) && (transform.parent.tag == "Player"))
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                transform.localScale = new Vector2(0.6f, 0.6f);
                 animator.Play("kz q");
                 AttackQ();
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
+                transform.localScale = new Vector2(1f, 1f);
                 animator.Play("kz w");
                 AttackW();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
+                transform.localScale = new Vector2(1f, 1f);
                 animator.Play("kz e");
                 AttackE();
             }

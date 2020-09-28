@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(transform.localPosition.y < -5)
         {
-            transform.localPosition = new Vector2(0.5f, -0.15f);
+            transform.localPosition = new Vector3(0.5f, -0.15f, -2f);
         }
     }
 

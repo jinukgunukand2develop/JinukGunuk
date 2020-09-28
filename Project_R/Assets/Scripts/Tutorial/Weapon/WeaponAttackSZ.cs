@@ -5,37 +5,37 @@ using UnityEngine;
 public class WeaponAttackSZ : MonoBehaviour
 {
     private Animator animator = null;
-    private UseWeapon useWeapon = null;
+    private GameManager gameManager = null;
 
 
     private void Start()
     {
-        useWeapon = FindObjectOfType<UseWeapon>();
+        gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
-        animator.Play("sz idle");
     }
 
     void Update()
     {
-        if((useWeapon.bWeaponStatus ^ 2) != 0)
+        //Debug.Log((gameManager.bWeaponStatus & 2) == 2);
+        //Debug.Log(gameManager.bWeaponStatus & 2);
+        //Debug.Log(gameManager.bWeaponStatus);
+
+        if(((gameManager.bWeaponStatus & 2) == 2) && transform.parent.CompareTag("Player"))
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 animator.Play("sz q");
                 AttackQ();
-                animator.Play("sz idle");
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 animator.Play("sz w");
                 StartCoroutine(AttackW());
-                animator.Play("sz idle");
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 animator.Play("sz e");
                 AttackE();
-                animator.Play("sz idle");
             }
         }
     }

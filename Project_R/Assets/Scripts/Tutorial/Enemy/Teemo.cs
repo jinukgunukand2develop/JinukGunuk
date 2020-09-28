@@ -4,36 +4,46 @@ using UnityEngine;
 
 public class Teemo : CTeemo
 {
-    private PlayerMove playerMove = null;
+    
     private Vector2 V2DistanceWithTwoObj = Vector2.zero;
     private bool bAttackDelay = true;
 
-
+    [SerializeField] private GameObject player = null;
     [SerializeField] private float fCollisionDamageDelay = 1f;
-
 
 
     private void Start()
     {
-        playerMove = FindObjectOfType<PlayerMove>();
         
     }
 
     void Update()
     {
         StartCoroutine(CheckCollision());
+        if (iHp <= 0)
+            Destroy(gameObject);
     }
 
     private IEnumerator CheckCollision()
     {
-        V2DistanceWithTwoObj.x = Mathf.Abs(playerMove.transform.localPosition.x - transform.localPosition.x);
-        V2DistanceWithTwoObj.y = Mathf.Abs(playerMove.transform.localPosition.y - transform.localPosition.y);
+        V2DistanceWithTwoObj.x = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
+        V2DistanceWithTwoObj.y = Mathf.Abs(player.transform.localPosition.y - transform.localPosition.y);
         if (bAttackDelay && V2DistanceWithTwoObj.x <= 0.1f && V2DistanceWithTwoObj.y <= 0.1f)
         {
             bAttackDelay = false;
             FindObjectOfType<PlayerHP>().DecreaseHealth(collisionDamage);
             yield return new WaitForSeconds(fCollisionDamageDelay);
             bAttackDelay = true;
+        }
+    }
+
+
+    // TODO : 리짓바디 안붙이고 하는법 연구중
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Weapon"))
+        {
+            iHp -= 5;
         }
     }
 

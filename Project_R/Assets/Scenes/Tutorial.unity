@@ -1416,6 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1001 &337994557
 PrefabInstance:
@@ -2195,7 +2196,7 @@ GameObject:
   - component: {fileID: 560301075}
   m_Layer: 0
   m_Name: zr
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2277,6 +2278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1094bdeaa4af15c4cb616544d67fe514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875431006}
 --- !u!114 &560301074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3330,6 +3332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1001 &783036125
 PrefabInstance:
@@ -4447,6 +4450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818ebfa7e886b174eac6001f98572bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kzWeapon: {fileID: 1873479451}
+  szWeapon: {fileID: 1501639972}
+  zrWeapon: {fileID: 560301070}
   weaponPointKz: {fileID: 777914901}
   weaponPointSz: {fileID: 1537464425}
   weaponPointZr: {fileID: 947302224}
@@ -4456,7 +4462,6 @@ MonoBehaviour:
   kzCurWP: 100
   szCurWP: 100
   zrCurWP: 100
-  bWeaponStatus: 0
 --- !u!1 &1088166845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,6 +5004,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1217810527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1237577885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1237577887}
+  - component: {fileID: 1237577886}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1237577886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237577885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 849fe708139dd6d4d97a55205239c4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bWeaponStatus: 0
+--- !u!4 &1237577887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237577885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241265565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
@@ -5025,6 +5074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1 &1316159764
 GameObject:
@@ -5275,9 +5325,10 @@ GameObject:
   - component: {fileID: 1501639976}
   - component: {fileID: 1501639978}
   - component: {fileID: 1501639977}
+  - component: {fileID: 1501639979}
   m_Layer: 0
   m_Name: sz
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5359,6 +5410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1094bdeaa4af15c4cb616544d67fe514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875431006}
 --- !u!114 &1501639976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5405,6 +5457,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1501639979
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501639972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.27}
+    newSize: {x: 0.3, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.27}
+  m_EdgeRadius: 0
 --- !u!1 &1527080120
 GameObject:
   m_ObjectHideFlags: 0
@@ -5859,6 +5937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1 &1591548210
 GameObject:
@@ -6104,6 +6183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1001 &1649178265
 PrefabInstance:
@@ -6355,6 +6435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1 &1817985046
 GameObject:
@@ -6569,7 +6650,7 @@ GameObject:
   - component: {fileID: 1873479457}
   m_Layer: 0
   m_Name: kz
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6651,6 +6732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1094bdeaa4af15c4cb616544d67fe514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875431006}
 --- !u!114 &1873479455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6717,7 +6799,7 @@ GameObject:
   - component: {fileID: 1875431016}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6842,7 +6924,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -6908,6 +6990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818ebfa7e886b174eac6001f98572bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kzWeapon: {fileID: 1873479451}
+  szWeapon: {fileID: 1501639972}
+  zrWeapon: {fileID: 560301070}
   weaponPointKz: {fileID: 777914901}
   weaponPointSz: {fileID: 1537464425}
   weaponPointZr: {fileID: 947302224}
@@ -6917,7 +7002,6 @@ MonoBehaviour:
   kzCurWP: 100
   szCurWP: 100
   zrCurWP: 100
-  bWeaponStatus: 0
 --- !u!114 &1875431016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7144,6 +7228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1 &2044880916 stripped
 GameObject:
@@ -7165,6 +7250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iHp: 15
   collisionDamage: 20
+  player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
 --- !u!1 &2046524464
 GameObject:
@@ -7272,7 +7358,7 @@ PrefabInstance:
     - target: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_Name
-      value: Dead_Teemo (7)
+      value: Remove this Teemo later
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

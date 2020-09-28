@@ -5,30 +5,34 @@ using UnityEngine;
 public class WeaponAttackZR : MonoBehaviour
 {
     private Animator animator = null;
-    private UseWeapon useWeapon = null;
+    private GameManager gameManager = null;
 
 
     private void Start()
     {
-        useWeapon = FindObjectOfType<UseWeapon>();
+        gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if ((useWeapon.bWeaponStatus ^ 4) != 0)
+        if (((gameManager.bWeaponStatus & 4) == 4) && (transform.parent.tag == "Player"))
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                transform.localPosition = new Vector2(0.1f, -0.07f);
                 animator.Play("zr q");
                 AttackQ();
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
+                transform.localPosition = new Vector2(0f, -0.2f);
+                animator.Play("zr w");
                 AttackW();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
+                animator.Play("zr e");
                 AttackE();
             }
         }
