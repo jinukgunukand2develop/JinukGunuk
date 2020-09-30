@@ -23,25 +23,43 @@ public class WeaponFollowingPlayer : MonoBehaviour
         V2DistBetweenPlayerAndWeapon.y = Mathf.Abs(transform.localPosition.y - player.transform.localPosition.y);
         if(V2DistBetweenPlayerAndWeapon.x < 0.2f && V2DistBetweenPlayerAndWeapon.y < 0.2f)
         {
-            switch(name)
+            if((name == "kz") && ((gameManager.bWeaponStatus & 1) != 1))
             {
-                case "kz":
-                    {
-                        gameManager.bWeaponStatus |= 1;
-                        break;
-                    }
-                case "sz":
-                    {
-                        gameManager.bWeaponStatus |= 2;
-                        break;
-                    }
-                case "zr":
-                    {
-                        gameManager.bWeaponStatus |= 4;
-                        break;
-                    }
+                gameManager.bWeaponStatus |= 1;
+                WeaponPickUp();
             }
-            WeaponPickUp();
+            else if((name == "sz") && ((gameManager.bWeaponStatus & 2) != 2))
+            {
+                gameManager.bWeaponStatus |= 2;
+                WeaponPickUp();
+            }
+            else if ((name == "zr") && ((gameManager.bWeaponStatus & 4) != 4))
+            {
+                gameManager.bWeaponStatus |= 4;
+                WeaponPickUp();
+            }
+
+
+            // 무기와 플레이어가 겹치면 비활성화가 되는 버그가 있었음
+            //switch (name)
+            //{
+            //    case "kz":
+            //        {
+            //            gameManager.bWeaponStatus |= 1;
+            //            break;
+            //        }
+            //    case "sz":
+            //        {
+            //            gameManager.bWeaponStatus |= 2;
+            //            break;
+            //        }
+            //    case "zr":
+            //        {
+            //            gameManager.bWeaponStatus |= 4;
+            //            break;
+            //        }
+            //}
+            //WeaponPickUp();
         }
     }
 

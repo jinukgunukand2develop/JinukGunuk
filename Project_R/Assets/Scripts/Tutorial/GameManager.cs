@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class GameManager : MonoBehaviour
 {
+    public bool bAtJump = false;
+    public float fGroundLevel = -0.19f;
     public byte bWeaponStatus = 0;
     // 비트 연산
     // 카직스       0001 (1)
