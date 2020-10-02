@@ -24,9 +24,7 @@ public class UseWeapon : MonoBehaviour
 
     void Start()
     {
-        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
+        
     }
 
     void Update()
@@ -35,9 +33,7 @@ public class UseWeapon : MonoBehaviour
         {
             WeaponCycle();
         }
-        HandleWPKz();
-        HandleWPSz();
-        HandleWPZr();
+        
     }
 
     // TODO : 보기 불편함
@@ -57,15 +53,7 @@ public class UseWeapon : MonoBehaviour
                             }
                             kzWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 1;
-                            kzCurWP -= 25;
-                            if (szCurWP < 91)
-                            {
-                                szCurWP += 20;
-                            }
-                            if (zrCurWP < 91)
-                            {
-                                zrCurWP += 20;
-                            }
+                            
                         }
                         break;
                     }
@@ -79,15 +67,7 @@ public class UseWeapon : MonoBehaviour
                             }
                             szWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 2;
-                            szCurWP -= 25;
-                            if (kzCurWP < 91)
-                            {
-                                kzCurWP += 20;
-                            }
-                            if (zrCurWP < 91)
-                            {
-                                zrCurWP += 20;
-                            }
+                            
                         }
                         break;
                     }
@@ -101,15 +81,7 @@ public class UseWeapon : MonoBehaviour
                             }
                             zrWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 0;
-                            zrCurWP -= 25;
-                            if (kzCurWP < 91)
-                            {
-                                kzCurWP += 20;
-                            }
-                            if (szCurWP < 91)
-                            {
-                                szCurWP += 20;
-                            }
+                            
                         }
                         break;
                     }
@@ -117,17 +89,8 @@ public class UseWeapon : MonoBehaviour
         }
     }
 
-    void HandleWPKz() 
-    {
-        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-    }                          
-    void HandleWPSz()          
-    {                          
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-    }                          
-    void HandleWPZr()          
-    {                          
-        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
-    }
+    
+                 
+   
 
 }
