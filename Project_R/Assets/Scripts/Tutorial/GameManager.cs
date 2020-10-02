@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
     public bool bAtJump = false;
     public float fGroundLevel = -0.19f;
