@@ -36,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     {
         if(transform.localPosition.y < -5)
         {
+            rigidBody.velocity = Vector3.zero;
             transform.localPosition = new Vector3(0.5f, -0.15f, -2f);
         }
     }

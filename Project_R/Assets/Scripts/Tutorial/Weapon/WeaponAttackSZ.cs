@@ -25,6 +25,8 @@ public class WeaponAttackSZ : MonoBehaviour
         weaponPointSz.value = (float) szCurWP / (float) szMaxWP;
        
         
+        
+
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
@@ -41,7 +43,7 @@ public class WeaponAttackSZ : MonoBehaviour
 
         if (((gameManager.bWeaponStatus & 2) == 2) && transform.parent.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Q) && szCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.Q) && szCurWP >= 25)
             {
                 animator.Play("sz q");
                 AttackQ();
@@ -57,7 +59,7 @@ public class WeaponAttackSZ : MonoBehaviour
                     }
                 
             }
-            if (Input.GetKeyDown(KeyCode.W) && szCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.W) && szCurWP >= 25)
             {
                 animator.Play("sz w");
                 StartCoroutine(AttackW());
@@ -71,7 +73,7 @@ public class WeaponAttackSZ : MonoBehaviour
                     
                 
             }
-            if (Input.GetKeyDown(KeyCode.E) && szCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.E) && szCurWP >= 25)
             {
                 animator.Play("sz e");
                 AttackE();

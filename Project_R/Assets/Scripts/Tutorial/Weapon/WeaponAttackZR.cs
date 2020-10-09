@@ -17,6 +17,8 @@ public class WeaponAttackZR : MonoBehaviour
     [SerializeField] private int kzCurWP = 100;
     [SerializeField] private int szCurWP = 100;
     [SerializeField] private int zrCurWP = 100;
+    // 건욱 이거 그냥 float 으로 선언하면 안되나욤
+    //-우엽
 
     private void Start()
     {
@@ -34,47 +36,31 @@ public class WeaponAttackZR : MonoBehaviour
         HandleWPZr();
         if (((gameManager.bWeaponStatus & 4) == 4) && transform.parent.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Q) && zrCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.Q) && zrCurWP >= 25)
             {
                 transform.localPosition = new Vector2(0.1f, -0.07f);
                 animator.Play("zr q");
-                Invoke("AttackQ", 1.1f);
                 zrCurWP -= 25;
-                   
-                        kzCurWP += 20;
-                   
-                        szCurWP += 20;
-                    
-                
+                kzCurWP += 20;
+                szCurWP += 20;
+                Invoke("AttackQ", 1.1f);
             }
-            if (Input.GetKeyDown(KeyCode.W) && zrCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.W) && zrCurWP >= 25)
             {
                 transform.localPosition = new Vector2(0f, -0.2f);
                 animator.Play("zr w");
+                zrCurWP -= 25;
+                kzCurWP += 20;
+                szCurWP += 20;
                 Invoke("AttackW", 0.8f);
-                
-                    zrCurWP -= 25;
-                   
-                        kzCurWP += 20;
-                    
-                    
-                        szCurWP += 20;
-                    
-                
             }
-            if (Input.GetKeyDown(KeyCode.E) && zrCurWP > 25)
+            if (Input.GetKeyDown(KeyCode.E) && zrCurWP >= 25)
             {
                 animator.Play("zr e");
+                zrCurWP -= 25;
+                kzCurWP += 20;
+                szCurWP += 20;
                 Invoke("AttackE", 0.9f);
-              
-                    zrCurWP -= 25;
-                    
-                        kzCurWP += 20;
-                    
-                   
-                        szCurWP += 20;
-                    
-                
             }
             
         }
