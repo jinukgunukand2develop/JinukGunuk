@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\MainMenu\Loading.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />
     <Compile Include="Assets\Scripts\MainMenu\UI.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\UIT.cs" />
     <Compile Include="Assets\Scripts\MonoSingleton.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerAttack.cs" />
     <Compile Include="Assets\Scripts\RunAndGun\Player\RNGPlayerDead.cs" />
@@ -265,6 +266,9 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/ROG/Documents/JinukGunuk/Project_R/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -693,7 +697,12 @@
       <HintPath>C:/Users/ROG/Documents/JinukGunuk/Project_R/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{B119F280-2DF5-1185-D7DD-F772010387A9}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -26,10 +26,7 @@ public class PlayerHP : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            iPlayerHP -= 10;
-        }
+        
         if(iPlayerHP <= 0)
         {
             Debug.Log("HP equal or less then 0");

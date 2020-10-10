@@ -31,6 +31,8 @@ public class WeaponAttackZR : MonoBehaviour
 
     void Update()
     {
+       
+
         HandleWPKz();
         HandleWPSz();
         HandleWPZr();
@@ -100,4 +102,5 @@ public class WeaponAttackZR : MonoBehaviour
     {
         weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
     }
+
 }

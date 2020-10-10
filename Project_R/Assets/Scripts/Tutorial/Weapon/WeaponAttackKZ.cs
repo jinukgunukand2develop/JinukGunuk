@@ -30,7 +30,7 @@ public class WeaponAttackKZ : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerMove>();
-
+        StartCoroutine(kz());
 
         // TODO : WP 임시로 바꿔둔 것 나중에 다시 100으로 수정해야함
         // 디버그용 코드
@@ -41,6 +41,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void Update()
     {
+        
         HandleWPKz();
         HandleWPSz();
         HandleWPZr();
@@ -154,6 +155,12 @@ public class WeaponAttackKZ : MonoBehaviour
     void HandleWPZr()
     {
         weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
+    }
+    IEnumerator kz()
+    {
+        kzCurWP += 5;
+        yield return new WaitForSeconds(5f);
+
     }
 
 }
