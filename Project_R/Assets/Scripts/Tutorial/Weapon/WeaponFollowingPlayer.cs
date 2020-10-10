@@ -38,36 +38,14 @@ public class WeaponFollowingPlayer : MonoBehaviour
                 gameManager.bWeaponStatus |= 4;
                 WeaponPickUp();
             }
-
-
-            // 무기와 플레이어가 겹치면 비활성화가 되는 버그가 있었음
-            //switch (name)
-            //{
-            //    case "kz":
-            //        {
-            //            gameManager.bWeaponStatus |= 1;
-            //            break;
-            //        }
-            //    case "sz":
-            //        {
-            //            gameManager.bWeaponStatus |= 2;
-            //            break;
-            //        }
-            //    case "zr":
-            //        {
-            //            gameManager.bWeaponStatus |= 4;
-            //            break;
-            //        }
-            //}
-            //WeaponPickUp();
         }
     }
 
     private void WeaponPickUp()
     {
         transform.SetParent(player.transform, true);
+        // TODO : ?
         transform.localScale = new Vector2(0.5f, 0.5f);
-        transform.localPosition = new Vector2(0.2f, 0f);
         transform.localScale = new Vector3(1f, 1f, 1f);
         gameObject.SetActive(false);
     }

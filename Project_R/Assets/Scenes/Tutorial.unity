@@ -5922,6 +5922,7 @@ MonoBehaviour:
   bAtJump: 0
   fGroundLevel: -0.19
   bWeaponStatus: 0
+  bPlayerFacingRightSide: 1
 --- !u!4 &1237577887
 Transform:
   m_ObjectHideFlags: 0
@@ -7807,7 +7808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fPlayerSpeed: 2.5
   fJumpForce: 4
-  bPlayerFacingRightSide: 1
   rigidBody: {fileID: 0}
 --- !u!212 &1875431008
 SpriteRenderer:

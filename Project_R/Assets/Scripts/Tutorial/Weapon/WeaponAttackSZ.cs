@@ -7,6 +7,7 @@ public class WeaponAttackSZ : MonoBehaviour
 {
     private Animator animator = null;
     private GameManager gameManager = null;
+    private SpriteRenderer spriteRenderer = null;
 
     [SerializeField] private Slider weaponPointKz = null;
     [SerializeField] private Slider weaponPointSz = null;
@@ -23,10 +24,10 @@ public class WeaponAttackSZ : MonoBehaviour
         weaponPointKz.value = (float) kzCurWP / (float) kzMaxWP;
         weaponPointSz.value = (float) szCurWP / (float) szMaxWP;
         weaponPointSz.value = (float) szCurWP / (float) szMaxWP;
-       
-        
-        
 
+
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
@@ -36,58 +37,76 @@ public class WeaponAttackSZ : MonoBehaviour
         HandleWPKz();
         HandleWPSz();
         HandleWPZr();
-
+        FlipSprite();
         //Debug.Log((gameManager.bWeaponStatus & 2) == 2);
         //Debug.Log(gameManager.bWeaponStatus & 2);
         //Debug.Log(gameManager.bWeaponStatus);
 
         if (((gameManager.bWeaponStatus & 2) == 2) && transform.parent.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Q) && szCurWP >= 25)
+            switch(gameManager.bAtJump)
             {
-                animator.Play("sz q");
-                AttackQ();
-               
-                    szCurWP -= 25;
-                    if (kzCurWP < 91)
+                case true: break;
+                case false:
                     {
-                        kzCurWP += 20;
+                        if (Input.GetKeyDown(KeyCode.Q) && szCurWP >= 25)
+                        {
+                            animator.Play("sz q");
+                            AttackQ();
+                            szCurWP -= 25;
+                            if (kzCurWP < 91)
+                            {
+                                kzCurWP += 20;
+                            }
+                            if (zrCurWP < 91)
+                            {
+                                zrCurWP += 20;
+                            }
+
+                        }
+                        if (Input.GetKeyDown(KeyCode.W) && szCurWP >= 25)
+                        {
+                            animator.Play("sz w");
+                            StartCoroutine(AttackW());
+                            szCurWP -= 25;
+                            kzCurWP += 20;
+                            zrCurWP += 20;
+
+
+                        }
+                        if (Input.GetKeyDown(KeyCode.E) && szCurWP >= 25)
+                        {
+                            animator.Play("sz e");
+                            AttackE();
+                            szCurWP -= 25;
+                            kzCurWP += 20;
+                            zrCurWP += 20;
+                        }
+                        break;
                     }
-                    if (zrCurWP < 91)
+            }
+            
+        }
+    }
+
+    private void FlipSprite()
+    {
+        switch (gameManager.bAtJump)
+        {
+            case false:
+                {
+                    if (!gameManager.bPlayerFacingRightSide)
                     {
-                        zrCurWP += 20;
+                        spriteRenderer.flipX = true;
+                        transform.localPosition = new Vector2(-0.2f, 0f);
                     }
-                
-            }
-            if (Input.GetKeyDown(KeyCode.W) && szCurWP >= 25)
-            {
-                animator.Play("sz w");
-                StartCoroutine(AttackW());
-             
-                    szCurWP -= 25;
-                 
-                        kzCurWP += 20;
-                    
-                 
-                        zrCurWP += 20;
-                    
-                
-            }
-            if (Input.GetKeyDown(KeyCode.E) && szCurWP >= 25)
-            {
-                animator.Play("sz e");
-                AttackE();
-               
-                
-                    szCurWP -= 25;
-                   
-                        kzCurWP += 20;
-                    
-                   
-                        zrCurWP += 20;
-                    
-                
-            }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                        transform.localPosition = new Vector2(0.2f, 0f);
+                    }
+                    break;
+                }
         }
     }
 

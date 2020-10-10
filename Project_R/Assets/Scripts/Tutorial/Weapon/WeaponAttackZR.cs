@@ -7,6 +7,7 @@ public class WeaponAttackZR : MonoBehaviour
 {
     private Animator animator = null;
     private GameManager gameManager = null;
+    private SpriteRenderer spriteRenderer = null;
 
     [SerializeField] private Slider weaponPointKz = null;
     [SerializeField] private Slider weaponPointSz = null;
@@ -25,49 +26,75 @@ public class WeaponAttackZR : MonoBehaviour
         weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
         weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
         weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-       
-
         HandleWPKz();
         HandleWPSz();
         HandleWPZr();
+        FlipSprite();
         if (((gameManager.bWeaponStatus & 4) == 4) && transform.parent.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Q) && zrCurWP >= 25)
+            switch(gameManager.bAtJump)
             {
-                transform.localPosition = new Vector2(0.1f, -0.07f);
-                animator.Play("zr q");
-                zrCurWP -= 25;
-                kzCurWP += 20;
-                szCurWP += 20;
-                Invoke("AttackQ", 1.1f);
+                case true: break;
+                case false:
+                    {
+                        if (Input.GetKeyDown(KeyCode.Q) && zrCurWP >= 25)
+                        {
+                            transform.localPosition = new Vector2(0.1f, -0.07f);
+                            animator.Play("zr q");
+                            zrCurWP -= 25;
+                            kzCurWP += 20;
+                            szCurWP += 20;
+                            Invoke("AttackQ", 1.1f);
+                        }
+                        if (Input.GetKeyDown(KeyCode.W) && zrCurWP >= 25)
+                        {
+                            transform.localPosition = new Vector2(0f, -0.2f);
+                            animator.Play("zr w");
+                            zrCurWP -= 25;
+                            kzCurWP += 20;
+                            szCurWP += 20;
+                            Invoke("AttackW", 0.8f);
+                        }
+                        if (Input.GetKeyDown(KeyCode.E) && zrCurWP >= 25)
+                        {
+                            animator.Play("zr e");
+                            zrCurWP -= 25;
+                            kzCurWP += 20;
+                            szCurWP += 20;
+                            Invoke("AttackE", 0.9f);
+                        }
+                        break;
+                    }
             }
-            if (Input.GetKeyDown(KeyCode.W) && zrCurWP >= 25)
-            {
-                transform.localPosition = new Vector2(0f, -0.2f);
-                animator.Play("zr w");
-                zrCurWP -= 25;
-                kzCurWP += 20;
-                szCurWP += 20;
-                Invoke("AttackW", 0.8f);
-            }
-            if (Input.GetKeyDown(KeyCode.E) && zrCurWP >= 25)
-            {
-                animator.Play("zr e");
-                zrCurWP -= 25;
-                kzCurWP += 20;
-                szCurWP += 20;
-                Invoke("AttackE", 0.9f);
-            }
-            
         }
     }
-
+    private void FlipSprite()
+    {
+        switch (gameManager.bAtJump)
+        {
+            case false:
+                {
+                    if (!gameManager.bPlayerFacingRightSide)
+                    {
+                        spriteRenderer.flipX = true;
+                        transform.localPosition = new Vector2(-0.2f, 0f);
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                        transform.localPosition = new Vector2(0.2f, 0f);
+                    }
+                    break;
+                }
+        }
+    }
 
     private void AttackQ()
     {

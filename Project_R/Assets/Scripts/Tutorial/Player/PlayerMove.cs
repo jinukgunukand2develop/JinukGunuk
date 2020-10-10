@@ -9,19 +9,18 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float fPlayerSpeed = 5f;
     [SerializeField] private float fJumpForce = 5f;
 
-    public bool bPlayerFacingRightSide = true;
-
 
     public Rigidbody2D rigidBody = null;
     private Animator animator = null;
     private SpriteRenderer spriteRenderer = null;
+    private GameManager gameManager = null;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -62,13 +61,13 @@ public class PlayerMove : MonoBehaviour
         {
             animator.Play("PlayerMove");
             spriteRenderer.flipX = true;
-            bPlayerFacingRightSide = false;
+            gameManager.bPlayerFacingRightSide = false;
         }
         else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             animator.Play("PlayerMove");
             spriteRenderer.flipX = false;
-            bPlayerFacingRightSide = true;
+            gameManager.bPlayerFacingRightSide = true;
 
         }
     }

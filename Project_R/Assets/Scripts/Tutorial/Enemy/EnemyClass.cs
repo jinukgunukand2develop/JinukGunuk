@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 // TODO : delay 변수 타입에 소숫점이 자주 사용되지 않으면 나중에 int로 바꿈
-// IMPORTANT : _ID 변수 타입은 원레 int형. _ID가 "2,147,483,647" 까지 커지지 않을거 같으니 "0 ~ 65,535" 까지 나타낼수 있는 ushort 사용함
+// IMPORTANT : _ID 변수 타입 int -> ushort
 
 
 

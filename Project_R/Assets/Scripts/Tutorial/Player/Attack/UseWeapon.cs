@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UseWeapon : MonoBehaviour
 {
+    private GameManager gameManger = null;
+
     [SerializeField] private GameObject kzWeapon = null;
     [SerializeField] private GameObject szWeapon = null;
     [SerializeField] private GameObject zrWeapon = null;
@@ -24,17 +26,15 @@ public class UseWeapon : MonoBehaviour
 
     void Start()
     {
-        
+        gameManger = FindObjectOfType<GameManager>();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F) && !gameManger.bAtJump)
         {
             WeaponCycle();
         }
-
-
     }
 
     // TODO : 보기 불편함
@@ -89,10 +89,5 @@ public class UseWeapon : MonoBehaviour
             }
         }
     }
-
-
-
-   
-
 }
 
