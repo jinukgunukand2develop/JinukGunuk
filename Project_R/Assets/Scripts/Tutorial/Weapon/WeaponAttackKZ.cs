@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ public class WeaponAttackKZ : MonoBehaviour
     [SerializeField] private int szCurWP = 100;
     [SerializeField] private int zrCurWP = 100;
 
-    private bool bAttackWPressed = false;
+    
 
 
     private void Start()
@@ -51,9 +52,9 @@ public class WeaponAttackKZ : MonoBehaviour
         HandleWPZr();
         FlipSprite();
         // TODO : 나중에 함수로 빼버리기 (다른 무기 스킬도)
-        if (((gameManager.bWeaponStatus & 1) == 1) && transform.parent.CompareTag("Player"))
+        if (((gameManager.bWeaponStatus & 1) == 1))
         {
-            switch(gameManager.bAtJump)
+            switch(gameManager.bAtJump || gameManager.bKzAttackWPressed)
             {
                 case true: break;
                 case false:
@@ -64,11 +65,11 @@ public class WeaponAttackKZ : MonoBehaviour
                         }
                         if (Input.GetKeyDown(KeyCode.W) && kzCurWP >= 25)
                         {
+                            gameManager.bKzAttackWPressed = true;
                             KzAttackW();
                         }
                         if (Input.GetKeyDown(KeyCode.E) && kzCurWP >= 25)
                         {
-                            bAttackWPressed = true;
                             KzAttackE();
                         }
                         break;
@@ -82,29 +83,29 @@ public class WeaponAttackKZ : MonoBehaviour
         {
             LandingCheck();
         }
-        if(bAttackWPressed) // W 만드는 중
+        if (gameManager.bKzAttackWPressed) // W 만드는 중
         {
             transform.position += Vector3.right * Time.deltaTime;
         }
     }
 
-    // IMPORTANT TODO : 어디선가 위치가 고정됨
+    // BUG TODO : 어디선가 위치가 고정됨
     private void FlipSprite()
     {
-        switch (gameManager.bAtJump)
+        switch (gameManager.bAtJump || gameManager.bKzAttackWPressed)
         {
             case true: break;
             case false:
                 {
-                    if (!gameManager.bPlayerFacingRightSide)
-                    {
-                        spriteRenderer.flipX = true;
-                        transform.localPosition = new Vector2(-0.2f, 0f);
-                    }
-                    else
+                    if (gameManager.bPlayerFacingRightSide)
                     {
                         spriteRenderer.flipX = false;
                         transform.localPosition = new Vector2(0.2f, 0f);
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = true;
+                        transform.localPosition = new Vector2(-0.2f, 0f);
                     }
                     break;
                 }
@@ -123,14 +124,16 @@ public class WeaponAttackKZ : MonoBehaviour
     }
     private void KzAttackW()
     {
-        //transform.SetParent(null, true);
+        transform.SetParent(null, true);
         transform.localScale = new Vector2(1f, 1f);
+        transform.position = new Vector2(10f, -0.1f);
         animator.Play("kz w");
         kzCurWP -= 25;
         szCurWP += 20;
         zrCurWP += 20;
         Invoke("AttackW", 2f);
     }
+
     private void KzAttackE()
     {
         player.rigidBody.velocity = Vector3.zero;
@@ -146,7 +149,7 @@ public class WeaponAttackKZ : MonoBehaviour
             transform.localPosition = new Vector2(-0.1f, -0.16f);
             player.rigidBody.AddForce(new Vector2(-fPlayerJumpXForce, fPlayerJumpYForce), ForceMode2D.Impulse);
         }
-        // TODO : 위치 고정
+        // BUG TODO : 위치가 고정됨
         kzCurWP -= 25;
         szCurWP += 20;
         zrCurWP += 20;
@@ -163,10 +166,9 @@ public class WeaponAttackKZ : MonoBehaviour
     private void AttackW()
     {
         Debug.Log("카직스 W");
-        bAttackWPressed = false;
+        gameManager.bKzAttackWPressed = false;
         transform.SetParent(player.transform, true);
         animator.Play("kz idle");
-        transform.localPosition = new Vector2(0.2f, 0f);
     }
 
     private void AttackE()
@@ -177,7 +179,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void LandingCheck()
     {
-        if (player.transform.position.y <= 0.18f || (player.rigidBody.velocity.y <= 0.01f && player.rigidBody.velocity.y >= -0.01f))
+        if ((player.transform.position.y <= 0.18f) || (player.rigidBody.velocity.y <= 0.01f && player.rigidBody.velocity.y >= -0.01f))
         {
             animator.Play("kz e landing");
             Invoke("AttackE", 0.6f);

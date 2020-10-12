@@ -44,9 +44,6 @@ public class WeaponFollowingPlayer : MonoBehaviour
     private void WeaponPickUp()
     {
         transform.SetParent(player.transform, true);
-        // TODO : ?
-        transform.localScale = new Vector2(0.5f, 0.5f);
-        transform.localScale = new Vector3(1f, 1f, 1f);
         gameObject.SetActive(false);
     }
 

@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float fGroundLevel = -0.19f;
     public byte bWeaponStatus = 0;
     public bool bPlayerFacingRightSide = true;
+    public bool bKzAttackWPressed = false;
     // 비트 연산
     // 카직스       0001 (1)
     // 세주아니     0010 (2)
