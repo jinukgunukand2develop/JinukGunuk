@@ -11,12 +11,6 @@ public class Teemo : CTeemo
     [SerializeField] private GameObject player = null;
     [SerializeField] private float fCollisionDamageDelay = 1f;
 
-
-    private void Start()
-    {
-        
-    }
-
     void Update()
     {
         StartCoroutine(CheckCollision());
@@ -39,12 +33,9 @@ public class Teemo : CTeemo
 
 
     // TODO : 리짓바디 안붙이고 하는법 연구중
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Hit()
     {
-        if(collision.transform.CompareTag("Weapon"))
-        {
-            iHp -= 5;
-        }
+        iHp -= 5;
     }
 
 

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class WeaponAttackKZ : MonoBehaviour
 {
@@ -12,8 +14,14 @@ public class WeaponAttackKZ : MonoBehaviour
     private PlayerMove player = null;
     private SpriteRenderer spriteRenderer = null;
 
-    [SerializeField] float fPlayerJumpXForce = 3f;
-    [SerializeField] float fPlayerJumpYForce = 4f;
+    // 기본값 = 오른쪽
+    private Vector2 rayDirection = Vector2.zero;
+    private bool bLandingProgress = false;
+    private bool bKzWFlying = false;
+
+    [SerializeField] private float fWeaponFlyingSpeed = 5f;
+    [SerializeField] private float fPlayerJumpXForce = 3f;
+    [SerializeField] private float fPlayerJumpYForce = 4f;
     [SerializeField] private Slider weaponPointKz = null;
     [SerializeField] private Slider weaponPointSz = null;
     [SerializeField] private Slider weaponPointZr = null;
@@ -41,7 +49,7 @@ public class WeaponAttackKZ : MonoBehaviour
         // TODO : WP 임시로 바꿔둔 것 나중에 다시 100으로 수정해야함
         // 디버그용 코드
         if (kzCurWP > 100)
-            Debug.LogWarning("카직스 WP 값이 디버그용 값!");
+            UnityEngine.Debug.LogWarning("카직스 WP 값이 디버그용 값!");
         
     }
 
@@ -66,6 +74,7 @@ public class WeaponAttackKZ : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.W) && kzCurWP >= 25)
                         {
                             gameManager.bKzAttackWPressed = true;
+                            bKzWFlying = true;
                             KzAttackW();
                         }
                         if (Input.GetKeyDown(KeyCode.E) && kzCurWP >= 25)
@@ -81,31 +90,46 @@ public class WeaponAttackKZ : MonoBehaviour
     {
         if (gameManager.bAtJump && (player.rigidBody.velocity.y < 0))
         {
+            transform.localPosition = new Vector2(0.0f, -0.16f);
             LandingCheck();
         }
-        if (gameManager.bKzAttackWPressed) // W 만드는 중
+        if (gameManager.bKzAttackWPressed)
         {
-            transform.position += Vector3.right * Time.deltaTime;
+            KzAttackDamageW();
+            switch (spriteRenderer.flipX)
+            {
+                case true: transform.position += Vector3.left * Time.deltaTime * fWeaponFlyingSpeed; break;
+                case false: transform.position += Vector3.right * Time.deltaTime * fWeaponFlyingSpeed; break;
+            }
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) >= 10)
+                AttackW();
         }
     }
 
-    // BUG TODO : 어디선가 위치가 고정됨
+    
     private void FlipSprite()
     {
-        switch (gameManager.bAtJump || gameManager.bKzAttackWPressed)
+        // 에러가 떠가지고 이렇게 작성
+        switch(gameManager.bKzAttackWPressed || gameManager.bAtJump)
         {
-            case true: break;
             case false:
                 {
-                    if (gameManager.bPlayerFacingRightSide)
+                    switch (!transform.parent.CompareTag("Player"))
                     {
-                        spriteRenderer.flipX = false;
-                        transform.localPosition = new Vector2(0.2f, 0f);
-                    }
-                    else
-                    {
-                        spriteRenderer.flipX = true;
-                        transform.localPosition = new Vector2(-0.2f, 0f);
+                        case false:
+                            {
+                                if (gameManager.bPlayerFacingRightSide)
+                                {
+                                    spriteRenderer.flipX = false;
+                                    transform.localPosition = new Vector2(0.3f, 0f);
+                                }
+                                else
+                                {
+                                    spriteRenderer.flipX = true;
+                                    transform.localPosition = new Vector2(-0.3f, 0f);
+                                }
+                                break;
+                            }
                     }
                     break;
                 }
@@ -120,18 +144,58 @@ public class WeaponAttackKZ : MonoBehaviour
         kzCurWP -= 25;
         szCurWP += 20;
         zrCurWP += 20;
+        Invoke("KzAttackDamageQ", 0.4f);
         Invoke("AttackQ", 0.9f);
     }
+
+    private void KzAttackDamageQ()
+    {
+        switch (gameManager.bPlayerFacingRightSide)
+        {
+            case true: rayDirection = new Vector2(1, 0); break;
+            case false: rayDirection = new Vector2(-1, 0); break;
+        }
+        
+        RaycastHit2D foundSomething = Physics2D.Raycast(transform.position, rayDirection);
+        if(foundSomething.collider != null)
+        {
+            float distance = Mathf.Abs(foundSomething.point.x - transform.position.x);
+            if (distance <= 0.1f)
+            {
+                foundSomething.collider.SendMessage("Hit");
+            }
+        }
+
+    }
+    private void KzAttackDamageW()
+    {
+        switch (gameManager.bPlayerFacingRightSide)
+        {
+            case true: rayDirection = new Vector2(1, 0); break;
+            case false: rayDirection = new Vector2(-1, 0); break;
+        }
+
+        RaycastHit2D foundSomething = Physics2D.Raycast(transform.position, rayDirection);
+        if (foundSomething.collider != null)
+        {
+            float distance = Mathf.Abs(foundSomething.point.x - transform.position.x);
+            if (distance <= 0.1f)
+            {
+                foundSomething.collider.SendMessage("Hit");
+                AttackW();
+            }
+        }
+
+    }
+
     private void KzAttackW()
     {
         transform.SetParent(null, true);
         transform.localScale = new Vector2(1f, 1f);
-        transform.position = new Vector2(10f, -0.1f);
         animator.Play("kz w");
         kzCurWP -= 25;
         szCurWP += 20;
         zrCurWP += 20;
-        Invoke("AttackW", 2f);
     }
 
     private void KzAttackE()
@@ -149,23 +213,21 @@ public class WeaponAttackKZ : MonoBehaviour
             transform.localPosition = new Vector2(-0.1f, -0.16f);
             player.rigidBody.AddForce(new Vector2(-fPlayerJumpXForce, fPlayerJumpYForce), ForceMode2D.Impulse);
         }
-        // BUG TODO : 위치가 고정됨
+        transform.SetParent(null, true);
         kzCurWP -= 25;
         szCurWP += 20;
         zrCurWP += 20;
-        
-        
     }
     #region Invoke
     private void AttackQ()
     {
-        Debug.Log("카직스 Q");
+        UnityEngine.Debug.Log("카직스 Q");
         transform.localScale = new Vector2(1f, 1f);
     }
 
     private void AttackW()
     {
-        Debug.Log("카직스 W");
+        UnityEngine.Debug.Log("카직스 W");
         gameManager.bKzAttackWPressed = false;
         transform.SetParent(player.transform, true);
         animator.Play("kz idle");
@@ -173,17 +235,22 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void AttackE()
     {
-        Debug.Log("카직스 E");
+        animator.Play("kz idle");
+        gameManager.bAtJump = false;
+        UnityEngine.Debug.Log("카직스 E");
+        Invoke("Wait", 0.1f);
+        bLandingProgress = false;
     }
     #endregion
 
     private void LandingCheck()
     {
-        if ((player.transform.position.y <= 0.18f) || (player.rigidBody.velocity.y <= 0.01f && player.rigidBody.velocity.y >= -0.01f))
+        if (!bLandingProgress && ((player.transform.position.y <= 0.18f) || (player.rigidBody.velocity.y <= 0.01f && player.rigidBody.velocity.y >= -0.01f)))
         {
+            bLandingProgress = true;
+            transform.SetParent(player.transform, true);
             animator.Play("kz e landing");
-            Invoke("AttackE", 0.6f);
-            gameManager.bAtJump = false;
+            Invoke("AttackE", 0.7f);
         }
     }
 
@@ -207,4 +274,6 @@ public class WeaponAttackKZ : MonoBehaviour
         yield return new WaitForSeconds(5f);
     }
 
+
+    void Wait() { }
 }
