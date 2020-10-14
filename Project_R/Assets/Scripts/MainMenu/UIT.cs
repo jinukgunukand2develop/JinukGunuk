@@ -12,6 +12,7 @@ public class UIT : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
+            Time.timeScale = 0;
             menuSet.SetActive(true);
         }
     }
