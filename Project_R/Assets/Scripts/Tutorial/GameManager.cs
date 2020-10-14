@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -11,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected Slider slider = null;
     [SerializeField] protected float maxPlayerHP = 10000;
     [SerializeField] protected float iPlayerHP = 10000;
-
+    [SerializeField] private GameObject music = null;
+    [SerializeField] private AudioSource audioSource = null;
 
     public bool bAtJump = false;
     public float fGroundLevel = -0.19f;
@@ -27,11 +30,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = music.GetComponent<AudioSource>();
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;
     }
     private void Update()
     {
-        HandleHP();
+        Dead();
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            MuteMusic();
+        }
+        
         if (Input.GetKeyDown(KeyCode.K)) 
         {
             iPlayerHP -= 100;
@@ -39,17 +48,33 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void MuteMusic()
+    {
+        switch (audioSource.mute)
+        {
+            case true: audioSource.mute = false; break;
+            case false: audioSource.mute = true; break;
+        }
+        
+        
+    }
     void HandleHP()
     {
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;
     }
     public void DecreaseHealth(int collisionDamage)
     {
-        Debug.Log("Health Decreased");
+        Debug.Log("Health Decreased " + collisionDamage + "\n" + iPlayerHP);
+        Debug.Log(iPlayerHP);
+        HandleHP();
         iPlayerHP -= collisionDamage;
     }
-
-
-
-
+    private void Dead()
+    {
+        if (iPlayerHP <= 0)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+            
+    }
 }

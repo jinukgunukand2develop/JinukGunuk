@@ -25,14 +25,13 @@ public class Teemo : CTeemo
         if (bAttackDelay && V2DistanceWithTwoObj.x <= 0.1f && V2DistanceWithTwoObj.y <= 0.1f)
         {
             bAttackDelay = false;
-            FindObjectOfType<GameManager>().DecreaseHealth(collisionDamage);
+            FindObjectOfType<GameManager>().SendMessage("DecreaseHealth", collisionDamage, SendMessageOptions.DontRequireReceiver);
             yield return new WaitForSeconds(fCollisionDamageDelay);
             bAttackDelay = true;
         }
     }
 
 
-    // TODO : 리짓바디 안붙이고 하는법 연구중
     private void Hit()
     {
         iHp -= 5;

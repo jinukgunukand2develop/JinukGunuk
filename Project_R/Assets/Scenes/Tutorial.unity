@@ -6215,8 +6215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1088166847}
-  maxPlayerHP: 10000
-  iPlayerHP: 10000
+  maxPlayerHP: 100
+  iPlayerHP: 100
+  music: {fileID: 1800971526}
+  audioSource: {fileID: 0}
   bAtJump: 0
   fGroundLevel: -0.19
   bWeaponStatus: 0
@@ -9214,7 +9216,6 @@ GameObject:
   - component: {fileID: 1875431007}
   - component: {fileID: 1875431014}
   - component: {fileID: 1875431015}
-  - component: {fileID: 1875431016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9395,7 +9396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b48a157e8c1b1245a922b6e4c90a760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerHP: 5
 --- !u!114 &1875431015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9420,26 +9420,6 @@ MonoBehaviour:
   kzCurWP: 100
   szCurWP: 100
   zrCurWP: 100
---- !u!114 &1875431016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875431006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24dbe5574ddae1347b66b9c754ef68d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1088166847}
-  maxPlayerHP: 100
-  iPlayerHP: 100
-  bAtJump: 0
-  fGroundLevel: -0.19
-  bWeaponStatus: 0
-  bPlayerFacingRightSide: 1
-  bKzAttackWPressed: 0
 --- !u!1001 &1876496221
 PrefabInstance:
   m_ObjectHideFlags: 0

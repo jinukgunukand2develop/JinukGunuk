@@ -162,7 +162,7 @@ public class WeaponAttackKZ : MonoBehaviour
             float distance = Mathf.Abs(foundSomething.point.x - transform.position.x);
             if (distance <= 0.1f)
             {
-                foundSomething.collider.SendMessage("Hit");
+                foundSomething.collider.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
             }
         }
 
