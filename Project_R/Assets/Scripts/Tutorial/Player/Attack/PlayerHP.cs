@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHP : MonoBehaviour
+public class PlayerHP : GameManager
 {
-    [SerializeField] private float maxPlayerHP = 100;
-    [SerializeField] private float iPlayerHP = 10000;
+   
 
     
-    [SerializeField] private Slider slider = null;
+    
 
 
-    public void DecreaseHealth(int collisionDamage)
-    {
-        Debug.Log("Health Decreased");
-        iPlayerHP -= collisionDamage;
-    }
+   
 
     private void Start()
     {
-        slider.value = (float) iPlayerHP / (float)maxPlayerHP;
+        
     }
 
 
@@ -34,11 +29,8 @@ public class PlayerHP : MonoBehaviour
             iPlayerHP = 100;
         }
     
-        HandleHP();
+        
     }
-    void HandleHP() 
-    {
-        slider.value = (float)iPlayerHP / (float)maxPlayerHP;
-    }
+    
 
 }

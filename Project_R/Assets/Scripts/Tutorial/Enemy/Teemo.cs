@@ -25,7 +25,7 @@ public class Teemo : CTeemo
         if (bAttackDelay && V2DistanceWithTwoObj.x <= 0.1f && V2DistanceWithTwoObj.y <= 0.1f)
         {
             bAttackDelay = false;
-            FindObjectOfType<PlayerHP>().DecreaseHealth(collisionDamage);
+            FindObjectOfType<GameManager>().DecreaseHealth(collisionDamage);
             yield return new WaitForSeconds(fCollisionDamageDelay);
             bAttackDelay = true;
         }
