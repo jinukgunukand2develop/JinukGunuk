@@ -13,10 +13,13 @@ public class UIT : MonoBehaviour
     public GameObject menuSet;
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (!Keys.activeSelf)
         {
-            Time.timeScale = 0;
-            menuSet.SetActive(true);
+            if (Input.GetButtonDown("Cancel"))
+            {
+                Time.timeScale = 0;
+                menuSet.SetActive(true);
+            }
         }
     }
     public void OnClickXBtn()
