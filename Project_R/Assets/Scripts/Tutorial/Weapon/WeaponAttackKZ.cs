@@ -67,18 +67,21 @@ public class WeaponAttackKZ : MonoBehaviour
                 case true: break;
                 case false:
                     {
-                        if (Input.GetKeyDown(KeyCode.Q) && kzCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.Q) )
                         {
+                            
                             KzAttackQ();
                         }
-                        if (Input.GetKeyDown(KeyCode.W) && kzCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.W) )
                         {
+                            
                             gameManager.bKzAttackWPressed = true;
                             bKzWFlying = true;
                             KzAttackW();
                         }
-                        if (Input.GetKeyDown(KeyCode.E) && kzCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.E) )
                         {
+                            
                             KzAttackE();
                         }
                         break;
@@ -139,6 +142,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackQ()
     {
+        GameManager.instance.SE(GameManager.audioClip.q);
         transform.localScale = new Vector2(0.6f, 0.6f);
         animator.Play("kz q");
         kzCurWP -= 25;
@@ -169,6 +173,7 @@ public class WeaponAttackKZ : MonoBehaviour
     }
     private void KzAttackDamageW()
     {
+        
         switch (gameManager.bPlayerFacingRightSide)
         {
             case true: rayDirection = new Vector2(1, 0); break;
@@ -190,6 +195,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackW()
     {
+        GameManager.instance.SE(GameManager.audioClip.w);
         transform.SetParent(null, true);
         transform.localScale = new Vector2(1f, 1f);
         animator.Play("kz w");
@@ -200,6 +206,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackE()
     {
+        GameManager.instance.SE(GameManager.audioClip.e);
         player.rigidBody.velocity = Vector3.zero;
         animator.Play("kz e");
         gameManager.bAtJump = true;

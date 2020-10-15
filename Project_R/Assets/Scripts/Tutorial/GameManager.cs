@@ -7,14 +7,29 @@ using UnityEngine.UI;
 
 
 
+
+
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
 
+    public enum audioClip 
+    {
+        q,
+        w,
+        e
+    }
+
+    [SerializeField] List<AudioClip> clip = new List<AudioClip>(new AudioClip[3]);
+
+   
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioSource audioSource2 = null;
     [SerializeField] protected Slider slider = null;
     [SerializeField] protected float maxPlayerHP = 10000;
     [SerializeField] protected float iPlayerHP = 10000;
     [SerializeField] private GameObject music = null;
-    [SerializeField] private AudioSource audioSource = null;
+   
 
     public bool bAtJump = false;
     public float fGroundLevel = -0.19f;
@@ -30,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         audioSource = music.GetComponent<AudioSource>();
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;
     }
@@ -77,4 +93,13 @@ public class GameManager : MonoBehaviour
         }
             
     }
+
+    public void SE(audioClip aC) 
+    {
+        audioSource2.loop = false;
+        audioSource2.clip = clip[(int)aC];
+        audioSource2.Play();
+    }
+  
+
 }
