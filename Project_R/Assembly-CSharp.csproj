@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Clear.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Loading.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />
     <Compile Include="Assets\Scripts\MainMenu\UI.cs" />

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class UIT : MonoBehaviour
 {
+    public bool bKeyTutorialActive = false;
+
     public GameObject Keys;
     public GameObject menuSet;
     private void Update()
@@ -18,13 +21,17 @@ public class UIT : MonoBehaviour
     }
     public void OnClickXBtn()
     {
+        bKeyTutorialActive = false;
         Keys.SetActive(false);
         Time.timeScale = 1;
     }
     public void OnClickContinueButton()
     {
         menuSet.SetActive(false);
-        Time.timeScale = 1;
+        if(!bKeyTutorialActive)
+        {
+            Time.timeScale = 1;
+        }
     }
     public void OnClickHomeButton()
     {

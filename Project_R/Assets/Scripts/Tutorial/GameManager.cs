@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     {
         if (iPlayerHP <= 0)
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("Tutorial");
         }
             

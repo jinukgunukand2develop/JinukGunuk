@@ -5,7 +5,14 @@ using UnityEngine;
 public class TutorialInfoEvent : MonoBehaviour
 {
     private Vector2 V2LocationBetweenPlayerAndFlag = Vector2.zero;
+    private UIT uit = null;
+
     [SerializeField] private GameObject keys = null;
+
+    private void Start()
+    {
+        uit = FindObjectOfType<UIT>();
+    }
 
     void Update()
     {
@@ -15,6 +22,7 @@ public class TutorialInfoEvent : MonoBehaviour
         {
             Debug.Log("Info Event");
             gameObject.SetActive(false);
+            uit.bKeyTutorialActive = true;
             keys.SetActive(true);
             Time.timeScale = 0;
         }

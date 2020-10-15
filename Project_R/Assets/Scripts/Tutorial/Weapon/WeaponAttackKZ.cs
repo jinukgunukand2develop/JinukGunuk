@@ -17,7 +17,8 @@ public class WeaponAttackKZ : MonoBehaviour
     // 기본값 = 오른쪽
     private Vector2 rayDirection = Vector2.zero;
     private bool bLandingProgress = false;
-    private bool bKzWFlying = false;
+    private bool bAttacking = false;
+
 
     [SerializeField] private float fWeaponFlyingSpeed = 5f;
     [SerializeField] private float fPlayerJumpXForce = 3f;
@@ -60,7 +61,7 @@ public class WeaponAttackKZ : MonoBehaviour
         HandleWPZr();
         FlipSprite();
         // TODO : 나중에 함수로 빼버리기 (다른 무기 스킬도)
-        if (((gameManager.bWeaponStatus & 1) == 1))
+        if (((gameManager.bWeaponStatus & 1) == 1) && !bAttacking)
         {
             switch(gameManager.bAtJump || gameManager.bKzAttackWPressed)
             {
@@ -69,19 +70,18 @@ public class WeaponAttackKZ : MonoBehaviour
                     {
                         if (Input.GetKeyDown(KeyCode.Q) )
                         {
-                            
+                            bAttacking = true;
                             KzAttackQ();
                         }
                         if (Input.GetKeyDown(KeyCode.W) )
                         {
-                            
+                            bAttacking = true;
                             gameManager.bKzAttackWPressed = true;
-                            bKzWFlying = true;
                             KzAttackW();
                         }
                         if (Input.GetKeyDown(KeyCode.E) )
                         {
-                            
+                            bAttacking = true;
                             KzAttackE();
                         }
                         break;
@@ -142,7 +142,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackQ()
     {
-        GameManager.instance.SE(GameManager.audioClip.q);
+        
         transform.localScale = new Vector2(0.6f, 0.6f);
         animator.Play("kz q");
         kzCurWP -= 25;
@@ -154,6 +154,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackDamageQ()
     {
+        GameManager.instance.SE(GameManager.audioClip.q);
         switch (gameManager.bPlayerFacingRightSide)
         {
             case true: rayDirection = new Vector2(1, 0); break;
@@ -230,6 +231,7 @@ public class WeaponAttackKZ : MonoBehaviour
     {
         UnityEngine.Debug.Log("카직스 Q");
         transform.localScale = new Vector2(1f, 1f);
+        bAttacking = false;
     }
 
     private void AttackW()
@@ -238,6 +240,7 @@ public class WeaponAttackKZ : MonoBehaviour
         gameManager.bKzAttackWPressed = false;
         transform.SetParent(player.transform, true);
         animator.Play("kz idle");
+        bAttacking = false;
     }
 
     private void AttackE()
@@ -247,6 +250,7 @@ public class WeaponAttackKZ : MonoBehaviour
         UnityEngine.Debug.Log("카직스 E");
         Invoke("Wait", 0.1f);
         bLandingProgress = false;
+        bAttacking = false;
     }
     #endregion
 

@@ -430,6 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b8a83db0fd68a4990e951f24de011a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bKeyTutorialActive: 0
   Keys: {fileID: 1417805264}
   menuSet: {fileID: 109250012}
 --- !u!4 &17508416
