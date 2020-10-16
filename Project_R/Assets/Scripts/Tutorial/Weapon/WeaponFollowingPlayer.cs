@@ -28,16 +28,16 @@ public class WeaponFollowingPlayer : MonoBehaviour
                 gameManager.bWeaponStatus |= 1;
                 WeaponPickUp();
             }
-            else if((name == "sz") && ((gameManager.bWeaponStatus & 2) != 2))
-            {
-                gameManager.bWeaponStatus |= 2;
-                WeaponPickUp();
-            }
-            else if ((name == "zr") && ((gameManager.bWeaponStatus & 4) != 4))
-            {
-                gameManager.bWeaponStatus |= 4;
-                WeaponPickUp();
-            }
+            //else if((name == "sz") && ((gameManager.bWeaponStatus & 2) != 2))
+            //{
+            //    gameManager.bWeaponStatus |= 2;
+            //    WeaponPickUp();
+            //}
+            //else if ((name == "zr") && ((gameManager.bWeaponStatus & 4) != 4))
+            //{
+            //    gameManager.bWeaponStatus |= 4;
+            //    WeaponPickUp();
+            //}
         }
     }
 

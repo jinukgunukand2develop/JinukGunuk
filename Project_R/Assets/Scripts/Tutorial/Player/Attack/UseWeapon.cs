@@ -46,44 +46,44 @@ public class UseWeapon : MonoBehaviour
             {
                 case 0:
                     {
-                        if (kzCurWP > 25)
-                        {
-                            if (transform.Find("zr"))
-                            {
-                                zrWeapon.gameObject.SetActive(false);
-                            }
+                        //if (kzCurWP > 25)
+                        //{
+                        //    if (transform.Find("zr"))
+                        //    {
+                        //        zrWeapon.gameObject.SetActive(false);
+                        //    }
                             kzWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 1;
                             
-                        }
+                        //}
                         break;
                     }
                 case 1:
                     {
-                        if (szCurWP > 25) 
-                        {
-                            if (transform.Find("kz"))
-                            {
-                                kzWeapon.gameObject.SetActive(false);
-                            }
-                            szWeapon.gameObject.SetActive(true);
+                        //if (szCurWP > 25) 
+                        //{
+                        //    if (transform.Find("kz"))
+                        //    {
+                        //        kzWeapon.gameObject.SetActive(false);
+                        //    }
+                        //    szWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 2;
                             
-                        }
+                        //}
                         break;
                     }
                 case 2:
                     {
-                        if (zrCurWP > 25) 
-                        {
-                            if (transform.Find("sz"))
-                            {
-                                szWeapon.gameObject.SetActive(false);
-                            }
-                            zrWeapon.gameObject.SetActive(true);
+                        //if (zrCurWP > 25) 
+                        //{
+                        //    if (transform.Find("sz"))
+                        //    {
+                        //        szWeapon.gameObject.SetActive(false);
+                        //    }
+                        //    zrWeapon.gameObject.SetActive(true);
                             bCurrentWeapon = 0;
                             
-                        }
+                        //}
                         break;
                     }
             }
