@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: b24703bc39c345642bf5e4e6a4c71e41
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 926989573375266103
+    second: YassoAttackSpecial_Effect_0
+  - first:
+      213: 1982818448417757942
+    second: YassoAttackSpecial_Effect_1
+  - first:
+      213: -8947875140891334035
+    second: YassoAttackSpecial_Effect_2
+  - first:
+      213: 627741829638015321
+    second: YassoAttackSpecial_Effect_3
+  - first:
+      213: -8300290168728072649
+    second: YassoAttackSpecial_Effect_4
+  - first:
+      213: -9118667204679241047
+    second: YassoAttackSpecial_Effect_5
+  - first:
+      213: -5408146119232893490
+    second: YassoAttackSpecial_Effect_0
+  - first:
+      213: -2299516742987915679
+    second: YassoAttackSpecial_Effect_1
+  - first:
+      213: -6406692518966435828
+    second: YassoAttackSpecial_Effect_2
+  - first:
+      213: 1380783023623518880
+    second: YassoAttackSpecial_Effect_3
+  - first:
+      213: -4403863807130334785
+    second: YassoAttackSpecial_Effect_4
+  - first:
+      213: -435608049144712140
+    second: YassoAttackSpecial_Effect_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +107,159 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd47b512c762f4b0800000000000000
+      internalID: -5408146119232893490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_1
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e5423a4b97610e0800000000000000
+      internalID: -2299516742987915679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c006add191bd617a0800000000000000
+      internalID: -6406692518966435828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_3
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa38f228d6892310800000000000000
+      internalID: 1380783023623518880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb90cc8333552e2c0800000000000000
+      internalID: -4403863807130334785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttackSpecial_Effect_5
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434bd6989c864f9f0800000000000000
+      internalID: -435608049144712140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

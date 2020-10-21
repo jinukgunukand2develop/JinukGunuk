@@ -1,7 +1,106 @@
 fileFormatVersion: 2
 guid: c3678686c0f502f45a42e54747d96ade
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8540516068487941996
+    second: YassoAttack3_ShortEffect_0
+  - first:
+      213: 1742034779121734691
+    second: YassoAttack3_ShortEffect_1
+  - first:
+      213: 4750217626842001667
+    second: YassoAttack3_ShortEffect_2
+  - first:
+      213: 5018491615320110623
+    second: YassoAttack3_ShortEffect_3
+  - first:
+      213: 3922654413723295071
+    second: YassoAttack3_ShortEffect_4
+  - first:
+      213: 8937983415779658497
+    second: YassoAttack3_ShortEffect_5
+  - first:
+      213: 2491392366503650733
+    second: YassoAttack3_ShortEffect_6
+  - first:
+      213: 2263766894529834647
+    second: YassoAttack3_ShortEffect_7
+  - first:
+      213: 6621595354085889901
+    second: YassoAttack3_ShortEffect_8
+  - first:
+      213: 7732703441907831110
+    second: YassoAttack3_ShortEffect_9
+  - first:
+      213: -9034722360289516066
+    second: YassoAttack3_ShortEffect_10
+  - first:
+      213: 7963303808909068934
+    second: YassoAttack3_ShortEffect_11
+  - first:
+      213: -3003033921923854051
+    second: YassoAttack3_ShortEffect_12
+  - first:
+      213: -5571233670569948903
+    second: YassoAttack3_ShortEffect_13
+  - first:
+      213: 6445408986143243992
+    second: YassoAttack3_ShortEffect_14
+  - first:
+      213: -5179470302321472157
+    second: YassoAttack3_ShortEffect_15
+  - first:
+      213: 532987008928345373
+    second: YassoAttack3_ShortEffect_16
+  - first:
+      213: -1151546653723007317
+    second: YassoAttack3_ShortEffect_17
+  - first:
+      213: -6044690688008432711
+    second: YassoAttack3_ShortEffect_18
+  - first:
+      213: -4549440597775678815
+    second: YassoAttack3_ShortEffect_19
+  - first:
+      213: -8217836620013582784
+    second: YassoAttack3_ShortEffect_20
+  - first:
+      213: 4534980924049964527
+    second: YassoAttack3_ShortEffect_21
+  - first:
+      213: -6761601277082924341
+    second: YassoAttack3_ShortEffect_22
+  - first:
+      213: -7183128078525595279
+    second: YassoAttack3_ShortEffect_23
+  - first:
+      213: -3214492332291898624
+    second: YassoAttack3_ShortEffect_24
+  - first:
+      213: -102706241318755591
+    second: YassoAttack3_ShortEffect_0
+  - first:
+      213: 6674348161449547148
+    second: YassoAttack3_ShortEffect_1
+  - first:
+      213: 3808058826810156793
+    second: YassoAttack3_ShortEffect_2
+  - first:
+      213: 8664777044108985895
+    second: YassoAttack3_ShortEffect_3
+  - first:
+      213: -2142482249340111709
+    second: YassoAttack3_ShortEffect_4
+  - first:
+      213: -3185827240685041909
+    second: YassoAttack3_ShortEffect_5
+  - first:
+      213: 8794798301890481476
+    second: YassoAttack3_ShortEffect_6
+  - first:
+      213: 4001142980221128516
+    second: YassoAttack3_ShortEffect_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +130,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +139,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +170,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2eaf9b73d139ef0800000000000000
+      internalID: -102706241318755591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c855b766a4c00ac50800000000000000
+      internalID: 6674348161449547148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f66fc7b351f8d430800000000000000
+      internalID: 3808058826810156793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726431c40d87f3870800000000000000
+      internalID: 8664777044108985895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_4
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4b08edebf5442e0800000000000000
+      internalID: -2142482249340111709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_5
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 0
+        width: 200
+        height: 110
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07843bf00ba9c3d0800000000000000
+      internalID: -3185827240685041909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_6
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 0
+        width: 200
+        height: 92
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d046f65766d0a70800000000000000
+      internalID: 8794798301890481476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoAttack3_ShortEffect_8
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 0
+        width: 159
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fc0af675ae68730800000000000000
+      internalID: 4001142980221128516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
