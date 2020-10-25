@@ -63,6 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Boss\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Boss\Player\PlayerButtonMove.cs" />
+    <Compile Include="Assets\Scripts\Boss\PositionClamp.cs" />
+    <Compile Include="Assets\Scripts\Boss\Yasso\YassoAttackManager.cs" />
+    <Compile Include="Assets\Scripts\Boss\Yasso\YassoDetect.cs" />
     <Compile Include="Assets\Scripts\Clear.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Loading.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />
