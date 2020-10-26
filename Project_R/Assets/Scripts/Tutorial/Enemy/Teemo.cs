@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Teemo : CTeemo
 {
-    
-    private Vector2 V2DistanceWithTwoObj = Vector2.zero;
     private bool bAttackDelay = true;
 
     [SerializeField] private GameObject player = null;
@@ -20,9 +18,7 @@ public class Teemo : CTeemo
 
     private IEnumerator CheckCollision()
     {
-        V2DistanceWithTwoObj.x = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
-        V2DistanceWithTwoObj.y = Mathf.Abs(player.transform.localPosition.y - transform.localPosition.y);
-        if (bAttackDelay && V2DistanceWithTwoObj.x <= 0.1f && V2DistanceWithTwoObj.y <= 0.1f)
+        if (bAttackDelay && Vector2.Distance(player.transform.position, transform.position) <= 0.1f)
         {
             bAttackDelay = false;
             FindObjectOfType<GameManager>().SendMessage("DecreaseHealth", collisionDamage, SendMessageOptions.DontRequireReceiver);

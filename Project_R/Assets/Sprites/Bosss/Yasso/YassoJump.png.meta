@@ -1,7 +1,61 @@
 fileFormatVersion: 2
 guid: 83fdb725fd9c3764291a2eaf44f9e263
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1686883075283635137
+    second: YassoJump_0
+  - first:
+      213: 6538010821950001226
+    second: YassoJump_1
+  - first:
+      213: 3403350714833348809
+    second: YassoJump_2
+  - first:
+      213: -5317241616071663926
+    second: YassoJump_3
+  - first:
+      213: -8029301407308586326
+    second: YassoJump_4
+  - first:
+      213: 44603743785456181
+    second: YassoJump_5
+  - first:
+      213: 8619845545534347690
+    second: YassoJump_6
+  - first:
+      213: -9200655692527947771
+    second: YassoJump_7
+  - first:
+      213: 6992009377600892583
+    second: YassoJump_8
+  - first:
+      213: -137583240804866195
+    second: YassoJump_9
+  - first:
+      213: 4679375725645806124
+    second: YassoJump_10
+  - first:
+      213: -6111105180402608268
+    second: YassoJump_11
+  - first:
+      213: 1507729781165965978
+    second: YassoJump_12
+  - first:
+      213: 1344837236239585303
+    second: YassoJump_13
+  - first:
+      213: 5818678368425130336
+    second: YassoJump_14
+  - first:
+      213: 8625895915773748666
+    second: YassoJump_15
+  - first:
+      213: 1606121971374760263
+    second: YassoJump_16
+  - first:
+      213: -4717915386020737484
+    second: YassoJump_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +94,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +125,411 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: YassoJump_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 29
+        width: 71
+        height: 51
+      alignment: 9
+      pivot: {x: 0.57042253, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb46ef2833096710800000000000000
+      internalID: 1686883075283635137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 29
+        width: 79
+        height: 51
+      alignment: 9
+      pivot: {x: 0.613924, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a405df3e33eabba50800000000000000
+      internalID: 6538010821950001226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 29
+        width: 77
+        height: 51
+      alignment: 9
+      pivot: {x: 0.6038961, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8a6b381712b3f20800000000000000
+      internalID: 3403350714833348809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 24
+        width: 69
+        height: 56
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.14285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acedf111cec5536b0800000000000000
+      internalID: -5317241616071663926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_4
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 24
+        width: 68
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5661765, y: 0.14814815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2e3de39e0329090800000000000000
+      internalID: -8029301407308586326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_5
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 24
+        width: 68
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5661765, y: 0.14814815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5321cff5ed67e9000800000000000000
+      internalID: 44603743785456181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_6
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 28
+        width: 73
+        height: 50
+      alignment: 9
+      pivot: {x: 0.58219177, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9de409ad7df9770800000000000000
+      internalID: 8619845545534347690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_7
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.14035088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50032321564b05080800000000000000
+      internalID: -9200655692527947771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_8
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 27
+        width: 71
+        height: 53
+      alignment: 9
+      pivot: {x: 0.57042253, y: 0.11320755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aee912db7b980160800000000000000
+      internalID: 6992009377600892583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_9
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 24
+        width: 70
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5642857, y: 0.16071428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6767cc75c4371ef0800000000000000
+      internalID: -137583240804866195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_10
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 27
+        width: 71
+        height: 53
+      alignment: 9
+      pivot: {x: 0.57042253, y: 0.1509434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a34b91e6b70f040800000000000000
+      internalID: 4679375725645806124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_11
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.19298245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4779d09673ef03ba0800000000000000
+      internalID: -6111105180402608268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_12
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 27
+        width: 70
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5642857, y: 0.09259259}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92cca76f388ce410800000000000000
+      internalID: 1507729781165965978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_13
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.0877193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71057c25752d9a210800000000000000
+      internalID: 1344837236239585303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_14
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 27
+        width: 70
+        height: 54
+      alignment: 9
+      pivot: {x: 0.5642857, y: 0.018518519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069ba3cb52910c050800000000000000
+      internalID: 5818678368425130336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_15
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.07017544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5ef2922a655b770800000000000000
+      internalID: 8625895915773748666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_16
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.0877193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7412eb16c671a4610800000000000000
+      internalID: 1606121971374760263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YassoJump_17
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 24
+        width: 69
+        height: 57
+      alignment: 9
+      pivot: {x: 0.557971, y: 0.0877193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e42e7f3f8968eb0800000000000000
+      internalID: -4717915386020737484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

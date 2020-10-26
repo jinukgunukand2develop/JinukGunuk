@@ -6,34 +6,31 @@ using UnityEngine;
 public class YassoDetect : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    private float minX = 0f;
-    private float maxX = 0f;
 
-    void Start()
-    {
-        
-    }
-    
+    public const float DETECTDISTANCE = 2.6f;
+    public const float EQRANGE = 1.5f;
+    public const float QRANGE = 2f;
+
+
     void Update()
     {
-        if(IsDetected())
+        if(DetectPlayer())
         {
             Debug.Log("Detected Player");
         }
-        if(IsQRange())
+        if(DetectPlayer(QRANGE))
         {
             Debug.Log("Is Q Range");
         }
-        if(IsEQRange())
+        if(DetectPlayer(EQRANGE))
         {
             Debug.Log("Is EQ Range");
         }
     }
 
-    public bool IsDetected()
+    private bool DetectPlayer(float num = 1)
     {
-        DetectPlayer();
-        if (player.transform.position.x >= minX && player.transform.position.x <= maxX)
+        if (Vector2.Distance(player.transform.position, transform.position) <= (DETECTDISTANCE / num))
         {
             return true;
         }
@@ -41,37 +38,5 @@ public class YassoDetect : MonoBehaviour
         {
             return false;
         }
-    }
-
-    public bool IsQRange()
-    {
-        DetectPlayer();
-        if (player.transform.position.x >= (minX / 2f) && player.transform.position.x <= (maxX / 2f))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }    
-
-    public bool IsEQRange()
-    {
-        DetectPlayer();
-        if (player.transform.position.x >= (minX / 1.5f) && player.transform.position.x <= (maxX / 1.5f))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private void DetectPlayer()
-    {
-        minX = transform.position.x - 2.6f;
-        maxX = transform.position.x + 2.6f;
     }
 }

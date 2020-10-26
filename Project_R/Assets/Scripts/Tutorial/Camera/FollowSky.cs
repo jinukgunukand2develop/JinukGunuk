@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class FollowSky : MonoBehaviour
 {
-    private new PlayerMove gameObject = null;
-
-
-
-
-    void Start()
-    {
-        gameObject = FindObjectOfType<PlayerMove>();
-    }
+    [SerializeField] private GameObject player = null;
 
     void Update()
     {
-        transform.localPosition = new Vector3(gameObject.transform.localPosition.x, (gameObject.transform.localPosition.y + 1.4f) * 0.5f, 11);
+        transform.localPosition = new Vector3(player.transform.localPosition.x, (player.transform.localPosition.y + 1.4f) * 0.5f, 11);
     }
 }

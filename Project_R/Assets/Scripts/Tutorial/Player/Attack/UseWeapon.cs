@@ -37,7 +37,7 @@ public class UseWeapon : MonoBehaviour
         }
     }
 
-    // TODO : 보기 불편함
+    // TODO : 보기 불편함 // enum 으로 무기?
     void WeaponCycle()
     {
         if (transform.childCount != 0)

@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f3339416e393f43b9db49a7000ac01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875431006}
 --- !u!1001 &108749707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3867,6 +3868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f6a4d8e491b5443971488c75ed51ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875431006}
 --- !u!1 &725977221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10428,6 +10430,11 @@ PrefabInstance:
       propertyPath: keys
       value: 
       objectReference: {fileID: 1417805264}
+    - target: {fileID: 352579078141104367, guid: 32ef1e27d1fdad246929d5a56602d2d0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1875431006}
     - target: {fileID: 996430698696063930, guid: 32ef1e27d1fdad246929d5a56602d2d0,
         type: 3}
       propertyPath: m_Name

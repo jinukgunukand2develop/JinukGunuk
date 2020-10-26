@@ -9,11 +9,6 @@ public class PlayerButtonMove : MonoBehaviour
     private bool bLeft = false;
     private bool bRight = false;
 
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
