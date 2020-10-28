@@ -1,36 +1,34 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class YassoDetect : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    // TODO : 재사용할거면 리턴값을 갈아 엎어야 함
+    // Yasso 용 플레이어 탐지
 
-    public const float DETECTDISTANCE = 2.6f;
-    public const float EQRANGE = 1.5f;
-    public const float QRANGE = 2f;
-
-
-    void Update()
+    //3 == Q range, 2 == EQ Range, 1 == PlayerDetect, 0 == none
+    public virtual byte RangeDetect(GameObject player, float fQRange, float fEQRange, float fDetectDistance)
     {
-        if(DetectPlayer())
+        if (Detect(player, fDetectDistance))
         {
-            Debug.Log("Detected Player");
+            return 1;
         }
-        if(DetectPlayer(QRANGE))
+        if (Detect(player, fDetectDistance, fQRange))
         {
-            Debug.Log("Is Q Range");
+            return 3;
         }
-        if(DetectPlayer(EQRANGE))
+        if (Detect(player, fDetectDistance, fEQRange))
         {
-            Debug.Log("Is EQ Range");
+            return 2;
         }
+        return 0;
     }
 
-    private bool DetectPlayer(float num = 1)
+    // player.transform 과 this.transform 사이의 거리 fDetectDistance 를 fDivide 만큼 나누어 그 거리 안 player.gameObject 탐지
+    public virtual bool Detect(GameObject player, float fDetectDistance, float fDivide = 1)
     {
-        if (Vector2.Distance(player.transform.position, transform.position) <= (DETECTDISTANCE / num))
+        if (Vector2.Distance(player.transform.position, transform.position) <= (fDetectDistance / fDivide))
         {
             return true;
         }

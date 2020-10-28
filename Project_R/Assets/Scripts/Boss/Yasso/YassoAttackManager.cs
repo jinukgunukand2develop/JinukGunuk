@@ -9,16 +9,32 @@ using UnityEngine;
 야스오 스킬 데미지
 */
 
-public class YassoAttackManager : MonoBehaviour, ISkill, IMovement
+public class YassoAttackManager : MonoBehaviour
 {
+    public const float DETECTDISTANCE = 2.6f;
+    public const float EQRANGE = 1.5f;
+    public const float QRANGE = 2f;
+
     private Animator animator = null;
-    
-    
     public GameObject yasso = null;
+    public GameObject player = null;
+
+    YassoDetect yassoDetect = null;
+    YassoMove yassoMove = null;
+    YassoSkill yassoSkill = null;
+
+    private void Awake()
+    {
+        yassoDetect = gameObject.AddComponent<YassoDetect>();
+        yassoMove = gameObject.AddComponent<YassoMove>();
+        yassoSkill = gameObject.AddComponent<YassoSkill>();
+        animator = GetComponent<Animator>();
+    }
+
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        
     }
 
     private void Update()
@@ -26,39 +42,9 @@ public class YassoAttackManager : MonoBehaviour, ISkill, IMovement
         
     }
 
-    #region Movement
-    public void Dash()
-    {
-        animator.Play("Yasso_Dash");
-        Invoke("ReturnIdle", 1.0f);
-    }
-    public void Jump()
-    {
-        animator.Play("Yasso_Jump");
-        Invoke("ReturnIdle", 1.8f);
-    }
-    #endregion
-    #region Attack
-    public void AttackQ()
-    {
-        animator.Play("Yasso_Attack_1");
-        Invoke("ReturnIdle", 1.1f);
-    }
-    public void AttackW()
-    {
-        animator.Play("Yasso_Attack_2");
-        Invoke("ReturnIdle", 1.7f);
-    }
-    public void AttackE()
-    {
-        animator.Play("Yasso_Dash_Attack");
-        Invoke("ReturnIdle", 1.2f);
-    }
-    public void AttackR()
-    {
+    
 
-    }
-    #endregion
+
 
     public void ReturnIdle()
     {
