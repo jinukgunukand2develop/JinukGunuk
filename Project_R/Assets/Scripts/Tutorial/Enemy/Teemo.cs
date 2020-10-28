@@ -8,6 +8,7 @@ public class Teemo : CTeemo
 
     [SerializeField] private GameObject player = null;
     [SerializeField] private float fCollisionDamageDelay = 1f;
+    [SerializeField] private GameObject effect = null;
 
     void Update()
     {
@@ -20,10 +21,12 @@ public class Teemo : CTeemo
     {
         if (bAttackDelay && Vector2.Distance(player.transform.position, transform.position) <= 0.1f)
         {
+            effect.SetActive(true);
             bAttackDelay = false;
             FindObjectOfType<GameManager>().SendMessage("DecreaseHealth", collisionDamage, SendMessageOptions.DontRequireReceiver);
             yield return new WaitForSeconds(fCollisionDamageDelay);
             bAttackDelay = true;
+            effect.SetActive(false);
         }
     }
 
