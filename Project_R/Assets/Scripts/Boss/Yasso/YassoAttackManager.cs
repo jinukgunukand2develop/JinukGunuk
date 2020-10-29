@@ -11,10 +11,6 @@ using UnityEngine;
 
 public class YassoAttackManager : MonoBehaviour
 {
-    public const float DETECTDISTANCE = 2.6f;
-    public const float EQRANGE = 1.5f;
-    public const float QRANGE = 2f;
-
     private Animator animator = null;
     public GameObject yasso = null;
     public GameObject player = null;
@@ -46,8 +42,5 @@ public class YassoAttackManager : MonoBehaviour
 
 
 
-    public void ReturnIdle()
-    {
-        animator.Play("Yasso_Idle");
-    }
+
 }
