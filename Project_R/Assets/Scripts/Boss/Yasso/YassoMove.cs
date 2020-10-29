@@ -22,13 +22,5 @@ public class YassoMove : MonoBehaviour
         animator.Play("Yasso_Jump");
         Invoke("ReturnIdle", 1.8f);
     }
-    public virtual void ReturnIdle()
-    {
-        animator.Play("Yasso_Idle");
-    }
-    public IEnumerator Rest(float millisec)
-    {
-        yield return new WaitForSeconds(millisec);
-    }
     #endregion
 }

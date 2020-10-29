@@ -67,8 +67,6 @@
     <Compile Include="Assets\Scripts\Boss\Interfaces\IMovement.cs" />
     <Compile Include="Assets\Scripts\Boss\Interfaces\ISkill.cs" />
     <Compile Include="Assets\Scripts\Boss\Player\PlayerButtonMove.cs" />
-    <Compile Include="Assets\Scripts\Boss\Player\PlayerDamage.cs" />
-    <Compile Include="Assets\Scripts\Boss\Player\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\Boss\PositionClamp.cs" />
     <Compile Include="Assets\Scripts\Boss\Yasso\YassoAI.cs" />
     <Compile Include="Assets\Scripts\Boss\Yasso\YassoAttackManager.cs" />
