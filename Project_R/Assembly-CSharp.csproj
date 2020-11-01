@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Boss\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Boss\DebugScript.cs" />
+    <Compile Include="Assets\Scripts\Boss\GameManagerBoss.cs" />
     <Compile Include="Assets\Scripts\Boss\Interfaces\IMovement.cs" />
     <Compile Include="Assets\Scripts\Boss\Interfaces\ISkill.cs" />
     <Compile Include="Assets\Scripts\Boss\Player\PlayerButtonMove.cs" />

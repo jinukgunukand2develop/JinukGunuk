@@ -593,6 +593,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 303052836}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &332375846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332375848}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &332375848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332375846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &352190083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2218,9 +2248,10 @@ GameObject:
   - component: {fileID: 1408402944}
   - component: {fileID: 1408402943}
   - component: {fileID: 1408402945}
+  - component: {fileID: 1408402948}
   - component: {fileID: 1408402947}
   - component: {fileID: 1408402946}
-  - component: {fileID: 1408402948}
+  - component: {fileID: 1408402949}
   m_Layer: 0
   m_Name: Yasso
   m_TagString: Boss
@@ -2290,7 +2321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &1408402943
 Animation:
@@ -2399,7 +2430,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591b83e295db239488fe5a630baef863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2107434595}
+--- !u!114 &1408402949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408402940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25baeb1649556a44d88d5d3dfe5366b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1422730837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3992,6 +4035,8 @@ GameObject:
   - component: {fileID: 2107434600}
   - component: {fileID: 2107434598}
   - component: {fileID: 2107434601}
+  - component: {fileID: 2107434603}
+  - component: {fileID: 2107434602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4062,7 +4107,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2107434598
 BoxCollider2D:
@@ -4103,6 +4148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fPlayerSpeed: 5
+  fJumpForce: 5
+  rigidBody: {fileID: 0}
 --- !u!50 &2107434600
 Rigidbody2D:
   serializedVersion: 4
@@ -4136,6 +4183,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda311fe805b7ce4ebdb7e271be69f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &2107434602
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107434595}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &2107434603
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107434595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a54fbf806fc13594187858008339d294, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2134822947
 PrefabInstance:
   m_ObjectHideFlags: 0

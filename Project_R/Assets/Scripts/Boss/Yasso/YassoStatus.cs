@@ -5,8 +5,8 @@ using UnityEngine;
 public class YassoStatus : MonoBehaviour
 {
     public short iHP = 500;
-    public byte skillUseCount = 0;
-    public byte beenIdleFor = 0;
+    public int skillUseCount = 0;
+    public int beenIdleFor = 0;
 
     public bool bJumping = false;
     public bool bIsDash = false;

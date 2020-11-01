@@ -22,9 +22,15 @@ public class YassoMove : MonoBehaviour
         animator.Play("Yasso_Jump");
         Invoke("ReturnIdle", 1.8f);
     }
+    public virtual void Jump(float to, float speed = 2)
+    {
+        animator.Play("Yasso_Jump");
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x - to, transform.position.y), Time.deltaTime * speed);
+        Invoke("ReturnIdle", 1.8f);
+    }
     public virtual void ReturnIdle()
     {
-        animator.Play("Yasso_Idle");
+        animator.Play("Yasso_idle");
     }
     public IEnumerator Rest(float millisec)
     {

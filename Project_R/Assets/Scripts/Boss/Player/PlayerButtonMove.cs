@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerButtonMove : MonoBehaviour
@@ -11,10 +12,13 @@ public class PlayerButtonMove : MonoBehaviour
     private Animator animator = null;
     private SpriteRenderer spriteRenderer = null;
     private GameManager gameManager = null;
+    private GameManagerBoss gameManagerBoss = null;
 
     private bool bLeft = false;
     private bool bRight = false;
     private bool bJump = false;
+    private bool bPlayerFacingRight = true;
+
 
     private void Awake()
     {
@@ -36,6 +40,7 @@ public class PlayerButtonMove : MonoBehaviour
         bRight = true; animator.Play("PlayerMove");
         spriteRenderer.flipX = false;
         gameManager.bPlayerFacingRightSide = true;
+        bPlayerFacingRight = true;
     }
     public void RightButtonUp()
     {
@@ -46,6 +51,7 @@ public class PlayerButtonMove : MonoBehaviour
         bLeft = true; animator.Play("PlayerMove");
         spriteRenderer.flipX = true;
         gameManager.bPlayerFacingRightSide = false;
+        bPlayerFacingRight = false;
     }
     public void LeftButtonUp()
     {

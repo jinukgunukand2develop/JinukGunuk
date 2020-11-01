@@ -41,7 +41,7 @@ public class YassoAI : MonoBehaviour
     /// , 리턴값이 1일 경우 거리가 어떻든 EQ
     /// </summary>
     /// <returns></returns>
-    public byte FirstAttack()
+    public int FirstAttack()
     {
         attack = Random.Range(0, 1);
         if (attack < 0.5f)
@@ -60,7 +60,7 @@ public class YassoAI : MonoBehaviour
     /// <param name="skill"></param>
     /// <param name="prevStatus"></param>
     /// <returns></returns>
-    public virtual byte UseSkill(YassoSkill skill, byte prevStatus)
+    public virtual int UseSkill(YassoSkill skill, int prevStatus)
     {
         if(status.skillUseCount < 5 || prevStatus == 2)
         {
@@ -73,7 +73,7 @@ public class YassoAI : MonoBehaviour
         return Attack(skill);
     }
 
-    private byte Attack(YassoSkill skill)
+    private int Attack(YassoSkill skill)
     {
         if (attack < 3 && status.skillUseCount > 0)
         {
@@ -118,24 +118,15 @@ public class YassoAI : MonoBehaviour
     /// </summary>
     /// <param name="prevStatus"></param>
     /// <returns></returns>
-    public byte Move(byte prevStatus)
+    public int Move(int prevStatus)
     {
         // TODO : 지난번 상태도 idle 이었다면 idle 시간을 줄인다
-        if(prevStatus == 1 && prevStatus == 2)
-        {
-            move.ReturnIdle();
-            move.Rest(fRestDuration);
-            // TODO : 랜덤한 위치로 점프();
-            ++status.beenIdleFor;
-            return 0;
-        }
         switch(detect.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
         {
             case 0:
                 {
-                    // TODO : 랜덤한 위치로 점프();
-                    move.ReturnIdle();
-                    move.Rest(fRestDuration);
+                    MoveToRrdLoc();
+                    move.Rest(fRestDuration - (status.beenIdleFor / 0.5f));
                     ++status.beenIdleFor;
                     return 0;
                 }
@@ -155,7 +146,32 @@ public class YassoAI : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// 랜덤 위치로 점프 후 착지
+    /// </summary>
+    public void MoveToRrdLoc()
+    {
+        float fJumpRand = Random.Range(-2.0f, 2.0f);
+        fJumpRand = RandAgain(fJumpRand);
+        move.Jump(fJumpRand, 100);
+    }
+
+    private float RandAgain(float fJumpRand)
+    {
+        while (true)
+        {
+            if (fJumpRand > -1.0f && fJumpRand < 1.0f)
+            {
+                fJumpRand = Random.Range(-2.0f, 2.0f);
+            }
+            else
+                break;
+        }
+        return fJumpRand;
+    }
+
+
+
 
     // 제작 중
 }
