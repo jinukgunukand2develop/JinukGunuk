@@ -66,11 +66,14 @@ public class GameManager : MonoBehaviour
 
     void MuteMusic()
     {
+        
         switch (audioSource.mute)
         {
             case true: audioSource.mute = false; break;
             case false: audioSource.mute = true; break;
         }
+        
+        
         
         
     }
