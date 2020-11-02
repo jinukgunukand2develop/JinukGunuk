@@ -4149,7 +4149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fPlayerSpeed: 5
   fJumpForce: 5
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 2107434600}
 --- !u!50 &2107434600
 Rigidbody2D:
   serializedVersion: 4
@@ -4183,6 +4183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda311fe805b7ce4ebdb7e271be69f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2107434595}
 --- !u!111 &2107434602
 Animation:
   m_ObjectHideFlags: 0
