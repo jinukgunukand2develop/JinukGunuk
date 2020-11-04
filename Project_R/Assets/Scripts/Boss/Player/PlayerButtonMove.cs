@@ -14,6 +14,8 @@ public class PlayerButtonMove : MonoBehaviour
     private GameManager gameManager = null;
     private GameManagerBoss gameManagerBoss = null;
 
+    public PlayerDamage playerDamage = null;
+
     private bool bLeft = false;
     private bool bRight = false;
     private bool bJump = false;
@@ -22,6 +24,7 @@ public class PlayerButtonMove : MonoBehaviour
 
     private void Awake()
     {
+        playerDamage = GetComponent<PlayerDamage>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -31,31 +34,47 @@ public class PlayerButtonMove : MonoBehaviour
 
     void Update()
     {
-        if (bRight) { MoveRight(); }
-        if (bLeft) { MoveLeft(); }
+        if (bRight && !playerDamage.bKnockBack) { MoveRight(); }
+        if (bLeft && !playerDamage.bKnockBack) { MoveLeft(); }
     }
 
+    // TODO : 눌렀을때 true, false 값 전달
     public void RightButtonDown()
     {
-        bRight = true; animator.Play("PlayerMove");
-        spriteRenderer.flipX = false;
-        gameManager.bPlayerFacingRightSide = true;
-        bPlayerFacingRight = true;
+        if(!playerDamage.bKnockBack)
+        {
+            bRight = true; animator.Play("PlayerMove");
+            spriteRenderer.flipX = false;
+            gameManager.bPlayerFacingRightSide = true;
+            bPlayerFacingRight = true;
+        }
     }
     public void RightButtonUp()
     {
-        bRight = false; animator.Play("PlayerIdle");
+        if(!playerDamage.bKnockBack)
+        {
+            bRight = false; animator.Play("PlayerIdle");
+        }
+        
     }
     public void LeftButtonDown()
     { 
-        bLeft = true; animator.Play("PlayerMove");
-        spriteRenderer.flipX = true;
-        gameManager.bPlayerFacingRightSide = false;
-        bPlayerFacingRight = false;
+        if(!playerDamage.bKnockBack)
+        {
+            bLeft = true; animator.Play("PlayerMove");
+            spriteRenderer.flipX = true;
+            gameManager.bPlayerFacingRightSide = false;
+            bPlayerFacingRight = false;
+        }
+        
     }
     public void LeftButtonUp()
     {
-        bLeft = false; animator.Play("PlayerIdle");
+        if(!playerDamage.bKnockBack)
+        {
+            bLeft = false; animator.Play("PlayerIdle");
+        }
+        
     }
     public void JumpPlayer()
     {
