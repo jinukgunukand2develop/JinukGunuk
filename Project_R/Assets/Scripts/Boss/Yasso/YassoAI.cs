@@ -153,7 +153,7 @@ public class YassoAI : MonoBehaviour
     {
         float fJumpRand = Random.Range(-2.0f, 2.0f);
         fJumpRand = RandAgain(fJumpRand);
-        move.Jump(fJumpRand, 100);
+        move.JumpLand(fJumpRand);
     }
 
     private float RandAgain(float fJumpRand)

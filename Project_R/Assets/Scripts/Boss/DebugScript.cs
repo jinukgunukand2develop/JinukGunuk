@@ -5,25 +5,23 @@ using UnityEngine.UIElements;
 
 public class DebugScript : MonoBehaviour
 {
-    //YassoMove move;
-    //private void Awake()
-    //{
-    //    move = gameObject.AddComponent<YassoMove>();
-    //}
-    //void Start()
-    //{
-       
-
-    //    StartCoroutine(Wait());
-
-    //}
+    YassoMove move;
+    private void Awake()
+    {
+        move = gameObject.AddComponent<YassoMove>();
+    }
+    void Start()
+    {
+        float fJumpRand = Random.Range(-2.0f, 2.0f);
+        move.JumpLand(fJumpRand);
+    }
 
     //IEnumerator Wait()
     //{
     //    yield return null;
     //    MoveToRrdLoc();
     //    yield return new WaitForSeconds(2.0f);
-        
+
     //}
 
     //public void MoveToRrdLoc()
@@ -51,6 +49,6 @@ public class DebugScript : MonoBehaviour
 
     //void Update()
     //{
-        
+
     //}
 }

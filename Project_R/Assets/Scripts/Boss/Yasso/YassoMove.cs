@@ -5,8 +5,10 @@ using UnityEngine;
 public class YassoMove : MonoBehaviour
 {
     private Animator animator = null;
+    private bool bJump = false;
 
-    private void Start()
+
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
@@ -17,17 +19,29 @@ public class YassoMove : MonoBehaviour
         animator.Play("Yasso_Dash");
         Invoke("ReturnIdle", 1.0f);
     }
-    public virtual void Jump()
+    public virtual void JumpLand(float to, float speed = 2, float upSpeed = 2)
     {
+        bJump = true;
         animator.Play("Yasso_Jump");
-        Invoke("ReturnIdle", 1.8f);
+        Invoke("Wait", 0.9f);
+        Debug.Log("Wait 아레 코드");
+        //while (bJump)
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x - to, transform.position.y + (1 * upSpeed)), Time.deltaTime * speed);
+        //}
+        Invoke("Wait", 0.9f);
+        //while (bJump)
+        //{
+        //    transform.position = Vector2.down * upSpeed *  Time.deltaTime;
+        //}
+        ReturnIdle();
     }
-    public virtual void Jump(float to, float speed = 2)
+    private void Wait()
     {
-        animator.Play("Yasso_Jump");
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x - to, transform.position.y), Time.deltaTime * speed);
-        Invoke("ReturnIdle", 1.8f);
+        bJump = false;
     }
+
+
     public virtual void ReturnIdle()
     {
         animator.Play("Yasso_idle");
