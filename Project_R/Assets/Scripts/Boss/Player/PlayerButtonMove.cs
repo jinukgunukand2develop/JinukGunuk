@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerButtonMove : MonoBehaviour
 {
+    // 였던 것
     [SerializeField] float fPlayerSpeed = 1f;
     [SerializeField] private float fJumpForce = 5f;
 
@@ -12,7 +13,6 @@ public class PlayerButtonMove : MonoBehaviour
     private Animator animator = null;
     private SpriteRenderer spriteRenderer = null;
     private GameManager gameManager = null;
-    private GameManagerBoss gameManagerBoss = null;
 
     public PlayerDamage playerDamage = null;
 
@@ -20,7 +20,7 @@ public class PlayerButtonMove : MonoBehaviour
     private bool bRight = false;
     private bool bJump = false;
     private bool bPlayerFacingRight = true;
-
+    private bool bMoving = false;
 
     private void Awake()
     {
@@ -34,8 +34,31 @@ public class PlayerButtonMove : MonoBehaviour
 
     void Update()
     {
-        if (bRight && !playerDamage.bKnockBack) { MoveRight(); }
-        if (bLeft && !playerDamage.bKnockBack) { MoveLeft(); }
+        if(!playerDamage.bKnockBack)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LeftButtonDown();
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                RightButtonDown();
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            LeftButtonUp();
+        }
+        if(Input.GetKeyUp(KeyCode.D))
+        {
+            RightButtonUp();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if(bRight && !playerDamage.bKnockBack) { MoveRight(); }
+        if(bLeft && !playerDamage.bKnockBack) { MoveLeft(); }
     }
 
     // TODO : 눌렀을때 true, false 값 전달
@@ -51,11 +74,11 @@ public class PlayerButtonMove : MonoBehaviour
     }
     public void RightButtonUp()
     {
-        if(!playerDamage.bKnockBack)
+        if(!playerDamage.bKnockBack && !bLeft)
         {
-            bRight = false; animator.Play("PlayerIdle");
+            animator.Play("PlayerIdle");
         }
-        
+        bRight = false;
     }
     public void LeftButtonDown()
     { 
@@ -70,11 +93,11 @@ public class PlayerButtonMove : MonoBehaviour
     }
     public void LeftButtonUp()
     {
-        if(!playerDamage.bKnockBack)
+        if(!playerDamage.bKnockBack && !bRight)
         {
-            bLeft = false; animator.Play("PlayerIdle");
+            animator.Play("PlayerIdle");
         }
-        
+        bLeft = false;
     }
     public void JumpPlayer()
     {

@@ -15,14 +15,15 @@ public class PlayerDamage : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         playerStat = gameObject.AddComponent<PlayerStatus>();
     }
 
 
-
+    // Vector2.Distance(); 로 들어가게 해야 함
     private void OnTriggerEnter2D(Collider2D boss)
     {
-        if (boss.CompareTag("Boss"))
+        if (boss.CompareTag("Boss") && !bKnockBack)
         {
             playerStat.hp -= 20;
             Debug.Log("피깎");
@@ -34,7 +35,7 @@ public class PlayerDamage : MonoBehaviour
     private void KnockBack()
     {
         bKnockBack = true;
-        player.transform.DOMoveX(-1f, animDuration);
+        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1.0f, 0.0f), ForceMode2D.Impulse);
         animator.Play("PlayerKnockBack");
         float value = animator.GetCurrentAnimatorStateInfo(0).length;
         Invoke("ReturnIdle", value);

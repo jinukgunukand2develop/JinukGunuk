@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class YassoSkill : MonoBehaviour
 {
-    private Animator animator = null;
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     #region Attack
-    public virtual void AttackQ()
+    public virtual void AttackQ(Animator animator)
     {
         animator.Play("Yasso_Attack_1");
-        Invoke("ReturnIdle", 1.1f);
+        StartCoroutine(ReturnIdle(animator, 1.2f));
     }
-    public virtual void AttackW()
+    public virtual void AttackW(Animator animator)
     {
         animator.Play("Yasso_Attack_2");
-        Invoke("ReturnIdle", 1.7f);
+        StartCoroutine(ReturnIdle(animator, 1.7f));
     }
-    public virtual void AttackE()
+    public virtual void AttackE(Animator animator)
     {
         animator.Play("Yasso_Dash_Attack");
-        Invoke("ReturnIdle", 1.2f);
+        StartCoroutine(ReturnIdle(animator, 1.3f));
     }
-    public void AttackR()
+    
+    public IEnumerator ReturnIdle(Animator animator, float wait)
     {
+        yield return new WaitForSeconds(wait);
+        animator.Play("Yasso_idle");
+    }
 
+    public void AttackR(Animator animator)
+    {
+        // 결국 없다
     }
     #endregion
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class YassoMove : MonoBehaviour
@@ -14,30 +16,38 @@ public class YassoMove : MonoBehaviour
     }
 
     #region Movement
-    public virtual void Dash()
+    public virtual int Dash(GameObject player, SpriteRenderer sprite, float time = 1.0f)
     {
         animator.Play("Yasso_Dash");
+        
+        if (player.transform.position.x < transform.position.x)
+        {
+            transform.DOMoveX(transform.position.x - 2f, time);
+            sprite.flipX = false;
+        }
+        else
+        {
+            transform.DOMoveX(transform.position.x + 2f, time);
+            sprite.flipX = true;
+        }
+        
         Invoke("ReturnIdle", 1.0f);
+        return 6;
     }
-    public virtual void JumpLand(float to, float speed = 2, float upSpeed = 2)
+    public virtual IEnumerator JumpLand(float to, YassoStatus status, float speed = 2, float upSpeed = 2)
     {
-        bJump = true;
+        yield return new WaitForSeconds(0.2f);
         animator.Play("Yasso_Jump");
-        Invoke("Wait", 0.9f);
-        Debug.Log("Wait 아레 코드");
-        //while (bJump)
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x - to, transform.position.y + (1 * upSpeed)), Time.deltaTime * speed);
-        //}
-        Invoke("Wait", 0.9f);
-        //while (bJump)
-        //{
-        //    transform.position = Vector2.down * upSpeed *  Time.deltaTime;
-        //}
+        transform.DOMove(new Vector2(transform.position.x - to / 2, transform.position.y + 1.5f), 0.9f).SetEase(Ease.OutExpo);
+        yield return new WaitForSeconds(0.9f);
+        transform.DOMove(new Vector2(transform.position.x - to / 2, transform.position.y - 1.5f), 0.9f).SetEase(Ease.InQuint);
+        yield return new WaitForSeconds(0.9f);
         ReturnIdle();
+        status.bJumping = false;
     }
-    private void Wait()
+    private IEnumerator Wait()
     {
+        yield return new WaitForSeconds(0.9f);
         bJump = false;
     }
 
@@ -46,9 +56,13 @@ public class YassoMove : MonoBehaviour
     {
         animator.Play("Yasso_idle");
     }
-    public IEnumerator Rest(float millisec)
+    public IEnumerator Rest(float millisec, YassoStatus status)
     {
+        ReturnIdle();
+        status.bIsAttacking = true;
         yield return new WaitForSeconds(millisec);
+        status.bIsAttacking = false;
+        FindObjectOfType<YassoAttackManager>()._Transform = 0;
     }
     #endregion
 }
