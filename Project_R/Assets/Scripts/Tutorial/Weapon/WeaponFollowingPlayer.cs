@@ -5,15 +5,12 @@ using UnityEngine;
 public class WeaponFollowingPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject player = null;
-
-    private new Transform transform = null;
     private Vector2 V2DistBetweenPlayerAndWeapon = Vector2.zero;
 
     private GameManager gameManager = null;
 
     void Start()
     {
-        transform = GetComponent<Transform>();
         gameManager = FindObjectOfType<GameManager>();
     }
 

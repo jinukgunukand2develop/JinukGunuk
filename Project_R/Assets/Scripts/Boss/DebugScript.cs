@@ -6,51 +6,27 @@ using UnityEngine.UIElements;
 public class DebugScript : MonoBehaviour
 {
     //YassoMove move;
+    //SpriteRenderer spriteRenderer;
+    //public GameObject player;
     //private void Awake()
     //{
+    //    spriteRenderer = GetComponent<SpriteRenderer>();
     //    move = gameObject.AddComponent<YassoMove>();
     //}
-    //void Start()
+    //private void Start()
     //{
-       
-
-    //    StartCoroutine(Wait());
-
+    //    StartCoroutine(a());
+    //    StartCoroutine(move.JumpLand(transform.position.x - 1f));
     //}
-
-    //IEnumerator Wait()
+    //private void Update()
     //{
-    //    yield return null;
-    //    MoveToRrdLoc();
-    //    yield return new WaitForSeconds(2.0f);
         
     //}
 
-    //public void MoveToRrdLoc()
+    //IEnumerator a()
     //{
-    //    float fJumpRand = Random.Range(-2.0f, 2.0f);
-    //    fJumpRand = RandAgain(fJumpRand);
-    //    Debug.Log(fJumpRand);
-    //    move.Jump(fJumpRand, 100);
-    //}
-
-    //private float RandAgain(float fJumpRand)
-    //{
-    //    while(true)
-    //    {
-    //        if (fJumpRand > -1.0f && fJumpRand < 1.0f)
-    //        {
-    //            fJumpRand = Random.Range(-2.0f, 2.0f);
-    //        }
-    //        else
-    //            break;
-    //    }
-    //    return fJumpRand;
-    //}
-
-
-    //void Update()
-    //{
+    //    yield return new WaitForSeconds(1.0f);
+    //    //move.Dash(player, spriteRenderer);
         
     //}
 }
