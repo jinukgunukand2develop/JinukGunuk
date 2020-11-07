@@ -8,17 +8,9 @@ public class UseWeapon : MonoBehaviour
     private GameManager gameManger = null;
 
     [SerializeField] private GameObject kzWeapon = null;
-    [SerializeField] private GameObject szWeapon = null;
-    [SerializeField] private GameObject zrWeapon = null;
     [SerializeField] private Slider weaponPointKz = null;
     [SerializeField] private Slider weaponPointSz = null;
     [SerializeField] private Slider weaponPointZr = null;
-    [SerializeField] private int kzMaxWP = 100;
-    [SerializeField] private int szMaxWP = 100;
-    [SerializeField] private int zrMaxWP = 100;
-    [SerializeField] private int kzCurWP = 100;
-    [SerializeField] private int szCurWP = 100;
-    [SerializeField] private int zrCurWP = 100;
 
     // 0 = 자르반, 1 = 카직스, 2 = 세주아니
     private byte bCurrentWeapon = 0;

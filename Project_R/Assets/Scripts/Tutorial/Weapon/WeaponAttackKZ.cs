@@ -11,57 +11,52 @@ public class WeaponAttackKZ : MonoBehaviour
 {
     private Animator animator = null;
     private GameManager gameManager = null;
-    private PlayerMove player = null;
+    public PlayerButtonMove player = null;
     private SpriteRenderer spriteRenderer = null;
 
     // 기본값 = 오른쪽
     private Vector2 rayDirection = Vector2.zero;
     private bool bLandingProgress = false;
     private bool bAttacking = false;
-
+    private bool bCooldown = false;
 
     [SerializeField] private float fWeaponFlyingSpeed = 5f;
     [SerializeField] private float fPlayerJumpXForce = 3f;
     [SerializeField] private float fPlayerJumpYForce = 4f;
-    [SerializeField] private Slider weaponPointKz = null;
-    [SerializeField] private Slider weaponPointSz = null;
-    [SerializeField] private Slider weaponPointZr = null;
-    [SerializeField] private int kzMaxWP = 100;
-    [SerializeField] private int szMaxWP = 100;
-    [SerializeField] private int zrMaxWP = 100;
-    [SerializeField] private int kzCurWP = 100;
-    [SerializeField] private int szCurWP = 100;
-    [SerializeField] private int zrCurWP = 100;
 
     
 
 
     private void Start()
     {
-        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+        //weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
+        //weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+        //weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
-        player = FindObjectOfType<PlayerMove>();
+        player = FindObjectOfType<PlayerButtonMove>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StartCoroutine(Kz());
+        //StartCoroutine(Kz());
 
         // TODO : WP 임시로 바꿔둔 것 나중에 다시 100으로 수정해야함
         // 디버그용 코드
-        if (kzCurWP > 100)
-            UnityEngine.Debug.LogWarning("카직스 WP 값이 디버그용 값!");
+        //if (kzCurWP > 100)
+        //    UnityEngine.Debug.LogWarning("카직스 WP 값이 디버그용 값!");
         
     }
 
     private void Update()
     {
-        HandleWPKz();
-        HandleWPSz();
-        HandleWPZr();
+        if (FindObjectOfType<YassoStatus>().bYassoDead || FindObjectOfType<PlayerStatus>().bPlayerDead)
+        {
+            gameObject.SetActive(false);
+        }
+        //HandleWPKz();
+        //HandleWPSz();
+        //HandleWPZr();
         FlipSprite();
         // TODO : 나중에 함수로 빼버리기 (다른 무기 스킬도)
-        if (((gameManager.bWeaponStatus & 1) == 1) && !bAttacking)
+        if (((gameManager.bWeaponStatus & 1) == 1) && !bAttacking && !FindObjectOfType<PlayerDamage>().bKnockBack)
         {
             switch(gameManager.bAtJump || gameManager.bKzAttackWPressed)
             {
@@ -73,7 +68,7 @@ public class WeaponAttackKZ : MonoBehaviour
                             bAttacking = true;
                             KzAttackQ();
                         }
-                        if (Input.GetKeyDown(KeyCode.W) )
+                        if (Input.GetKeyDown(KeyCode.W) && !bCooldown)
                         {
                             bAttacking = true;
                             gameManager.bKzAttackWPressed = true;
@@ -145,9 +140,9 @@ public class WeaponAttackKZ : MonoBehaviour
         
         transform.localScale = new Vector2(0.6f, 0.6f);
         animator.Play("kz q");
-        kzCurWP -= 25;
-        szCurWP += 20;
-        zrCurWP += 20;
+        //kzCurWP -= 25;
+        //szCurWP += 20;
+        //zrCurWP += 20;
         Invoke("KzAttackDamageQ", 0.4f);
         Invoke("AttackQ", 0.9f);
     }
@@ -174,7 +169,7 @@ public class WeaponAttackKZ : MonoBehaviour
     }
     private void KzAttackDamageW()
     {
-        
+        bCooldown = true;
         switch (gameManager.bPlayerFacingRightSide)
         {
             case true: rayDirection = new Vector2(1, 0); break;
@@ -191,8 +186,15 @@ public class WeaponAttackKZ : MonoBehaviour
                 AttackW();
             }
         }
+        StartCoroutine(CoolDown());
 
     }
+    private IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(2.0f);
+        bCooldown = false;
+    }
+
 
     private void KzAttackW()
     {
@@ -200,9 +202,9 @@ public class WeaponAttackKZ : MonoBehaviour
         transform.SetParent(null, true);
         transform.localScale = new Vector2(1f, 1f);
         animator.Play("kz w");
-        kzCurWP -= 25;
-        szCurWP += 20;
-        zrCurWP += 20;
+        //kzCurWP -= 25;
+        //szCurWP += 20;
+        //zrCurWP += 20;
     }
 
     private void KzAttackE()
@@ -222,9 +224,9 @@ public class WeaponAttackKZ : MonoBehaviour
             player.rigidBody.AddForce(new Vector2(-fPlayerJumpXForce, fPlayerJumpYForce), ForceMode2D.Impulse);
         }
         transform.SetParent(null, true);
-        kzCurWP -= 25;
-        szCurWP += 20;
-        zrCurWP += 20;
+        //kzCurWP -= 25;
+        //szCurWP += 20;
+        //zrCurWP += 20;
     }
     #region Invoke
     private void AttackQ()
@@ -266,24 +268,24 @@ public class WeaponAttackKZ : MonoBehaviour
     }
 
 
-    void HandleWPKz()
-    {
-        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-    }
-    void HandleWPSz()
-    {
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-    }
-    void HandleWPZr()
-    {
-        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
-    }
+    //void HandleWPKz()
+    //{
+    //    weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
+    //}
+    //void HandleWPSz()
+    //{
+    //    weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
+    //}
+    //void HandleWPZr()
+    //{
+    //    weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
+    //}
 
-    IEnumerator Kz()
-    {
-        kzCurWP += 5;
-        yield return new WaitForSeconds(5f);
-    }
+    //IEnumerator Kz()
+    //{
+    //    kzCurWP += 5;
+    //    yield return new WaitForSeconds(5f);
+    //}
 
 
     void Wait() { }

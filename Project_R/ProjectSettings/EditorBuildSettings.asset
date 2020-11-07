@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Clear.unity
     guid: e99b28f4f9409354b9ec98dba2640608
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: adaaa768220d8be43bf83736fc7d5e83
+  - enabled: 1
+    path: Assets/Scenes/YassoDead.unity
+    guid: bc601b7b8b23a87469ca1ce7bc2e3ea9
+  - enabled: 1
+    path: Assets/Scenes/PlayerDead.unity
+    guid: 368707baa3091e64d9b5306d8f5ec3e6
   m_configObjects: {}

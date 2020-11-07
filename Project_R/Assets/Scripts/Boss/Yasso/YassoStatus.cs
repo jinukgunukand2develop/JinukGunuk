@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class YassoStatus : MonoBehaviour
 {
-    public short iHP = 500;
+    public int iHP = 100;
     public int skillUseCount = 0;
     public int beenIdleFor = 0;
-
+    public bool bYassoDead = false;
     public bool bAttackFinished = true;
     public bool bIsAttacking = false;
     public bool bJumping = false;

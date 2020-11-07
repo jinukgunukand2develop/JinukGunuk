@@ -6,11 +6,26 @@ public class CameraFollow : MonoBehaviour
 {
     public GameObject player = null;
     private Vector3 cameraPosition = Vector3.zero;
+    private PositionClamp clamp = null;
+
+    private void Start()
+    {
+        clamp = FindObjectOfType<PositionClamp>();
+    }
+
 
     void Update()
     {
-        ClampCameraXPos();
-        transform.position = cameraPosition;
+        if(!clamp.bAtbattle)
+        {
+            ClampCameraXPos();
+            transform.position = cameraPosition;
+        }
+        else
+        {
+            transform.position = new Vector3(0f, transform.position.y, -10);
+        }
+        
     }
 
     void ClampCameraXPos()
@@ -19,6 +34,10 @@ public class CameraFollow : MonoBehaviour
         if (cameraPosition.x < -16.9f)
         {
             cameraPosition.x = -16.9f;
+        }
+        if(cameraPosition.x > 0.18f)
+        {
+            cameraPosition.x = 0.18f;
         }
     }
 }

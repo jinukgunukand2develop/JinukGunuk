@@ -34,7 +34,8 @@ public class PlayerButtonMove : MonoBehaviour
 
     void Update()
     {
-        if(!playerDamage.bKnockBack)
+        transform.rotation = Quaternion.identity;
+        if(!playerDamage.bKnockBack || !bJump)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -43,6 +44,11 @@ public class PlayerButtonMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D))
             {
                 RightButtonDown();
+            }
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                rigidBody.AddForce(new Vector2(0.0f, fJumpForce));
+                bJump = true;
             }
         }
         if(Input.GetKeyUp(KeyCode.A))
@@ -59,6 +65,7 @@ public class PlayerButtonMove : MonoBehaviour
     {
         if(bRight && !playerDamage.bKnockBack) { MoveRight(); }
         if(bLeft && !playerDamage.bKnockBack) { MoveLeft(); }
+        if (!playerDamage.bKnockBack) { StartCoroutine(JumpPlayer()); }
     }
 
     // TODO : 눌렀을때 true, false 값 전달
@@ -99,16 +106,15 @@ public class PlayerButtonMove : MonoBehaviour
         }
         bLeft = false;
     }
-    public void JumpPlayer()
+    IEnumerator JumpPlayer()
     {
-        if(!bJump)
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rigidBody.velocity.y) < 0.001f)
         {
-            bJump = true;
             animator.Play("PlayerJump");
             rigidBody.AddForce(new Vector2(0f, fJumpForce), ForceMode2D.Impulse);
-            Invoke("Wait", 1.3f);
+            yield return new WaitForSeconds(0.3f);
+            animator.Play("PlayerIdle");
         }
-        
     }
     void Wait()
     {

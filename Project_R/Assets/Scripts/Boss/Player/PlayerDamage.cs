@@ -2,21 +2,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerDamage : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player = null;
+    [SerializeField] private GameObject player = null;
+    [SerializeField] private GameObject yasso = null;
     private PlayerStatus playerStat = null;
     private float animDuration;
     private Animator animator = null;
 
     public bool bKnockBack = false;
-
+    public Slider healthBar = null;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         playerStat = gameObject.AddComponent<PlayerStatus>();
+        
+    }
+    private void Start()
+    {
+        healthBar.maxValue = playerStat.hp;
+    }
+    private void Update()
+    {
+        healthBar.value = playerStat.hp;
+        if (playerStat.hp < 1)
+        {
+            playerStat.bPlayerDead = true;
+            healthBar.gameObject.SetActive(false);
+            SceneManager.LoadScene("PlayerDead");
+        }
+            
     }
 
 
@@ -34,8 +51,17 @@ public class PlayerDamage : MonoBehaviour
 
     private void KnockBack()
     {
+
         bKnockBack = true;
-        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1.0f, 0.0f), ForceMode2D.Impulse);
+        if(yasso.transform.localScale.x == -1.0f)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2.0f, 0.3f), ForceMode2D.Impulse);
+        }
+        else
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2.0f, 0.3f), ForceMode2D.Impulse);
+        }
+
         animator.Play("PlayerKnockBack");
         float value = animator.GetCurrentAnimatorStateInfo(0).length;
         Invoke("ReturnIdle", value);
@@ -43,7 +69,6 @@ public class PlayerDamage : MonoBehaviour
 
     private void ReturnIdle()
     {
-        animator.Play("PlayerIdle");
         bKnockBack = false;
     }
 
