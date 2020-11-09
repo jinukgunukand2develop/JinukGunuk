@@ -13,6 +13,10 @@ public class WeaponAttackKZ : MonoBehaviour
     private GameManager gameManager = null;
     public PlayerButtonMove player = null;
     private SpriteRenderer spriteRenderer = null;
+    private YassoStatus yassoStatus = null;
+    private PlayerStatus playerStatus = null;
+    private PlayerDamage playerDamage = null;
+
 
     // 기본값 = 오른쪽
     private Vector2 rayDirection = Vector2.zero;
@@ -23,8 +27,6 @@ public class WeaponAttackKZ : MonoBehaviour
     [SerializeField] private float fWeaponFlyingSpeed = 5f;
     [SerializeField] private float fPlayerJumpXForce = 3f;
     [SerializeField] private float fPlayerJumpYForce = 4f;
-
-    
 
 
     private void Start()
@@ -37,17 +39,23 @@ public class WeaponAttackKZ : MonoBehaviour
         player = FindObjectOfType<PlayerButtonMove>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //StartCoroutine(Kz());
-
         // TODO : WP 임시로 바꿔둔 것 나중에 다시 100으로 수정해야함
         // 디버그용 코드
         //if (kzCurWP > 100)
         //    UnityEngine.Debug.LogWarning("카직스 WP 값이 디버그용 값!");
-        
+
+        yassoStatus = FindObjectOfType<YassoStatus>();
+        playerStatus = FindObjectOfType<PlayerStatus>();
+        playerDamage = FindObjectOfType<PlayerDamage>();
+
+
     }
 
     private void Update()
     {
-        if (FindObjectOfType<YassoStatus>().bYassoDead || FindObjectOfType<PlayerStatus>().bPlayerDead)
+        
+
+        if ((yassoStatus != null || playerStatus != null) && (yassoStatus.bYassoDead || playerStatus.bPlayerDead))
         {
             gameObject.SetActive(false);
         }
@@ -56,14 +64,31 @@ public class WeaponAttackKZ : MonoBehaviour
         //HandleWPZr();
         FlipSprite();
         // TODO : 나중에 함수로 빼버리기 (다른 무기 스킬도)
-        if (((gameManager.bWeaponStatus & 1) == 1) && !bAttacking && !FindObjectOfType<PlayerDamage>().bKnockBack)
+        if (playerDamage != null)
         {
-            switch(gameManager.bAtJump || gameManager.bKzAttackWPressed)
+            if (!bAttacking && !playerDamage.bKnockBack)
+            {
+                Attack();
+            }
+            
+        }
+        else if(!bAttacking)
+        {
+            Attack();
+            
+        }
+    }
+
+    void Attack()
+    {
+        if (((gameManager.bWeaponStatus & 1) == 1))
+        {
+            switch (gameManager.bAtJump || gameManager.bKzAttackWPressed)
             {
                 case true: break;
                 case false:
                     {
-                        if (Input.GetKeyDown(KeyCode.Q) )
+                        if (Input.GetKeyDown(KeyCode.Q))
                         {
                             bAttacking = true;
                             KzAttackQ();
@@ -74,7 +99,7 @@ public class WeaponAttackKZ : MonoBehaviour
                             gameManager.bKzAttackWPressed = true;
                             KzAttackW();
                         }
-                        if (Input.GetKeyDown(KeyCode.E) )
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
                             bAttacking = true;
                             KzAttackE();

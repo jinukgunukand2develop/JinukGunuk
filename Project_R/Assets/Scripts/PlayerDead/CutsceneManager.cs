@@ -23,7 +23,6 @@ public class CutsceneManager : MonoBehaviour
         yasso.transform.DOMoveX(0.0f, 0.3f).SetEase(Ease.InOutCubic);
         yasso.GetComponent<Animator>().Play("Yasso_Dash_Attack");
         yield return new WaitForSeconds(0.3f);
-        
         if(yasso.transform.position.x == 0)
         {
             player.GetComponent<Animator>().Play("PlayerKnockBack");

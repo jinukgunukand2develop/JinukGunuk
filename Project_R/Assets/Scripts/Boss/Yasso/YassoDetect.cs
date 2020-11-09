@@ -16,6 +16,8 @@ public class YassoDetect : MonoBehaviour
     /// <param name="fEQRange"></param>
     /// <param name="fDetectDistance"></param>
     /// <returns></returns>
+    
+    
     public virtual int RangeDetect(GameObject player, float fQRange, float fEQRange, float fDetectDistance)
     {
         if (Detect(player, fDetectDistance, fQRange))
