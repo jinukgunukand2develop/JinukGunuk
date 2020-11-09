@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
 
     public void OnClickStartButton()
     {
-        SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene("Story");
     }
 
     public void OnClickOptionButton() 
