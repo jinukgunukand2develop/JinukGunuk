@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     // 카직스 무기가 있는지 확인하려면
     // bWeaponStatus & 1;
 
+
+
     private void Start()
     {
         instance = this;

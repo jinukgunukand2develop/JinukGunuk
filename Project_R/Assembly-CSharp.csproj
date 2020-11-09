@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Boss\Interfaces\ISkill.cs" />
     <Compile Include="Assets\Scripts\Boss\Player\PlayerButtonMove.cs" />
     <Compile Include="Assets\Scripts\Boss\Player\PlayerDamage.cs" />
-    <Compile Include="Assets\Scripts\Boss\Player\PlayerKnockBack.cs" />
     <Compile Include="Assets\Scripts\Boss\Player\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\Boss\PlayerDeadScene.cs" />
     <Compile Include="Assets\Scripts\Boss\PositionClamp.cs" />
