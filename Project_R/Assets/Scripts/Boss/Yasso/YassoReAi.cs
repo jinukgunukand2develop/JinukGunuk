@@ -140,6 +140,7 @@ public class YassoReAi : MonoBehaviour
     private IEnumerator AttackQ(float cooldown = 1.0f)
     {
         bIsAttacking = true;
+        status.bUsedQ = true;
         anim.Play("Yasso_Attack_1");
         if(!bFlip)
         {
@@ -151,6 +152,7 @@ public class YassoReAi : MonoBehaviour
         }
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         StartCoroutine(JumpLand(cooldown));
+        status.bUsedQ = false;
     }
 
     private IEnumerator AttackEQ()

@@ -11,6 +11,7 @@ public class PlayerDamage : MonoBehaviour
     private PlayerStatus playerStat = null;
     private float animDuration;
     private Animator animator = null;
+    private YassoStatus yassoStatus = null;
 
     public bool bKnockBack = false;
     public Slider healthBar = null;
@@ -22,6 +23,7 @@ public class PlayerDamage : MonoBehaviour
     }
     private void Start()
     {
+        yassoStatus = FindObjectOfType<YassoStatus>();
         healthBar.maxValue = playerStat.hp;
     }
     private void Update()
@@ -37,11 +39,16 @@ public class PlayerDamage : MonoBehaviour
     }
 
 
-    // Vector2.Distance(); 로 들어가게 해야 함
+    // Vector2.Distance(); 로 들어가게 해야 함?
     private void OnTriggerEnter2D(Collider2D boss)
     {
         if (boss.CompareTag("Boss") && !bKnockBack)
         {
+            if(yassoStatus.bUsedQ)
+            {
+                ++yassoStatus.qHitCount;
+                Debug.Log(yassoStatus.qHitCount);
+            }
             playerStat.hp -= 20;
             Debug.Log("피깎");
             KnockBack();
