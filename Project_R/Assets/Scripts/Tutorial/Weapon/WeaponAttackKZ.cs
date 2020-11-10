@@ -137,19 +137,26 @@ public class WeaponAttackKZ : MonoBehaviour
         {
             case false:
                 {
-                    switch (!transform.parent.CompareTag("Player"))
+                    switch(transform.parent != null)
                     {
-                        case false:
+                        case true:
                             {
-                                if (gameManager.bPlayerFacingRightSide)
+                                switch (!transform.parent.CompareTag("Player"))
                                 {
-                                    spriteRenderer.flipX = false;
-                                    transform.localPosition = new Vector2(0.3f, 0f);
-                                }
-                                else
-                                {
-                                    spriteRenderer.flipX = true;
-                                    transform.localPosition = new Vector2(-0.3f, 0f);
+                                    case false:
+                                        {
+                                            if (gameManager.bPlayerFacingRightSide)
+                                            {
+                                                spriteRenderer.flipX = false;
+                                                transform.localPosition = new Vector2(0.3f, 0f);
+                                            }
+                                            else
+                                            {
+                                                spriteRenderer.flipX = true;
+                                                transform.localPosition = new Vector2(-0.3f, 0f);
+                                            }
+                                            break;
+                                        }
                                 }
                                 break;
                             }

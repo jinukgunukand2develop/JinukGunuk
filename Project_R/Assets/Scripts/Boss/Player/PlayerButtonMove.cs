@@ -37,11 +37,11 @@ public class PlayerButtonMove : MonoBehaviour
         transform.rotation = Quaternion.identity;
         if(!playerDamage.bKnockBack || !bJump)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 LeftButtonDown();
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 RightButtonDown();
             }
@@ -51,11 +51,11 @@ public class PlayerButtonMove : MonoBehaviour
                 bJump = true;
             }
         }
-        if(Input.GetKeyUp(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             LeftButtonUp();
         }
-        if(Input.GetKeyUp(KeyCode.D))
+        if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
         {
             RightButtonUp();
         }

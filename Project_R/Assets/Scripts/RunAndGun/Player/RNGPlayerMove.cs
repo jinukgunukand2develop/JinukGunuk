@@ -6,10 +6,12 @@ using UnityEngine.Tilemaps;
 
 public class RNGPlayerMove : MonoBehaviour
 {
+    [SerializeField] private float fSpeed = 1.54f;
     [SerializeField] private float fJumpForce = 5f;
 
     public Rigidbody2D rigidBody = null;
     private Animator animator = null;
+    
 
     private void Start()
     {
@@ -19,8 +21,15 @@ public class RNGPlayerMove : MonoBehaviour
 
     private void Update()
     {
+        transform.rotation = Quaternion.identity;
         StartCoroutine(JumpPlayer());
         ResetPlayerLocation();
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
+        transform.position += Vector3.right * fSpeed *  Time.deltaTime;
     }
 
     private void ResetPlayerLocation()
