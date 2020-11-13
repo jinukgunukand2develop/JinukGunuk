@@ -35,7 +35,7 @@ public class PlayerButtonMove : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
-        if(!playerDamage.bKnockBack || !bJump)
+        if(!playerDamage.bKnockBack || !gameManager.bShield)
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -63,8 +63,8 @@ public class PlayerButtonMove : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(bRight && !playerDamage.bKnockBack) { MoveRight(); }
-        if(bLeft && !playerDamage.bKnockBack) { MoveLeft(); }
+        if(bRight && !(playerDamage.bKnockBack || gameManager.bShield)) { MoveRight(); }
+        if(bLeft && !(playerDamage.bKnockBack || gameManager.bShield)) { MoveLeft(); }
         if (!playerDamage.bKnockBack) { StartCoroutine(JumpPlayer()); }
     }
 

@@ -2715,15 +2715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c0aa68a9ee1f444a0c66483231e25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPointKz: {fileID: 777914901}
-  weaponPointSz: {fileID: 1537464425}
-  weaponPointZr: {fileID: 947302224}
-  kzMaxWP: 100
-  szMaxWP: 100
-  zrMaxWP: 100
-  kzCurWP: 100
-  szCurWP: 100
-  zrCurWP: 100
+  fEDistance: 1
+  player: {fileID: 0}
 --- !u!111 &560301075
 Animation:
   m_ObjectHideFlags: 0
@@ -5404,9 +5397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kzWeapon: {fileID: 1873479451}
-  weaponPointKz: {fileID: 777914901}
-  weaponPointSz: {fileID: 1537464425}
-  weaponPointZr: {fileID: 947302224}
+  szWeapon: {fileID: 0}
+  zrWeapon: {fileID: 0}
 --- !u!1 &1052702995
 GameObject:
   m_ObjectHideFlags: 0
@@ -6318,6 +6310,8 @@ MonoBehaviour:
   bWeaponStatus: 0
   bPlayerFacingRightSide: 1
   bKzAttackWPressed: 0
+  bZrAttacking: 0
+  bShield: 0
 --- !u!4 &1237577887
 Transform:
   m_ObjectHideFlags: 0
@@ -7252,15 +7246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d542339c4ac1f394889a2e15d801bfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPointKz: {fileID: 777914901}
-  weaponPointSz: {fileID: 1537464425}
-  weaponPointZr: {fileID: 947302224}
-  kzMaxWP: 100
-  szMaxWP: 100
-  zrMaxWP: 100
-  kzCurWP: 100
-  szCurWP: 100
-  zrCurWP: 100
 --- !u!111 &1501639977
 Animation:
   m_ObjectHideFlags: 0
@@ -9679,9 +9664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kzWeapon: {fileID: 1873479451}
-  weaponPointKz: {fileID: 777914901}
-  weaponPointSz: {fileID: 1537464425}
-  weaponPointZr: {fileID: 947302224}
+  szWeapon: {fileID: 1501639972}
+  zrWeapon: {fileID: 560301070}
 --- !u!114 &1875431016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9710,6 +9694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7570416ed29c52b41928045924f3bace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fSpeed: 1.54
   fJumpForce: 5
   rigidBody: {fileID: 0}
 --- !u!1001 &1876496221

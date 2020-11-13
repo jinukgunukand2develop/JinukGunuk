@@ -30,6 +30,15 @@ public class Teemo : CTeemo
         }
     }
 
+    public void ZrE()
+    {
+        iHp -= 10;
+    }
+
+    public void ZrQ()
+    {
+        iHp -= 5;
+    }
 
     private void Hit()
     {

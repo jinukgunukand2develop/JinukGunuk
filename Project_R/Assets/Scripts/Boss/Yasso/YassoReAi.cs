@@ -184,7 +184,16 @@ public class YassoReAi : MonoBehaviour
         StartCoroutine(Damaged());
         status.iHP -= 5;
     }
-
+    public void ZrE()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 10;
+    }
+    public void ZrQ()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 5;
+    }
 
     private IEnumerator Damaged()
     {

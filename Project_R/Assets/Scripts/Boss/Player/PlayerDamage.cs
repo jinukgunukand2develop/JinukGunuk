@@ -9,10 +9,9 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] private GameObject player = null;
     [SerializeField] private GameObject yasso = null;
     private PlayerStatus playerStat = null;
-    private float animDuration;
     private Animator animator = null;
     private YassoStatus yassoStatus = null;
-
+    private GameManager gameManager = null;
     public bool bKnockBack = false;
     public Slider healthBar = null;
     private void Awake()
@@ -23,6 +22,7 @@ public class PlayerDamage : MonoBehaviour
     }
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         yassoStatus = FindObjectOfType<YassoStatus>();
         healthBar.maxValue = playerStat.hp;
     }
@@ -35,14 +35,13 @@ public class PlayerDamage : MonoBehaviour
             healthBar.gameObject.SetActive(false);
             SceneManager.LoadScene("PlayerDead");
         }
-            
     }
 
 
     // Vector2.Distance(); 로 들어가게 해야 함?
     private void OnTriggerEnter2D(Collider2D boss)
     {
-        if (boss.CompareTag("Boss") && !bKnockBack)
+        if (boss.CompareTag("Enemy") && !bKnockBack && !gameManager.bShield)
         {
             if(yassoStatus.bUsedQ)
             {

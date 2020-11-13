@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     public byte bWeaponStatus = 0;
     public bool bPlayerFacingRightSide = true;
     public bool bKzAttackWPressed = false;
+    public bool bZrAttacking = false;
+    public bool bShield = false;
+    public bool bCooldown = false;
     // 비트 연산
     // 카직스       0001 (1)
     // 세주아니     0010 (2)
@@ -68,17 +71,13 @@ public class GameManager : MonoBehaviour
 
     void MuteMusic()
     {
-        
         switch (audioSource.mute)
         {
             case true: audioSource.mute = false; break;
             case false: audioSource.mute = true; break;
         }
-        
-        
-        
-        
     }
+
     void HandleHP()
     {
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;

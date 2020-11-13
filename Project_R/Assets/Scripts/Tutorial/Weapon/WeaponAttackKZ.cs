@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Diagnostics;
-using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +20,6 @@ public class WeaponAttackKZ : MonoBehaviour
     private Vector2 rayDirection = Vector2.zero;
     private bool bLandingProgress = false;
     private bool bAttacking = false;
-    private bool bCooldown = false;
 
     [SerializeField] private float fWeaponFlyingSpeed = 5f;
     [SerializeField] private float fPlayerJumpXForce = 3f;
@@ -59,9 +56,6 @@ public class WeaponAttackKZ : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        //HandleWPKz();
-        //HandleWPSz();
-        //HandleWPZr();
         FlipSprite();
         // TODO : 나중에 함수로 빼버리기 (다른 무기 스킬도)
         if (playerDamage != null)
@@ -83,7 +77,7 @@ public class WeaponAttackKZ : MonoBehaviour
     {
         if (((gameManager.bWeaponStatus & 1) == 1))
         {
-            switch (gameManager.bAtJump || gameManager.bKzAttackWPressed)
+            switch (gameManager.bAtJump || gameManager.bKzAttackWPressed || gameManager.bZrAttacking)
             {
                 case true: break;
                 case false:
@@ -93,11 +87,14 @@ public class WeaponAttackKZ : MonoBehaviour
                             bAttacking = true;
                             KzAttackQ();
                         }
-                        if (Input.GetKeyDown(KeyCode.W) && !bCooldown)
+                        if (Input.GetKeyDown(KeyCode.W) && !gameManager.bCooldown)
                         {
+                            gameManager.bCooldown = true;
+                            Debug.LogWarning("kz w");
                             bAttacking = true;
                             gameManager.bKzAttackWPressed = true;
                             KzAttackW();
+                            
                         }
                         if (Input.GetKeyDown(KeyCode.E))
                         {
@@ -172,9 +169,6 @@ public class WeaponAttackKZ : MonoBehaviour
         
         transform.localScale = new Vector2(0.6f, 0.6f);
         animator.Play("kz q");
-        //kzCurWP -= 25;
-        //szCurWP += 20;
-        //zrCurWP += 20;
         Invoke("KzAttackDamageQ", 0.4f);
         Invoke("AttackQ", 0.9f);
     }
@@ -192,7 +186,7 @@ public class WeaponAttackKZ : MonoBehaviour
         if(foundSomething.collider != null)
         {
             float distance = Mathf.Abs(foundSomething.point.x - transform.position.x);
-            if (distance <= 0.1f)
+            if (distance <= 0.2f)
             {
                 foundSomething.collider.SendMessage("Hit", SendMessageOptions.DontRequireReceiver);
             }
@@ -201,7 +195,6 @@ public class WeaponAttackKZ : MonoBehaviour
     }
     private void KzAttackDamageW()
     {
-        bCooldown = true;
         switch (gameManager.bPlayerFacingRightSide)
         {
             case true: rayDirection = new Vector2(1, 0); break;
@@ -224,7 +217,7 @@ public class WeaponAttackKZ : MonoBehaviour
     private IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(2.0f);
-        bCooldown = false;
+        gameManager.bCooldown = false;
     }
 
 
@@ -232,11 +225,8 @@ public class WeaponAttackKZ : MonoBehaviour
     {
         GameManager.instance.SE(GameManager.audioClip.w);
         transform.SetParent(null, true);
-        transform.localScale = new Vector2(1f, 1f);
+        transform.localScale = new Vector2(0.8f, 0.8f);
         animator.Play("kz w");
-        //kzCurWP -= 25;
-        //szCurWP += 20;
-        //zrCurWP += 20;
     }
 
     private void KzAttackE()
@@ -256,9 +246,6 @@ public class WeaponAttackKZ : MonoBehaviour
             player.rigidBody.AddForce(new Vector2(-fPlayerJumpXForce, fPlayerJumpYForce), ForceMode2D.Impulse);
         }
         transform.SetParent(null, true);
-        //kzCurWP -= 25;
-        //szCurWP += 20;
-        //zrCurWP += 20;
     }
     #region Invoke
     private void AttackQ()
@@ -274,6 +261,7 @@ public class WeaponAttackKZ : MonoBehaviour
         gameManager.bKzAttackWPressed = false;
         transform.SetParent(player.transform, true);
         animator.Play("kz idle");
+        transform.localScale = new Vector2(1.0f, 1.0f);
         bAttacking = false;
     }
 
@@ -298,27 +286,6 @@ public class WeaponAttackKZ : MonoBehaviour
             Invoke("AttackE", 0.7f);
         }
     }
-
-
-    //void HandleWPKz()
-    //{
-    //    weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-    //}
-    //void HandleWPSz()
-    //{
-    //    weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-    //}
-    //void HandleWPZr()
-    //{
-    //    weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
-    //}
-
-    //IEnumerator Kz()
-    //{
-    //    kzCurWP += 5;
-    //    yield return new WaitForSeconds(5f);
-    //}
-
 
     void Wait() { }
 }

@@ -8,25 +8,8 @@ public class WeaponAttackSZ : MonoBehaviour
     private Animator animator = null;
     private GameManager gameManager = null;
     private SpriteRenderer spriteRenderer = null;
-
-    [SerializeField] private Slider weaponPointKz = null;
-    [SerializeField] private Slider weaponPointSz = null;
-    [SerializeField] private Slider weaponPointZr = null;
-    [SerializeField] private int kzMaxWP = 100;
-    [SerializeField] private int szMaxWP = 100;
-    [SerializeField] private int zrMaxWP = 100;
-    [SerializeField] private int kzCurWP = 100;
-    [SerializeField] private int szCurWP = 100;
-    [SerializeField] private int zrCurWP = 100;
-
     private void Start()
-    { 
-        weaponPointKz.value = (float) kzCurWP / (float) kzMaxWP;
-        weaponPointSz.value = (float) szCurWP / (float) szMaxWP;
-        weaponPointSz.value = (float) szCurWP / (float) szMaxWP;
-
-
-
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
@@ -34,13 +17,7 @@ public class WeaponAttackSZ : MonoBehaviour
 
     void Update()
     {
-        HandleWPKz();
-        HandleWPSz();
-        HandleWPZr();
         FlipSprite();
-        //Debug.Log((gameManager.bWeaponStatus & 2) == 2);
-        //Debug.Log(gameManager.bWeaponStatus & 2);
-        //Debug.Log(gameManager.bWeaponStatus);
 
         if (((gameManager.bWeaponStatus & 2) == 2) && transform.parent.CompareTag("Player"))
         {
@@ -49,38 +26,22 @@ public class WeaponAttackSZ : MonoBehaviour
                 case true: break;
                 case false:
                     {
-                        if (Input.GetKeyDown(KeyCode.Q) && szCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.Q))
                         {
                             animator.Play("sz q");
                             AttackQ();
-                            szCurWP -= 25;
-                            if (kzCurWP < 91)
-                            {
-                                kzCurWP += 20;
-                            }
-                            if (zrCurWP < 91)
-                            {
-                                zrCurWP += 20;
-                            }
-
                         }
-                        if (Input.GetKeyDown(KeyCode.W) && szCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.W))
                         {
                             animator.Play("sz w");
                             StartCoroutine(AttackW());
-                            szCurWP -= 25;
-                            kzCurWP += 20;
-                            zrCurWP += 20;
 
 
                         }
-                        if (Input.GetKeyDown(KeyCode.E) && szCurWP >= 25)
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
                             animator.Play("sz e");
                             AttackE();
-                            szCurWP -= 25;
-                            kzCurWP += 20;
-                            zrCurWP += 20;
                         }
                         break;
                     }
@@ -91,19 +52,34 @@ public class WeaponAttackSZ : MonoBehaviour
 
     private void FlipSprite()
     {
-        switch (gameManager.bAtJump)
+        // 에러가 떠가지고 이렇게 작성
+        switch (gameManager.bKzAttackWPressed || gameManager.bAtJump)
         {
             case false:
                 {
-                    if (!gameManager.bPlayerFacingRightSide)
+                    switch (transform.parent != null)
                     {
-                        spriteRenderer.flipX = true;
-                        transform.localPosition = new Vector2(-0.2f, 0f);
-                    }
-                    else
-                    {
-                        spriteRenderer.flipX = false;
-                        transform.localPosition = new Vector2(0.2f, 0f);
+                        case true:
+                            {
+                                switch (!transform.parent.CompareTag("Player"))
+                                {
+                                    case false:
+                                        {
+                                            if (gameManager.bPlayerFacingRightSide)
+                                            {
+                                                spriteRenderer.flipX = false;
+                                                transform.localPosition = new Vector2(0.3f, 0f);
+                                            }
+                                            else
+                                            {
+                                                spriteRenderer.flipX = true;
+                                                transform.localPosition = new Vector2(-0.3f, 0f);
+                                            }
+                                            break;
+                                        }
+                                }
+                                break;
+                            }
                     }
                     break;
                 }
@@ -126,17 +102,5 @@ public class WeaponAttackSZ : MonoBehaviour
     private void AttackE()
     {
         Debug.Log("세주아니 E");
-    }
-    void HandleWPKz()
-    {
-        weaponPointKz.value = (float)kzCurWP / (float)kzMaxWP;
-    }
-    void HandleWPSz()
-    {
-        weaponPointSz.value = (float)szCurWP / (float)szMaxWP;
-    }
-    void HandleWPZr()
-    {
-        weaponPointZr.value = (float)zrCurWP / (float)zrMaxWP;
     }
 }
