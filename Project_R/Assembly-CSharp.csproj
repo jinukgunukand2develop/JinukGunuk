@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Boss\Yasso\YassoSkill.cs" />
     <Compile Include="Assets\Scripts\Boss\Yasso\YassoStatus.cs" />
     <Compile Include="Assets\Scripts\Clear.cs" />
+    <Compile Include="Assets\Scripts\CutScene\BossEntry.cs" />
     <Compile Include="Assets\Scripts\CutScene\CutScene.cs" />
     <Compile Include="Assets\Scripts\MainMenu\Loading.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SwitchToTutorialScene.cs" />

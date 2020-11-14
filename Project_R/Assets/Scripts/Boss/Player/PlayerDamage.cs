@@ -41,17 +41,23 @@ public class PlayerDamage : MonoBehaviour
     // Vector2.Distance(); 로 들어가게 해야 함?
     private void OnTriggerEnter2D(Collider2D boss)
     {
-        if (boss.CompareTag("Enemy") && !bKnockBack && !gameManager.bShield)
+        if (boss.CompareTag("Enemy") && !bKnockBack)
         {
+            if(gameManager.bShield)
+            {
+                playerStat.hp -= 10;
+            }
+            else
+            {
+                KnockBack();
+                playerStat.hp -= 20;
+            }
             if(yassoStatus.bUsedQ)
             {
                 ++yassoStatus.qHitCount;
                 Debug.Log(yassoStatus.qHitCount);
             }
-            playerStat.hp -= 20;
             Debug.Log("피깎");
-            KnockBack();
-
         }
     }
 

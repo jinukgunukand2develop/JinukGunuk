@@ -21,6 +21,7 @@ public class YassoReAi : MonoBehaviour
     private bool bIsAttacking = false;
     private bool bFlip = false;
     public bool bBattle = false;
+    private bool bFreeze = false;
     [SerializeField] float fFollowSpeed = 1.5f;
 
     public const float DETECTDISTANCE = 2.6f;
@@ -42,6 +43,7 @@ public class YassoReAi : MonoBehaviour
 
     private IEnumerator YassoDead()
     {
+        DOTween.Kill(this);
         healthBar.gameObject.SetActive(false);
         transform.position = new Vector2(0.0f, -1.22f);
         anim.Play("Yasso_idle");
@@ -59,6 +61,8 @@ public class YassoReAi : MonoBehaviour
 
     void Update()
     {
+        if (bFreeze)
+            anim.Play("Yasso_idle");
         if (player.transform.position.x > -2.6f)
             bBattle = true;
         if (!bBattle)
@@ -73,7 +77,7 @@ public class YassoReAi : MonoBehaviour
         healthBar.value = status.iHP;
 
         Flip();
-        if (!bIsAttacking && bBattle && !status.bYassoDead && !FindObjectOfType<PlayerStatus>().bPlayerDead)
+        if (!bIsAttacking && bBattle && !status.bYassoDead && !FindObjectOfType<PlayerStatus>().bPlayerDead && !bFreeze)
         {
             switch (detect.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
             {
@@ -94,6 +98,17 @@ public class YassoReAi : MonoBehaviour
                         break;
                     }
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(bFreeze)
+        {
+            DOTween.Kill(transform);
+            StopAllCoroutines();
+            bIsAttacking = false;
+            StartCoroutine(Damaged());
         }
     }
 
@@ -120,7 +135,7 @@ public class YassoReAi : MonoBehaviour
 
     void Flip()
     {
-        if(!bIsAttacking)
+        if(!bIsAttacking && !bFreeze)
         {
             if (player.transform.position.x < transform.position.x)
             {
@@ -179,6 +194,8 @@ public class YassoReAi : MonoBehaviour
         bIsAttacking = false;
     }
 
+    #region 피격
+    // 나중에 시간 있으면 따로 클래스 파도 될거 같음
     public void Hit()
     {
         StartCoroutine(Damaged());
@@ -194,6 +211,17 @@ public class YassoReAi : MonoBehaviour
         StartCoroutine(Damaged());
         status.iHP -= 5;
     }
+    public void SzW()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 10;
+        bFreeze = true;
+        Invoke("Freeze", 2.0f);
+    }
+    public void Freeze()
+    {
+        bFreeze = false;
+    }
 
     private IEnumerator Damaged()
     {
@@ -201,4 +229,6 @@ public class YassoReAi : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         sprite.color = new Color32(255, 255, 255, 255);
     }
+
+    #endregion 피격
 }

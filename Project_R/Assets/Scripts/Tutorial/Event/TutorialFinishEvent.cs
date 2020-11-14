@@ -13,7 +13,7 @@ public class TutorialFinishEvent : MonoBehaviour
         {
             Debug.Log("Finish Event");
             gameObject.SetActive(false);
-            SceneManager.LoadScene("Boss");
+            SceneManager.LoadScene("BossEntry");
         }
     }
 }

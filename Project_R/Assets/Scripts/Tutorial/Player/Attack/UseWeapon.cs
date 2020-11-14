@@ -26,11 +26,11 @@ public class UseWeapon : MonoBehaviour
 
     void Update()
     {
-        if(playerDamage != null && Input.GetKeyDown(KeyCode.F) && !gameManager.bAtJump && !gameManager.bZrAttacking && !playerDamage.bKnockBack && !gameManager.bKzAttackWPressed)
+        if(playerDamage != null && Input.GetKeyDown(KeyCode.F) && !gameManager.bAtJump && !gameManager.bZrAttacking && !playerDamage.bKnockBack && !gameManager.bKzAttackWPressed && !gameManager.bSzAttacking)
         {
             WeaponCycle();
         }
-        else if(Input.GetKeyDown(KeyCode.F) && !gameManager.bAtJump && !gameManager.bZrAttacking && !gameManager.bKzAttackWPressed)
+        else if(Input.GetKeyDown(KeyCode.F) && !gameManager.bAtJump && !gameManager.bZrAttacking && !gameManager.bKzAttackWPressed && !gameManager.bSzAttacking)
         {
             WeaponCycle();
         }

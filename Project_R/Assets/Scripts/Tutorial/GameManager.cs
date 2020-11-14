@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour
     public bool bPlayerFacingRightSide = true;
     public bool bKzAttackWPressed = false;
     public bool bZrAttacking = false;
+    public bool bSzAttacking = false;
     public bool bShield = false;
+    public bool bShieldCoolDown = false;
     public bool bCooldown = false;
     // 비트 연산
     // 카직스       0001 (1)
@@ -46,7 +48,12 @@ public class GameManager : MonoBehaviour
     // 카직스 무기가 있는지 확인하려면
     // bWeaponStatus & 1;
 
-
+    public IEnumerator CoolDown()
+    {
+        bShieldCoolDown = true;
+        yield return new WaitForSeconds(5.0f);
+        bShieldCoolDown = false;
+    }
 
     private void Start()
     {

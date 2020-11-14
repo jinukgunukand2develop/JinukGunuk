@@ -10,6 +10,13 @@ public class Teemo : CTeemo
     [SerializeField] private float fCollisionDamageDelay = 1f;
     [SerializeField] private GameObject effect = null;
 
+    private SpriteRenderer sprite = null;
+
+    private void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
     void Update()
     {
         StartCoroutine(CheckCollision());
@@ -32,19 +39,30 @@ public class Teemo : CTeemo
 
     public void ZrE()
     {
+        StartCoroutine(Damaged());
         iHp -= 10;
     }
-
     public void ZrQ()
     {
+        StartCoroutine(Damaged());
         iHp -= 5;
     }
-
-    private void Hit()
+    public void SzW()
+    {
+        StartCoroutine(Damaged());
+        iHp -= 10;
+    }
+    public void Hit()
     {
         iHp -= 5;
     }
 
+    private IEnumerator Damaged()
+    {
+        sprite.color = new Color32(255, 255, 255, 90);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = new Color32(255, 255, 255, 255);
+    }
 
     protected void Dead()
     {

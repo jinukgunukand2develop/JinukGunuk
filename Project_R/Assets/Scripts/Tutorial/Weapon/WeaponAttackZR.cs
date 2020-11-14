@@ -42,11 +42,15 @@ public class WeaponAttackZR : MonoBehaviour
                                     }
                                     if (Input.GetKeyDown(KeyCode.W))
                                     {
-                                        transform.localPosition = new Vector2(0f, -0.2f);
-                                        animator.Play("zr w");
-                                        gameManager.bShield = true;
-                                        gameManager.bZrAttacking = true;
-                                        ZrAttackW();
+                                        if(!gameManager.bShieldCoolDown)
+                                        {
+                                            StartCoroutine(gameManager.CoolDown());
+                                            transform.localPosition = new Vector2(0f, -0.2f);
+                                            animator.Play("zr w");
+                                            gameManager.bShield = true;
+                                            gameManager.bZrAttacking = true;
+                                            ZrAttackW();
+                                        }
                                     }
                                     if (Input.GetKeyDown(KeyCode.E))
                                     {
@@ -182,6 +186,6 @@ public class WeaponAttackZR : MonoBehaviour
         gameManager.bZrAttacking = false;
     }
 
-
+    
     private void Wait() { }
 }

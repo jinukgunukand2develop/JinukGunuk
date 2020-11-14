@@ -35,8 +35,8 @@ public class PlayerButtonMove : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
-        if(!playerDamage.bKnockBack || !gameManager.bShield)
-        {
+        //if(!playerDamage.bKnockBack || !gameManager.bShield)
+        //{
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 LeftButtonDown();
@@ -50,7 +50,7 @@ public class PlayerButtonMove : MonoBehaviour
                 rigidBody.AddForce(new Vector2(0.0f, fJumpForce));
                 bJump = true;
             }
-        }
+        //}
         if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
         {
             LeftButtonUp();
