@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\Tutorial\Camera\FollowSky.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Enemy\EnemyClass.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Enemy\Teemo.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\Event\Stage1Finish.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Event\TutorialFinishEvent.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Event\TutorialInfoEvent.cs" />
     <Compile Include="Assets\Scripts\Tutorial\GameManager.cs" />

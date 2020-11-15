@@ -354,20 +354,20 @@
     <Reference Include="DOTweenEditor">
       <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Google.VersionHandlerImpl_v1.2.161">
-      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.161.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandler">
-      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.PackageManagerResolver_v1.2.161">
-      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.161.dll</HintPath>
+    <Reference Include="Google.IOSResolver_v1.2.161">
+      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="Google.JarResolver_v1.2.161">
       <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.161.dll</HintPath>
     </Reference>
-    <Reference Include="Google.IOSResolver_v1.2.161">
-      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.161.dll</HintPath>
+    <Reference Include="Google.PackageManagerResolver_v1.2.161">
+      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.161.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.161">
+      <HintPath>D:/수업/유니티/JinukGunuk/Project_R/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
