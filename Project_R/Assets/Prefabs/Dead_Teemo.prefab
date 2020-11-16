@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5077474228904443978}
   - component: {fileID: 7879502797071238235}
   - component: {fileID: 420376553197266272}
+  - component: {fileID: 4294504669595872449}
   m_Layer: 0
   m_Name: Dead_Teemo
   m_TagString: Untagged
@@ -109,3 +110,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29, y: 0.49}
   m_EdgeRadius: 0
+--- !u!114 &4294504669595872449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8042055814215641538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iHp: 15
+  collisionDamage: 20
+  player: {fileID: 0}
+  fCollisionDamageDelay: 1
+  effect: {fileID: 0}

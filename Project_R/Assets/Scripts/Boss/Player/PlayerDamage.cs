@@ -52,10 +52,13 @@ public class PlayerDamage : MonoBehaviour
                 KnockBack();
                 playerStat.hp -= 20;
             }
-            if(yassoStatus.bUsedQ)
+            if(yassoStatus != null)
             {
-                ++yassoStatus.qHitCount;
-                Debug.Log(yassoStatus.qHitCount);
+                if (yassoStatus.bUsedQ)
+                {
+                    ++yassoStatus.qHitCount;
+                    Debug.Log(yassoStatus.qHitCount);
+                }
             }
             Debug.Log("피깎");
         }
