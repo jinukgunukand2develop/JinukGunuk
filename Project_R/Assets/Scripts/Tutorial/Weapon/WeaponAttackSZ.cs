@@ -90,6 +90,7 @@ public class WeaponAttackSZ : MonoBehaviour
 
     private IEnumerator AttackQ()
     {
+        player.rigidBody.velocity = Vector2.zero;
         gameManager.bDashCooldown = true;
         transform.localPosition = new Vector2(0.0f, 0.0f);
         float flForceX = 3.0f;

@@ -11,8 +11,12 @@ public class BossEntry : MonoBehaviour
     [SerializeField] private GameObject sky = null;
     [SerializeField] private Text text = null;
 
+    private Scene scene;
+
+
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
         text.DOFade(0f, 0f);
         StartCoroutine(EntryScene());
     }
@@ -24,13 +28,18 @@ public class BossEntry : MonoBehaviour
     }
 
     private IEnumerator EntryScene()
-    {   
+    {
         player.GetComponent<Animator>().Play("PlayerMove");
         player.transform.DOMoveX(-0.8f, 1.5f).SetEase(Ease.Linear);
         yield return new WaitForSeconds(1.5f);
         text.DOFade(1.0f, 1.0f);
         yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("Boss");
+        switch (scene.name)
+        {
+            case "BossEntry": SceneManager.LoadScene("Boss"); break;
+            case "Stage1Entry": SceneManager.LoadScene("Stage1"); break;
+            default: Debug.LogError("Cannot Load Scene"); break;
+        }
     }
     
 }

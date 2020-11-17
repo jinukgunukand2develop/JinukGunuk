@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource = null;
     [SerializeField] private AudioSource audioSource2 = null;
     [SerializeField] protected Slider slider = null;
-    [SerializeField] protected float maxPlayerHP = 10000;
-    [SerializeField] protected float iPlayerHP = 10000;
+    [SerializeField] protected float maxPlayerHP = 100;
+    [SerializeField] protected float iPlayerHP = 100;
     [SerializeField] private GameObject music = null;
    
 
@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         audioSource = music.GetComponent<AudioSource>();
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;
+        iPlayerHP -= 20;
     }
     private void Update()
     {
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
     }
     private void Dead()
     {
-        if (iPlayerHP <= 0)
+        if (iPlayerHP < 0)
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("Tutorial");

@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackSZ.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponAttackZR.cs" />
     <Compile Include="Assets\Scripts\Tutorial\Weapon\WeaponFollowingPlayer.cs" />
+    <Compile Include="Assets\Scripts\backgroundmove_tuto.cs" />
     <None Include="Assets\Sprites\SkillEffects\ReadmeSkillDescription.txt" />
     <None Include="Assets\Scripts\Boss\Yasso\Yasso.txt" />
     <Reference Include="UnityEngine">
