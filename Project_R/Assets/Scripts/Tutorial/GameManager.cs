@@ -41,12 +41,21 @@ public class GameManager : MonoBehaviour
     public bool bShield = false;
     public bool bShieldCoolDown = false;
     public bool bCooldown = false;
+    public bool bDashCooldown = false;
     // 비트 연산
     // 카직스       0001 (1)
     // 세주아니     0010 (2)
     // 자르반       0100 (4)
     // 카직스 무기가 있는지 확인하려면
     // bWeaponStatus & 1;
+
+    public IEnumerator Wait(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        bDashCooldown = false;
+    }
+
+
 
     public IEnumerator CoolDown()
     {

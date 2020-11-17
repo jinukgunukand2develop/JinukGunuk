@@ -19,15 +19,15 @@ public class CutScene : MonoBehaviour
     {
         if (Input.anyKeyDown) 
         {
-            image1.SetActive(true);
-            image1.transform.DOLocalMoveX(0f, 1.5f).SetUpdate(true).SetEase(Ease.Unset).OnComplete(() => {
-                
+         
+            image1.transform.DOLocalMoveX(0f, 0f).SetUpdate(true).SetEase(Ease.Unset).OnComplete(() => {
+                image1.SetActive(true);
             });
             if (image1.activeSelf) 
             {
-                image2.SetActive(true);
-                image2.transform.DOLocalMoveY(127f, 3f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
                 
+                image2.transform.DOLocalMoveY(127f, 0f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
+                image2.SetActive(true);
 
             
                 });
@@ -37,32 +37,32 @@ public class CutScene : MonoBehaviour
 
             if (image1.activeSelf&&image2.activeSelf) 
             {
-                image3.SetActive(true);
-                image3.transform.DOLocalMoveY(128.7f, 5f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
-                    
+                
+                image3.transform.DOLocalMoveY(128.7f, 0f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
+                    image3.SetActive(true);
                 });
             }
             if (image1.activeSelf && image2.activeSelf && image3.activeSelf) 
             {
-                image4.SetActive(true);
-                image4.transform.DOLocalMoveX(281.5f, 7f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
-                    
+                
+                image4.transform.DOLocalMoveX(281.5f, 0f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
+                    image4.SetActive(true);
                 });
             }
 
             if (image1.activeSelf && image2.activeSelf && image3.activeSelf && image4.activeSelf) 
             {
-                image5.SetActive(true);
-                image5.transform.DOLocalMoveY(-95f, 9f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
-                    
+                
+                image5.transform.DOLocalMoveY(-95f, 0f).SetUpdate(true).SetEase(Ease.OutCirc).OnComplete(() => {
+                    image5.SetActive(true);
                 });
             }
 
             if (image1.activeSelf && image2.activeSelf && image3.activeSelf && image4.activeSelf && image5.activeSelf) 
             {
-                image6.SetActive(true);
-                image6.transform.DOLocalMoveY(-95f, 12f).SetUpdate(true).SetEase(Ease.InQuad).OnComplete(() => {
-                    
+                
+                image6.transform.DOLocalMoveY(-95f, 0f).SetUpdate(true).SetEase(Ease.InQuad).OnComplete(() => {
+                    image6.SetActive(true);
                 });
             }
 

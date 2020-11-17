@@ -33,7 +33,7 @@ public class WeaponAttackSZ : MonoBehaviour
                 case true: break;
                 case false:
                     {
-                        if (Input.GetKeyDown(KeyCode.Q))
+                        if (Input.GetKeyDown(KeyCode.Q) && !gameManager.bDashCooldown)
                         {
                             animator.Play("sz q");
                             StartCoroutine(AttackQ());
@@ -86,10 +86,11 @@ public class WeaponAttackSZ : MonoBehaviour
                 }
         }
     }
-
+    
 
     private IEnumerator AttackQ()
     {
+        gameManager.bDashCooldown = true;
         transform.localPosition = new Vector2(0.0f, 0.0f);
         float flForceX = 3.0f;
         gameManager.bSzAttacking = true;
@@ -102,6 +103,7 @@ public class WeaponAttackSZ : MonoBehaviour
         animator.Play("sz idle");
         gameManager.bSzAttacking = false;
         Debug.Log("세주아니 Q");
+        StartCoroutine(gameManager.Wait(3.0f));
     }
 
     private IEnumerator AttackW()
@@ -122,22 +124,30 @@ public class WeaponAttackSZ : MonoBehaviour
             rayDirection = new Vector2(1, 0);
         }
         foundSomething = Physics2D.Raycast(transform.position, rayDirection);
+        yield return new WaitForSeconds(0.5f);
         if (foundSomething.collider != null)
         {
             float distance = Vector2.Distance(foundSomething.point, transform.position);
             if (distance <= 0.8f)
             {
-                foundSomething.collider.SendMessage("SzW", SendMessageOptions.DontRequireReceiver);
-                yield return new WaitForSeconds(0.5f);
-                animator.Play("sz freeze enemy");
-                transform.SetParent(null, true);
-                transform.position = foundSomething.transform.position;
-                yield return new WaitForSeconds(1.0f);
-                transform.SetParent(player.transform, true);
+                if(foundSomething.collider.CompareTag("Enemy"))
+                {
+                    foundSomething.collider.SendMessage("SzW", SendMessageOptions.DontRequireReceiver);
+                    
+                    animator.Play("sz freeze enemy");
+                    transform.SetParent(null, true);
+                    transform.position = foundSomething.transform.position;
+                    yield return new WaitForSeconds(1.0f);
+                    transform.SetParent(player.transform, true);
+                }
             }
         }
         animator.Play("sz idle");
         gameManager.bSzAttacking = false;
         bWAttacked = false;
     }
+
+    
+
+
 }
