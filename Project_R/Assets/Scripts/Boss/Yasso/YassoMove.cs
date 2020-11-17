@@ -6,17 +6,23 @@ using UnityEngine;
 
 public class YassoMove : MonoBehaviour
 {
+    private SpriteRenderer sprite = null;
     private Animator animator = null;
     private bool bJump = false;
 
+    private YassoStatus status = null;
 
-    private void Awake()
+
+    private void Start()
     {
+        status = FindObjectOfType<YassoStatus>();
+
+        sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
     #region Movement
-    public virtual int Dash(GameObject player, SpriteRenderer sprite, float time = 1.0f)
+    public virtual int Dash(GameObject player, float time = 1.0f)
     {
         animator.Play("Yasso_Dash");
         
@@ -34,7 +40,7 @@ public class YassoMove : MonoBehaviour
         Invoke("ReturnIdle", 1.0f);
         return 6;
     }
-    public virtual IEnumerator JumpLand(float to, YassoStatus status, float speed = 2, float upSpeed = 2)
+    public virtual IEnumerator JumpLand(float to, float speed = 2, float upSpeed = 2)
     {
         yield return new WaitForSeconds(0.2f);
         animator.Play("Yasso_Jump");
@@ -56,7 +62,7 @@ public class YassoMove : MonoBehaviour
     {
         animator.Play("Yasso_idle");
     }
-    public IEnumerator Rest(float millisec, YassoStatus status)
+    public IEnumerator Rest(float millisec)
     {
         ReturnIdle();
         status.bIsAttacking = true;

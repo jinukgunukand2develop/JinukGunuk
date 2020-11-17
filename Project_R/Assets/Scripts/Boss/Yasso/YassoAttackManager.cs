@@ -22,7 +22,8 @@ public class YassoAttackManager : MonoBehaviour
     private YassoMove move = null;
     private YassoDetect detect = null;
 
-    
+    public bool bFreeze = false;
+    private bool bBattle = false;
 
     /// <summary>
     /// 0 == idle, 1 == 공격함, 2 == EQ, 3 == 플레이어 발견, 4 == EQ 공격 가능 거리, 5 == Q 공격 가능 거리,  10 == 피격
@@ -42,22 +43,29 @@ public class YassoAttackManager : MonoBehaviour
 
     private void Start()
     {
-        _Transform = yassoAi.FirstAttack();
-        _Transform = yassoAi.Attack(status, animator, skill, _Transform);
+        //_Transform = yassoAi.FirstAttack();
+        //_Transform = yassoAi.Attack(_Transform);
+        // 따로 컷신을 파서 연출 (무적권 먼저 공격한다)
     }
 
     private void Update()
     {
-        {Debug.Log(status.bIsAttacking);
-        if (!status.bIsAttacking && !status.bJumping)
+        if (player.transform.position.x > -2.6f)
+            bBattle = true;
+
+
+        Debug.Log(status.bIsAttacking);
+        if (bBattle && !status.bIsAttacking && !status.bJumping)
         {
             switch (_Transform)
             {
                 case 0:
                     {
                         Debug.Log("0");
-                        
-                        _Transform = yassoAi.Move(player, detect, status, move, _Transform);
+                        //yassoAi.MoveToRrdLoc();
+                        //_Transform = yassoAi.Move(player, _Transform);
+                        _Transform = 1;
+
                         break;
                     }
                 case 1:
@@ -75,13 +83,13 @@ public class YassoAttackManager : MonoBehaviour
                 case 5:
                     {
                         Debug.Log("5");
-                        _Transform = yassoAi.Attack(status, animator, skill, 154);
+                        _Transform = yassoAi.Attack();
                         break;
                     }
                 case 4:
                     {
                         Debug.Log("4");
-                        _Transform = yassoAi.Attack(status, animator, skill, 154);
+                        _Transform = yassoAi.Attack();
                         break;
                     }
                 case 3:
@@ -104,7 +112,7 @@ public class YassoAttackManager : MonoBehaviour
                         {
                             if (!status.bJumping)
                             {
-                                yassoAi.MoveToRrdLoc(move, status);
+                                yassoAi.MoveToRrdLoc();
                             }
                             else
                             {
@@ -119,7 +127,7 @@ public class YassoAttackManager : MonoBehaviour
                         float rnd = Random.Range(0.0f, 1.0f);
                         if(rnd > 0.5f)
                         {
-                            _Transform = yassoAi.Attack(status, animator, skill, 6);
+                            _Transform = yassoAi.Attack(6);
                         }
                         break;
                     }
@@ -138,20 +146,20 @@ public class YassoAttackManager : MonoBehaviour
                     }
             }
         }
-        }
+        
         
     }
 
 
     private IEnumerator YassoEQed()
     {
-        move.Rest(2.0f, status); // 나중에 수정?
+        move.Rest(2.0f); // 나중에 수정?
         yield return new WaitForSeconds(2.0f);
         _Transform = 0;
     }
     private IEnumerator YassoQed()
     {
-        move.Rest(1.0f, status);
+        move.Rest(1.0f);
         yield return new WaitForSeconds(1.0f);
         _Transform = 0;
     }
@@ -159,7 +167,7 @@ public class YassoAttackManager : MonoBehaviour
     {
         StartCoroutine(DashCooldown());
         status.bIsAttacking = true;
-        _Transform = move.Dash(player, sprite);
+        _Transform = move.Dash(player);
         yield return new WaitForSeconds(0.5f);
         status.bIsAttacking = false;
     }
@@ -169,5 +177,39 @@ public class YassoAttackManager : MonoBehaviour
         status.bDashPosible = false;
         yield return new WaitForSeconds(10.0f);
         status.bDashPosible = true;
+    }
+
+    public void Hit()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 5;
+    }
+    public void ZrE()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 10;
+    }
+    public void ZrQ()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 5;
+    }
+    public void SzW()
+    {
+        StartCoroutine(Damaged());
+        status.iHP -= 10;
+        bFreeze = true;
+        Invoke("Freeze", 2.0f);
+    }
+    public void Freeze()
+    {
+        bFreeze = false;
+    }
+
+    private IEnumerator Damaged()
+    {
+        sprite.color = new Color32(255, 255, 255, 90);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = new Color32(255, 255, 255, 255);
     }
 }
