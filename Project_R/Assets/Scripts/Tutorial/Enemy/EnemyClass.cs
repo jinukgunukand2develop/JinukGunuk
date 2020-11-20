@@ -36,7 +36,7 @@ public class CTeemo : MonoBehaviour
 {
     protected const ushort _ID = 204;
     [SerializeField] protected int iHp = 15;
-    [SerializeField] protected int collisionDamage = 20;
+    [SerializeField] protected int collisionDamage = 100;
 }
 
 public class CTiber : MonoBehaviour

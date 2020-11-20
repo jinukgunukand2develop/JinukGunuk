@@ -1654,6 +1654,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1803,29 +1808,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 311035577}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &334590301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1162684932}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &334590302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334590301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1001 &337994557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3051,10 +3033,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3062,7 +3044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACC4\uC18D"
+  m_Text: Continue
 --- !u!222 &615509661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4160,29 +4142,6 @@ RectTransform:
   m_AnchoredPosition: {x: -370, y: 90}
   m_SizeDelta: {x: 40, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &781010036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1416800002}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &781010037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781010036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1001 &783036125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5569,7 +5528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC885\uB8CC"
+  m_Text: Exit
 --- !u!222 &1066620189
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5923,6 +5882,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6225,6 +6189,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6344,6 +6313,7 @@ MonoBehaviour:
   bShield: 0
   bShieldCoolDown: 0
   bCooldown: 0
+  bDashCooldown: 0
 --- !u!4 &1237577887
 Transform:
   m_ObjectHideFlags: 0
@@ -6841,7 +6811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD648"
+  m_Text: Home
 --- !u!222 &1398142681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6867,6 +6837,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6994,7 +6969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 38cf075f754f3264dabd49a321a7a454, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b51729687a6bc074b8b52c4d1f8d20bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7758,6 +7733,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7827,29 +7807,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1576665750}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1576665752 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1576665750}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1576665753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576665752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1 &1581002687
 GameObject:
   m_ObjectHideFlags: 0
@@ -7886,29 +7843,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1582198821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1217810527}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1582198822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582198821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1 &1591548210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9340,7 +9274,6 @@ MonoBehaviour:
   collisionDamage: 20
   player: {fileID: 1875431006}
   fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1001 &1649178265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9571,29 +9504,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1691369210}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1722764583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3030854586429830323}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1722764584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722764583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1001 &1743029516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9611,6 +9521,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9680,29 +9595,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1743029516}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1743029518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1743029516}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1743029519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743029518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1 &1800971526
 GameObject:
   m_ObjectHideFlags: 0
@@ -9883,6 +9775,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9952,29 +9849,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1821930845}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1821930847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1821930845}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1821930848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821930847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1 &1823360437
 GameObject:
   m_ObjectHideFlags: 0
@@ -11008,52 +10882,6 @@ Transform:
   m_Father: {fileID: 1875431009}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2004892870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 287629761}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2004892871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004892870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
---- !u!1 &2044880916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8042055814215641538, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 304478864}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2044880917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044880916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9636de514c3fa54cbc0515cace2c3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iHp: 15
-  collisionDamage: 20
-  player: {fileID: 1875431006}
-  fCollisionDamageDelay: 1
-  effect: {fileID: 1988652107}
 --- !u!1 &2046524464
 GameObject:
   m_ObjectHideFlags: 0
@@ -11351,6 +11179,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -574,6 +574,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1578,6 +1583,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1657,6 +1667,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2075,6 +2090,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3424,6 +3444,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3578,6 +3603,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4342,6 +4372,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4421,6 +4456,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4805,6 +4845,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4959,6 +5004,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5592,6 +5642,11 @@ PrefabInstance:
       propertyPath: effect
       value: 
       objectReference: {fileID: 45647777}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x

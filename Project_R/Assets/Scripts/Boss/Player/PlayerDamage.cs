@@ -45,12 +45,12 @@ public class PlayerDamage : MonoBehaviour
         {
             if(gameManager.bShield)
             {
-                playerStat.hp -= 10;
+                playerStat.hp -= 100;
             }
             else
             {
                 KnockBack();
-                playerStat.hp -= 20;
+                playerStat.hp -= 100;
             }
             if(yassoStatus != null)
             {
