@@ -9,7 +9,7 @@ public class Stage1Finish : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= 0.2f)
+        if (player.transform.position.x >= 42.0f)
         {
             Debug.Log("Finish Event");
             gameObject.SetActive(false);
