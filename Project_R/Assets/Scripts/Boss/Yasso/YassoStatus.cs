@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class YassoStatus : MonoBehaviour
 {
+    private static YassoStatus instance = null;
+    public static YassoStatus Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<YassoStatus>();
+                if (instance == null)
+                {
+                    GameObject temp = new GameObject("YassoStatus");
+                    instance = temp.AddComponent<YassoStatus>();
+                }
+            }
+
+            return instance;
+        }
+    }
+
+
     public int iHP = 100;
     public int skillUseCount = 0;
     public int qHitCount = 0;

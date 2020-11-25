@@ -24,19 +24,19 @@ public class YassoAI : MonoBehaviour
     /// </summary>
     private float attack = 0;
 
-    private YassoSkill skill = null;
-    private YassoStatus status = null;
-    private YassoDetect detect = null;
-    private YassoMove move = null;
+    //private YassoSkill skill = null;
+    //private YassoStatus status = null;
+    //private YassoDetect detect = null;
+    //private YassoMove move = null;
 
     private Animator animator = null;
 
     private void Start()
     {
-        skill = FindObjectOfType<YassoSkill>();
-        status = FindObjectOfType<YassoStatus>();
-        detect = FindObjectOfType<YassoDetect>();
-        move = FindObjectOfType<YassoMove>();
+        //skill = FindObjectOfType<YassoSkill>();
+        //status = FindObjectOfType<YassoStatus>();
+        //detect = FindObjectOfType<YassoDetect>();
+        //move = FindObjectOfType<YassoMove>();
         animator = GetComponent<Animator>();
     }
 
@@ -68,7 +68,7 @@ public class YassoAI : MonoBehaviour
     /// <returns></returns>
     public virtual int UseSkill(int prevStatus)
     {
-        if (status.skillUseCount < 5 || prevStatus == 2)
+        if (YassoStatus.Instance.skillUseCount < 5 || prevStatus == 2)
         {
             attack = Random.Range(0, 10);
         }
@@ -84,10 +84,10 @@ public class YassoAI : MonoBehaviour
     {
         // 랜덤으로 다시 설정될 전역 변수
         if(prevStatus == 154) { attack = 3; }
-        if (attack < 3 && status.skillUseCount > 0)
+        if (attack < 3 && YassoStatus.Instance.skillUseCount > 0)
         {
-            --status.skillUseCount;
-            ++status.beenIdleFor;
+            --YassoStatus.Instance.skillUseCount;
+            ++YassoStatus.Instance.beenIdleFor;
             return 0;
         }
         else
@@ -107,34 +107,34 @@ public class YassoAI : MonoBehaviour
     }
     private IEnumerator DashAttacked()
     {
-        status.bDashAttacked = true;
+        YassoStatus.Instance.bDashAttacked = true;
         yield return new WaitForSeconds(5.0f);
-        status.bDashAttacked = false;
+        YassoStatus.Instance.bDashAttacked = false;
     }
     private IEnumerator AttackEQ()
     {
-        status.bIsAttacking = true;
-        ++status.skillUseCount;
+        YassoStatus.Instance.bIsAttacking = true;
+        ++YassoStatus.Instance.skillUseCount;
         StartCoroutine(DashAttacked());
-        skill.AttackE();
+        YassoSkill.Instance.AttackE();
         float length = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(length);
         
 
-        ++status.skillUseCount;
-        skill.AttackQ();
+        ++YassoStatus.Instance.skillUseCount;
+        YassoSkill.Instance.AttackQ();
         length = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(length);
-        status.bIsAttacking = false;
+        YassoStatus.Instance.bIsAttacking = false;
     }
     private IEnumerator AttackQ()
     {
-        status.bIsAttacking = true;
-        ++status.skillUseCount;
-        skill.AttackQ();
+        YassoStatus.Instance.bIsAttacking = true;
+        ++YassoStatus.Instance.skillUseCount;
+        YassoSkill.Instance.AttackQ();
         float length = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(length);
-        status.bIsAttacking = false;
+        YassoStatus.Instance.bIsAttacking = false;
     }
 
     /// <summary>
@@ -163,13 +163,13 @@ public class YassoAI : MonoBehaviour
     public int Move(GameObject player, int prevStatus)
     {
         // TODO : 지난번 상태도 idle 이었다면 idle 시간을 줄인다
-        switch(detect.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
+        switch(YassoDetect.Instance.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
         {
             case 0:
                 {
-                    status.bJumping = true;
+                    YassoStatus.Instance.bJumping = true;
                     MoveToRrdLoc();
-                    ++status.beenIdleFor;
+                    ++YassoStatus.Instance.beenIdleFor;
                     return 0;
                 }
             case 1:
@@ -184,7 +184,7 @@ public class YassoAI : MonoBehaviour
                 {
                     return 5;
                 }
-            default: ++status.beenIdleFor;  return 0;
+            default: ++YassoStatus.Instance.beenIdleFor;  return 0;
         }
     }
 
@@ -193,10 +193,10 @@ public class YassoAI : MonoBehaviour
     /// </summary>
     public void MoveToRrdLoc()
     {
-        status.bJumping = true;
+        YassoStatus.Instance.bJumping = true;
         float fJumpRand = Random.Range(-2.0f, 2.0f);
         fJumpRand = RandAgain(fJumpRand);
-        StartCoroutine(move.JumpLand(fJumpRand));
+        StartCoroutine(YassoMove.Instance.JumpLand(fJumpRand));
     }
 
     private float RandAgain(float fJumpRand)
@@ -216,7 +216,7 @@ public class YassoAI : MonoBehaviour
     private IEnumerator ReturnIdle(float wait)
     {
         yield return new WaitForSeconds(wait);
-        status.bIsAttacking = false;
+        YassoStatus.Instance.bIsAttacking = false;
         animator.Play("Yasso_idle");
     }
 

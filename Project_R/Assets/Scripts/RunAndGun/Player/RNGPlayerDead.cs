@@ -16,7 +16,7 @@ public class RNGPlayerDead : MonoBehaviour
     {
         if (iPlayerHP <= 0)
         {
-            SceneManager.LoadScene("Dead");
+            SceneManager.LoadScene("Stage1");
         }
     }
 }

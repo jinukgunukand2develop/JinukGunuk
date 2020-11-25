@@ -8,12 +8,16 @@ public class PlayerDamage : MonoBehaviour
 {
     [SerializeField] private GameObject player = null;
     [SerializeField] private GameObject yasso = null;
+
     private PlayerStatus playerStat = null;
     private Animator animator = null;
-    private YassoStatus yassoStatus = null;
-    private GameManager gameManager = null;
+    //private YassoStatus yassoStatus = null;
+    //private GameManager gameManager = null;
+
     public bool bKnockBack = false;
+
     public Slider healthBar = null;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -22,8 +26,8 @@ public class PlayerDamage : MonoBehaviour
     }
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        yassoStatus = FindObjectOfType<YassoStatus>();
+        //gameManager = FindObjectOfType<GameManager>();
+        //yassoStatus = FindObjectOfType<YassoStatus>();
         healthBar.maxValue = playerStat.hp;
     }
     private void Update()
@@ -43,7 +47,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (boss.CompareTag("Enemy") && !bKnockBack)
         {
-            if(gameManager.bShield)
+            if(GameManager.Instance.bShield)
             {
                 playerStat.hp -= 100;
             }
@@ -52,12 +56,12 @@ public class PlayerDamage : MonoBehaviour
                 KnockBack();
                 playerStat.hp -= 100;
             }
-            if(yassoStatus != null)
+            if(YassoStatus.Instance != null)
             {
-                if (yassoStatus.bUsedQ)
+                if (YassoStatus.Instance.bUsedQ)
                 {
-                    ++yassoStatus.qHitCount;
-                    Debug.Log(yassoStatus.qHitCount);
+                    ++YassoStatus.Instance.qHitCount;
+                    Debug.Log(YassoStatus.Instance.qHitCount);
                 }
             }
             Debug.Log("피깎");

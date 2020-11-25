@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class YassoDetect : MonoBehaviour
 {
+    private static YassoDetect instance = null;
+    public static YassoDetect Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<YassoDetect>();
+                if(instance == null)
+                {
+                    GameObject temp = new GameObject("YassoDetect");
+                    instance = temp.AddComponent<YassoDetect>();
+                }
+            }
+            return instance;
+        }
+    }
+
+
+
     // TODO : 재사용할거면 리턴값을 갈아 엎어야 함
     // Yasso 용 플레이어 탐지
 

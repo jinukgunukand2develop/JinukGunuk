@@ -34,6 +34,7 @@ public class YassoAttackManager : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
         detect = gameObject.AddComponent<YassoDetect>();
         yassoAi = gameObject.AddComponent<YassoAI>();
         skill = gameObject.AddComponent<YassoSkill>();

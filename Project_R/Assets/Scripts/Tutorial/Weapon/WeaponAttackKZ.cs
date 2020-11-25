@@ -175,7 +175,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackDamageQ()
     {
-        GameManager.instance.SE(GameManager.audioClip.q);
+        GameManager.Instance.SE(GameManager.audioClip.q);
         switch (gameManager.bPlayerFacingRightSide)
         {
             case true: rayDirection = new Vector2(1, 0); break;
@@ -223,7 +223,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackW()
     {
-        GameManager.instance.SE(GameManager.audioClip.w);
+        GameManager.Instance.SE(GameManager.audioClip.w);
         transform.SetParent(null, true);
         transform.localScale = new Vector2(0.8f, 0.8f);
         animator.Play("kz w");
@@ -231,7 +231,7 @@ public class WeaponAttackKZ : MonoBehaviour
 
     private void KzAttackE()
     {
-        GameManager.instance.SE(GameManager.audioClip.e);
+        GameManager.Instance.SE(GameManager.audioClip.e);
         player.rigidBody.velocity = Vector3.zero;
         animator.Play("kz e");
         gameManager.bAtJump = true;

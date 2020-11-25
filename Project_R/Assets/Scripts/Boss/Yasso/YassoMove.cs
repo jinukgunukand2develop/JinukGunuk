@@ -6,16 +6,36 @@ using UnityEngine;
 
 public class YassoMove : MonoBehaviour
 {
+    private static YassoMove instance = null;
+    public static YassoMove Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<YassoMove>();
+                if(instance == null)
+                {
+                    GameObject temp = new GameObject("YassoMove");
+                    instance = temp.AddComponent<YassoMove>();
+                }
+            }
+
+            return instance;
+        }
+    }
+
+
     private SpriteRenderer sprite = null;
     private Animator animator = null;
     private bool bJump = false;
 
-    private YassoStatus status = null;
+    //private YassoStatus status = null;
 
 
     private void Start()
     {
-        status = FindObjectOfType<YassoStatus>();
+        //status = FindObjectOfType<YassoStatus>();
 
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -49,7 +69,7 @@ public class YassoMove : MonoBehaviour
         transform.DOMove(new Vector2(transform.position.x - to / 2, transform.position.y - 1.5f), 0.9f).SetEase(Ease.InQuint);
         yield return new WaitForSeconds(0.9f);
         ReturnIdle();
-        status.bJumping = false;
+        YassoStatus.Instance.bJumping = false;
     }
     private IEnumerator Wait()
     {
@@ -65,9 +85,9 @@ public class YassoMove : MonoBehaviour
     public IEnumerator Rest(float millisec)
     {
         ReturnIdle();
-        status.bIsAttacking = true;
+        YassoStatus.Instance.bIsAttacking = true;
         yield return new WaitForSeconds(millisec);
-        status.bIsAttacking = false;
+        YassoStatus.Instance.bIsAttacking = false;
         FindObjectOfType<YassoAttackManager>()._Transform = 0;
     }
     #endregion

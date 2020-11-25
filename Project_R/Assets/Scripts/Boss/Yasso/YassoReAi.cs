@@ -28,9 +28,15 @@ public class YassoReAi : MonoBehaviour
     public const float EQRANGE = 1.5f;
     public const float QRANGE = 2f;
     
+    private Shader shaderGUItext;
+    private Shader shaderSpritesDefault;
 
     void Awake()
     {
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Sprites/Default");
+
+
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         detect = gameObject.AddComponent<YassoDetect>();
@@ -71,13 +77,13 @@ public class YassoReAi : MonoBehaviour
         {
             StartCoroutine(YassoDead());
         }
-        if (FindObjectOfType<PlayerStatus>().bPlayerDead)
+        if (PlayerStatus.Instance.bPlayerDead)
             anim.Play("Yasso_idle");
 
         healthBar.value = status.iHP;
 
         Flip();
-        if (!bIsAttacking && bBattle && !status.bYassoDead && !FindObjectOfType<PlayerStatus>().bPlayerDead && !bFreeze)
+        if (!bIsAttacking && bBattle && !status.bYassoDead && !PlayerStatus.Instance.bPlayerDead && !bFreeze)
         {
             switch (detect.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
             {
@@ -225,9 +231,11 @@ public class YassoReAi : MonoBehaviour
 
     private IEnumerator Damaged()
     {
-        sprite.color = new Color32(255, 255, 255, 90);
-        yield return new WaitForSeconds(0.1f);
-        sprite.color = new Color32(255, 255, 255, 255);
+        sprite.material.shader = shaderGUItext;
+        sprite.color = Color.white;
+        yield return new WaitForSeconds(0.2f);
+        sprite.material.shader = shaderSpritesDefault;
+        sprite.color = Color.white;
     }
 
     #endregion 피격

@@ -12,7 +12,7 @@ public class PlayerButtonMove : MonoBehaviour
     public Rigidbody2D rigidBody = null;
     private Animator animator = null;
     private SpriteRenderer spriteRenderer = null;
-    private GameManager gameManager = null;
+    //private GameManager gameManager = null;
 
     public PlayerDamage playerDamage = null;
 
@@ -28,7 +28,7 @@ public class PlayerButtonMove : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        gameManager = FindObjectOfType<GameManager>();
+        //gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -63,8 +63,8 @@ public class PlayerButtonMove : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(bRight && !(playerDamage.bKnockBack || gameManager.bShield)) { MoveRight(); }
-        if(bLeft && !(playerDamage.bKnockBack || gameManager.bShield)) { MoveLeft(); }
+        if(bRight && !(playerDamage.bKnockBack || GameManager.Instance.bShield)) { MoveRight(); }
+        if(bLeft && !(playerDamage.bKnockBack || GameManager.Instance.bShield)) { MoveLeft(); }
         if (!playerDamage.bKnockBack) { StartCoroutine(JumpPlayer()); }
     }
 
@@ -75,7 +75,7 @@ public class PlayerButtonMove : MonoBehaviour
         {
             bRight = true; animator.Play("PlayerMove");
             spriteRenderer.flipX = false;
-            gameManager.bPlayerFacingRightSide = true;
+            GameManager.Instance.bPlayerFacingRightSide = true;
             bPlayerFacingRight = true;
         }
     }
@@ -93,7 +93,7 @@ public class PlayerButtonMove : MonoBehaviour
         {
             bLeft = true; animator.Play("PlayerMove");
             spriteRenderer.flipX = true;
-            gameManager.bPlayerFacingRightSide = false;
+            GameManager.Instance.bPlayerFacingRightSide = false;
             bPlayerFacingRight = false;
         }
         

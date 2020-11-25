@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class YassoSkill : MonoBehaviour
 {
+    private static YassoSkill instance;
+    public static YassoSkill Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<YassoSkill>();
+                if(instance == null)
+                {
+                    GameObject temp = new GameObject("YassoSkill");
+                    instance = temp.AddComponent<YassoSkill>();
+                }
+            }
+            return instance;
+        }
+    }
+
+
     private Animator animator = null;
 
     private void Start()

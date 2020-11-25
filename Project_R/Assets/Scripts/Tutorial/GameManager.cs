@@ -11,8 +11,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
+    private static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<GameManager>();
+                if(instance == null)
+                {
+                    GameObject temp = new GameObject("GameManager");
+                    instance = temp.AddComponent<GameManager>();
+                }
+            }
+            return instance;
+        }
+    }
+    
     public enum audioClip 
     {
         q,
