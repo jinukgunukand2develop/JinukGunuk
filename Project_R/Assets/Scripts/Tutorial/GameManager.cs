@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected float maxPlayerHP = 100;
     [SerializeField] protected float iPlayerHP = 100;
     [SerializeField] private GameObject music = null;
-   
 
+    public bool bBattle = false;
     public bool bAtJump = false;
     public float fGroundLevel = -0.19f;
     public byte bWeaponStatus = 0;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             
     }
 
-    public void SE(audioClip aC) 
+    public void SE(audioClip aC)
     {
         audioSource2.loop = false;
         audioSource2.clip = clip[(int)aC];

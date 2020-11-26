@@ -7,6 +7,8 @@ using UnityEngine;
 야스오 스킬 인식 범위
 야스오 스킬 쿨타임
 야스오 스킬 데미지
+
+싱글톤 안바꿈?
 */
 
 public class YassoAttackManager : MonoBehaviour
@@ -23,7 +25,6 @@ public class YassoAttackManager : MonoBehaviour
     private YassoDetect detect = null;
 
     public bool bFreeze = false;
-    private bool bBattle = false;
 
     /// <summary>
     /// 0 == idle, 1 == 공격함, 2 == EQ, 3 == 플레이어 발견, 4 == EQ 공격 가능 거리, 5 == Q 공격 가능 거리,  10 == 피격
@@ -51,12 +52,10 @@ public class YassoAttackManager : MonoBehaviour
 
     private void Update()
     {
-        if (player.transform.position.x > -2.6f)
-            bBattle = true;
 
 
         Debug.Log(status.bIsAttacking);
-        if (bBattle && !status.bIsAttacking && !status.bJumping)
+        if (GameManager.Instance.bBattle && !status.bIsAttacking && !status.bJumping)
         {
             switch (_Transform)
             {

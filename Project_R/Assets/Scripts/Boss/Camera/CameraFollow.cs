@@ -7,21 +7,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Camera cameraMain = null;
     public GameObject player = null;
     private Vector3 cameraPosition = Vector3.zero;
-    private PositionClamp clamp = null;
 
 
     private float fCameraSize = 0.0f;
-
-    private void Start()
-    {
-        clamp = FindObjectOfType<PositionClamp>();
-    }
 
 
     void Update()
     {
         //CameraZoomin();
-        if (!clamp.bAtbattle)
+        if (!GameManager.Instance.bBattle)
         {
             ClampCameraXPos();
             transform.position = cameraPosition;

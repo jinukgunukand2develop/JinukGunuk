@@ -20,7 +20,6 @@ public class YassoReAi : MonoBehaviour
 
     private bool bIsAttacking = false;
     private bool bFlip = false;
-    public bool bBattle = false;
     private bool bFreeze = false;
     [SerializeField] float fFollowSpeed = 1.5f;
 
@@ -69,9 +68,7 @@ public class YassoReAi : MonoBehaviour
     {
         if (bFreeze)
             anim.Play("Yasso_idle");
-        if (player.transform.position.x > -2.6f)
-            bBattle = true;
-        if (!bBattle)
+        if (!GameManager.Instance.bBattle)
             status.iHP = 100;
         if (status.iHP < 1)
         {
@@ -83,7 +80,7 @@ public class YassoReAi : MonoBehaviour
         healthBar.value = status.iHP;
 
         Flip();
-        if (!bIsAttacking && bBattle && !status.bYassoDead && !PlayerStatus.Instance.bPlayerDead && !bFreeze)
+        if (!bIsAttacking && GameManager.Instance.bBattle && !status.bYassoDead && !PlayerStatus.Instance.bPlayerDead && !bFreeze)
         {
             switch (detect.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
             {

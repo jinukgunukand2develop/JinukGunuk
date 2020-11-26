@@ -8,7 +8,6 @@ public class Cheat : MonoBehaviour
     private int index = 0;
 
     private PlayerStatus pStat = null;
-
     private void Start()
     {
         pStat = FindObjectOfType<PlayerStatus>();
