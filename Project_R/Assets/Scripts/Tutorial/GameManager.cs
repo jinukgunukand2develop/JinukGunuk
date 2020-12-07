@@ -33,16 +33,17 @@ public class GameManager : MonoBehaviour
     {
         q,
         w,
-        e
+        e,
+        hit
     }
 
-    [SerializeField] List<AudioClip> clip = new List<AudioClip>(new AudioClip[3]);
+    [SerializeField] List<AudioClip> clip = new List<AudioClip>(new AudioClip[4]);
 
    
     [SerializeField] private AudioSource audioSource = null;
     [SerializeField] private AudioSource audioSource2 = null;
     [SerializeField] protected Slider slider = null;
-    [SerializeField] protected float maxPlayerHP = 100;
+    [SerializeField] protected float maxPlayerHP = 300;
     [SerializeField] protected float iPlayerHP = 300;
     [SerializeField] private GameObject music = null;
 

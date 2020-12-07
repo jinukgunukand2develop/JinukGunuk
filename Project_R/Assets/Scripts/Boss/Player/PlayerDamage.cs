@@ -8,6 +8,14 @@ public class PlayerDamage : MonoBehaviour
 {
     [SerializeField] private GameObject player = null;
     [SerializeField] private GameObject yasso = null;
+    [SerializeField] private GameObject mainCamera;
+
+    [SerializeField] private float m_force = 0f;
+
+    [SerializeField] private Vector3 m_offset = Vector2.zero;
+
+    
+    private Quaternion m_originRot;
 
     private PlayerStatus playerStat = null;
     private Animator animator = null;
@@ -28,6 +36,7 @@ public class PlayerDamage : MonoBehaviour
     {
         //gameManager = FindObjectOfType<GameManager>();
         //yassoStatus = FindObjectOfType<YassoStatus>();
+        m_originRot = mainCamera.transform.rotation;
         healthBar.maxValue = playerStat.hp;
     }
     private void Update()
@@ -73,29 +82,68 @@ public class PlayerDamage : MonoBehaviour
 
     private IEnumerator Pause()
     {
-        yield return new WaitForSeconds(0.1f);
+        GameManager.Instance.SE(GameManager.audioClip.hit);
+        yield return new WaitForSeconds(0.2f);
+        //StartCoroutine(Shake());
         Time.timeScale = 0.0f;
-        float fTimeStop = Time.realtimeSinceStartup + 0.8f;
-        if (Time.realtimeSinceStartup >= fTimeStop)
+        float fTimeStop = Time.realtimeSinceStartup + 0.2f;
+        while(true)
         {
-            Time.timeScale = 1.0f;
+            //if(Time.realtimeSinceStartup >= fTimeStop - 0.1f)
+            //{
+            //    StopCoroutine(Shake());
+            //    CameraReset();
+            //}
+            if (Time.realtimeSinceStartup >= fTimeStop)
+            {
+                Time.timeScale = 1.0f;
+                break;
+            }
         }
-            
+        
+    }
+
+    IEnumerator Shake()
+    {
+        Vector2 t_originEuler = transform.eulerAngles;
+        while (true)
+        {
+            float t_rotX = Random.Range(-m_offset.x, m_offset.x);
+            float t_rotY = Random.Range(-m_offset.y, m_offset.y);
+            Vector2 t_randomRot = t_originEuler + new Vector2(t_rotX, t_rotY);
+            Quaternion t_rot = Quaternion.Euler(t_randomRot);
+
+            while (Quaternion.Angle(mainCamera.transform.rotation, t_rot) > 0.1f)
+            {
+                mainCamera.transform.rotation = Quaternion.RotateTowards(transform.rotation, t_rot, m_force * Time.deltaTime);
+                yield return null;
+            }
+            yield return null;
+        }
+
+    }
+
+    private void CameraReset()
+    {
+        transform.rotation = m_originRot;
+
     }
 
     private void KnockBack()
     {
 
         bKnockBack = true;
+        animator.enabled = false;
         if(yasso.transform.localScale.x == -1.0f)
         {
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2.0f, 0.3f), ForceMode2D.Impulse);
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2.2f, 0.5f), ForceMode2D.Impulse);
         }
         else
         {
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2.0f, 0.3f), ForceMode2D.Impulse);
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2.2f, 0.5f), ForceMode2D.Impulse);
         }
-
+        
+        animator.enabled = true;
         animator.Play("PlayerKnockBack");
         float value = animator.GetCurrentAnimatorStateInfo(0).length;
         Invoke("ReturnIdle", value);

@@ -230,9 +230,37 @@ public class YassoReAi : MonoBehaviour
     {
         sprite.material.shader = shaderGUItext;
         sprite.color = Color.white;
-        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(Pause());
+        yield return new WaitForSeconds(0.5f);
         sprite.material.shader = shaderSpritesDefault;
         sprite.color = Color.white;
+    }
+
+    private IEnumerator Pause()
+    {
+        transform.DOMoveX(transform.position.x - 0.05f, 0.05f).SetEase(Ease.Linear);
+        yield return new WaitForSeconds(0.05f);
+        transform.DOMoveX(transform.position.x + 0.05f, 0.05f).SetEase(Ease.Linear);
+        yield return new WaitForSeconds(0.15f);
+        
+        //GameManager.Instance.SE(GameManager.audioClip.hit);
+        //StartCoroutine(Shake());
+        Time.timeScale = 0.0f;
+        float fTimeStop = Time.realtimeSinceStartup + 0.15f;
+        while (true)
+        {
+            //if(Time.realtimeSinceStartup >= fTimeStop - 0.1f)
+            //{
+            //    StopCoroutine(Shake());
+            //    CameraReset();
+            //}
+            if (Time.realtimeSinceStartup >= fTimeStop)
+            {
+                Time.timeScale = 1.0f;
+                break;
+            }
+        }
+
     }
 
     #endregion 피격
