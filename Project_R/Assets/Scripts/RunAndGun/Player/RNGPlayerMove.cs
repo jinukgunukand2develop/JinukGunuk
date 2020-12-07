@@ -46,7 +46,7 @@ public class RNGPlayerMove : MonoBehaviour
         {
             animator.Play("PlayerJump");
             rigidBody.AddForce(new Vector2(0f, fJumpForce), ForceMode2D.Impulse);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1.3f);
             animator.Play("PlayerMove");
         }
     }

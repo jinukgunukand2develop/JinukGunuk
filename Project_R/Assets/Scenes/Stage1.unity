@@ -579,6 +579,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1588,6 +1593,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1671,6 +1681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -1956,9 +1971,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioSource2: {fileID: 917590075}
   slider: {fileID: 953528229}
-  maxPlayerHP: 100
-  iPlayerHP: 100
+  maxPlayerHP: 300
+  iPlayerHP: 300
   music: {fileID: 1933874533}
+  bBattle: 0
   bAtJump: 0
   fGroundLevel: -0.19
   bWeaponStatus: 0
@@ -2094,6 +2110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -3449,6 +3470,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3607,6 +3633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -4377,6 +4408,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4460,6 +4496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -4850,6 +4891,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5008,6 +5054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -5646,6 +5697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: fCollisionDamageDelay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -6356,7 +6412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16e04185ac363448b326577f7ea701d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPlayerHP: 5
+  iPlayerHP: 300
 --- !u!95 &2009123505
 Animator:
   serializedVersion: 3

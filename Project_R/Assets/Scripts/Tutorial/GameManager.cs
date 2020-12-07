@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource2 = null;
     [SerializeField] protected Slider slider = null;
     [SerializeField] protected float maxPlayerHP = 100;
-    [SerializeField] protected float iPlayerHP = 100;
+    [SerializeField] protected float iPlayerHP = 300;
     [SerializeField] private GameObject music = null;
 
     public bool bBattle = false;
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         audioSource = music.GetComponent<AudioSource>();
         slider.value = (float)iPlayerHP / (float)maxPlayerHP;
-        iPlayerHP -= 20;
     }
     private void Update()
     {

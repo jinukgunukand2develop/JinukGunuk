@@ -23,6 +23,6 @@ public class PlayerStatus : MonoBehaviour
     }
 
 
-    public int hp = 100;
+    public int hp = 300;
     public bool bPlayerDead = false;
 }

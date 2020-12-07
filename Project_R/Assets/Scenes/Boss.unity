@@ -6129,8 +6129,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioSource2: {fileID: 1721063660}
   slider: {fileID: 648695644}
-  maxPlayerHP: 100
-  iPlayerHP: 100
+  maxPlayerHP: 300
+  iPlayerHP: 300
   music: {fileID: 1147295835}
   bBattle: 0
   bAtJump: 0

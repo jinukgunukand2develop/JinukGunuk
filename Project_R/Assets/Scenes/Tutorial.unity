@@ -1361,6 +1361,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1563,6 +1568,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1875431006}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1658,6 +1668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -5887,6 +5902,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6194,6 +6214,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6303,6 +6328,7 @@ MonoBehaviour:
   maxPlayerHP: 100
   iPlayerHP: 100
   music: {fileID: 1800971526}
+  bBattle: 0
   bAtJump: 0
   fGroundLevel: -0.19
   bWeaponStatus: 0
@@ -6841,6 +6867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -7737,6 +7768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -9526,6 +9562,11 @@ PrefabInstance:
       propertyPath: collisionDamage
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9779,6 +9820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}
@@ -11183,6 +11229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionDamage
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294504669595872449, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
+        type: 3}
+      propertyPath: iHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5077474228904443978, guid: 81a225d8cac09cc4ba9d8b8389d131c8,
         type: 3}

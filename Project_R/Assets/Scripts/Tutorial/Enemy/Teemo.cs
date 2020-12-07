@@ -7,12 +7,15 @@ public class Teemo : CTeemo
     private bool bAttackDelay = true;
 
     [SerializeField] private GameObject player = null;
-    [SerializeField] private float fCollisionDamageDelay = 1f;
+    [SerializeField] private float fCollisionDamageDelay = 3f;
 
     private SpriteRenderer sprite = null;
-
+    private Shader shaderGUItext;
+    private Shader shaderSpritesDefault;
     private void Start()
     {
+        shaderGUItext = Shader.Find("GUI/Text Shader");
+        shaderSpritesDefault = Shader.Find("Sprites/Default");
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -51,14 +54,17 @@ public class Teemo : CTeemo
     }
     public void Hit()
     {
+        StartCoroutine(Damaged());
         iHp -= 5;
     }
 
     private IEnumerator Damaged()
     {
-        sprite.color = new Color32(255, 255, 255, 90);
+        sprite.material.shader = shaderGUItext;
+        sprite.color = Color.white;
         yield return new WaitForSeconds(0.1f);
-        sprite.color = new Color32(255, 255, 255, 255);
+        sprite.material.shader = shaderSpritesDefault;
+        sprite.color = Color.white;
     }
 
     protected void Dead()

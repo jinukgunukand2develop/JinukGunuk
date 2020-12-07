@@ -34,8 +34,12 @@ public class CCrap : MonoBehaviour
 
 public class CTeemo : MonoBehaviour
 {
-    protected const ushort _ID = 204;
+#if false
+    [SerializeField] protected int iHp = 2;
+#elif true
     [SerializeField] protected int iHp = 15;
+#endif
+    protected const ushort _ID = 204;
     [SerializeField] protected int collisionDamage = 100;
 }
 

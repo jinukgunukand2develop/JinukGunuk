@@ -32,6 +32,7 @@ public class PlayerDamage : MonoBehaviour
     }
     private void Update()
     {
+        
         healthBar.value = playerStat.hp;
         if (playerStat.hp < 1)
         {
@@ -50,11 +51,13 @@ public class PlayerDamage : MonoBehaviour
             if(GameManager.Instance.bShield)
             {
                 playerStat.hp -= 100;
+                StartCoroutine(Pause());
             }
             else
             {
                 KnockBack();
                 playerStat.hp -= 100;
+                StartCoroutine(Pause());
             }
             if(YassoStatus.Instance != null)
             {
@@ -66,6 +69,18 @@ public class PlayerDamage : MonoBehaviour
             }
             Debug.Log("피깎");
         }
+    }
+
+    private IEnumerator Pause()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0.0f;
+        float fTimeStop = Time.realtimeSinceStartup + 0.8f;
+        if (Time.realtimeSinceStartup >= fTimeStop)
+        {
+            Time.timeScale = 1.0f;
+        }
+            
     }
 
     private void KnockBack()
