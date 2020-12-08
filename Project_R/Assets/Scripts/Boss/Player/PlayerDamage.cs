@@ -59,7 +59,6 @@ public class PlayerDamage : MonoBehaviour
         {
             if(GameManager.Instance.bShield)
             {
-                playerStat.hp -= 100;
                 StartCoroutine(Pause());
             }
             else
@@ -136,11 +135,11 @@ public class PlayerDamage : MonoBehaviour
         animator.enabled = false;
         if(yasso.transform.localScale.x == -1.0f)
         {
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2.2f, 0.5f), ForceMode2D.Impulse);
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(1.8f, 1.5f), ForceMode2D.Impulse);
         }
         else
         {
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2.2f, 0.5f), ForceMode2D.Impulse);
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1.8f, 1.5f), ForceMode2D.Impulse);
         }
         
         animator.enabled = true;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WeaponAttackZR : MonoBehaviour
 {
     private Animator animator = null;
-    private GameManager gameManager = null;
+    
     private SpriteRenderer spriteRenderer = null;
 
     [SerializeField] private float fEDistance = 1.0f;
@@ -14,7 +14,7 @@ public class WeaponAttackZR : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        gameManager = FindObjectOfType<GameManager>();
+        
         animator = GetComponent<Animator>();
     }
 
@@ -25,9 +25,9 @@ public class WeaponAttackZR : MonoBehaviour
         {
             case true:
                 {
-                    if (((gameManager.bWeaponStatus & 4) == 4))
+                    if (((GameManager.Instance.bWeaponStatus & 4) == 4))
                     {
-                        switch (gameManager.bAtJump || gameManager.bShield)
+                        switch (GameManager.Instance.bAtJump || GameManager.Instance.bShield)
                         {
                             case true: break;
                             case false:
@@ -36,25 +36,25 @@ public class WeaponAttackZR : MonoBehaviour
                                     {
                                         transform.localPosition = new Vector2(0.1f, -0.07f);
                                         animator.Play("zr q");
-                                        gameManager.bZrAttacking = true;
+                                        GameManager.Instance.bZrAttacking = true;
                                         StartCoroutine(ZrAttackQ());
 
                                     }
                                     if (Input.GetKeyDown(KeyCode.W))
                                     {
-                                        if(!gameManager.bShieldCoolDown)
+                                        if(!GameManager.Instance.bShieldCoolDown)
                                         {
-                                            StartCoroutine(gameManager.CoolDown());
+                                            StartCoroutine(GameManager.Instance.CoolDown());
                                             transform.localPosition = new Vector2(0f, -0.2f);
                                             animator.Play("zr w");
-                                            gameManager.bShield = true;
-                                            gameManager.bZrAttacking = true;
+                                            GameManager.Instance.bShield = true;
+                                            GameManager.Instance.bZrAttacking = true;
                                             ZrAttackW();
                                         }
                                     }
-                                    if (Input.GetKeyDown(KeyCode.E))
+                                    if (Input.GetKeyDown(KeyCode.E) && !GameManager.Instance.bShieldCoolDown)
                                     {
-                                        gameManager.bZrAttacking = true;
+                                        GameManager.Instance.bZrAttacking = true;
                                         StartCoroutine(ZrAttackE());
                                     }
                                     break;
@@ -68,7 +68,7 @@ public class WeaponAttackZR : MonoBehaviour
     }
     private void FlipSprite()
     {
-        switch (gameManager.bZrAttacking || gameManager.bAtJump)
+        switch (GameManager.Instance.bZrAttacking || GameManager.Instance.bAtJump)
         {
             case false:
                 {
@@ -80,7 +80,7 @@ public class WeaponAttackZR : MonoBehaviour
                                 {
                                     case false:
                                         {
-                                            if (gameManager.bPlayerFacingRightSide)
+                                            if (GameManager.Instance.bPlayerFacingRightSide)
                                             {
                                                 spriteRenderer.flipX = false;
                                                 transform.localPosition = new Vector2(0.3f, 0f);
@@ -132,7 +132,7 @@ public class WeaponAttackZR : MonoBehaviour
     private void ZrAttackW()
     {
         // Finished
-        Invoke("AttackW", 0.8f);
+        Invoke(nameof(AttackW), 0.8f);
     }
     private IEnumerator ZrAttackE()
     {
@@ -160,7 +160,7 @@ public class WeaponAttackZR : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        gameManager.bWeaponStatus -= 4;
+        GameManager.Instance.bWeaponStatus -= 4;
         AttackE();
     }
 
@@ -168,22 +168,22 @@ public class WeaponAttackZR : MonoBehaviour
     {
         Debug.Log("자르반 Q");
         animator.Play("zr idle");
-        gameManager.bZrAttacking = false;
+        GameManager.Instance.bZrAttacking = false;
     }
 
     private void AttackW()
     {
         Debug.Log("자르반 W");
         animator.Play("zr idle");
-        gameManager.bZrAttacking = false;
-        gameManager.bShield = false;
+        GameManager.Instance.bZrAttacking = false;
+        GameManager.Instance.bShield = false;
     }
 
     private void AttackE()
     {
         Debug.Log("자르반 E");
         animator.Play("zr idle");
-        gameManager.bZrAttacking = false;
+        GameManager.Instance.bZrAttacking = false;
     }
 
     

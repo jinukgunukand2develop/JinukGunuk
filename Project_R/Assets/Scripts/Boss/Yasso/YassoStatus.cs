@@ -24,7 +24,7 @@ public class YassoStatus : MonoBehaviour
     }
 
 
-    public int iHP = 100;
+    public int iHP = 200;
     public int skillUseCount = 0;
     public int qHitCount = 0;
     public int beenIdleFor = 0;

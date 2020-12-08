@@ -69,7 +69,7 @@ public class YassoReAi : MonoBehaviour
         if (bFreeze)
             anim.Play("Yasso_idle");
         if (!GameManager.Instance.bBattle)
-            status.iHP = 100;
+            status.iHP = 200;
         if (status.iHP < 1)
         {
             StartCoroutine(YassoDead());
@@ -97,7 +97,7 @@ public class YassoReAi : MonoBehaviour
                 default:
                     {
                         anim.Play("Yasso_Dash");
-                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), 1.7f * Time.deltaTime);
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), 2.0f * Time.deltaTime);
                         break;
                     }
             }
@@ -168,7 +168,7 @@ public class YassoReAi : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
         }
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + 0.1f);
         StartCoroutine(JumpLand(cooldown));
         status.bUsedQ = false;
     }
@@ -241,12 +241,12 @@ public class YassoReAi : MonoBehaviour
         transform.DOMoveX(transform.position.x - 0.05f, 0.05f).SetEase(Ease.Linear);
         yield return new WaitForSeconds(0.05f);
         transform.DOMoveX(transform.position.x + 0.05f, 0.05f).SetEase(Ease.Linear);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.05f);
         
         //GameManager.Instance.SE(GameManager.audioClip.hit);
         //StartCoroutine(Shake());
         Time.timeScale = 0.0f;
-        float fTimeStop = Time.realtimeSinceStartup + 0.15f;
+        float fTimeStop = Time.realtimeSinceStartup + 0.12f;
         while (true)
         {
             //if(Time.realtimeSinceStartup >= fTimeStop - 0.1f)
