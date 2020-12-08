@@ -44,15 +44,18 @@ public class YassoDetect : MonoBehaviour
         {
             return 3;
         }
-        if (Detect(player, fDetectDistance, fEQRange))
+        else if (Detect(player, fDetectDistance, fEQRange))
         {
             return 2;
         }
-        if (Detect(player, fDetectDistance))
+        else if (Detect(player, fDetectDistance))
         {
             return 1;
         }
-        return 0;
+        else
+        {
+            return 0;
+        }
     }
     /// <summary>
     /// player.transform 과 this.transform 사이의 거리 fDetectDistance 를 fDivide 만큼 나누어 그 거리 안 player.gameObject 탐지

@@ -57,7 +57,7 @@ public class YassoMove : MonoBehaviour
             sprite.flipX = true;
         }
         
-        Invoke("ReturnIdle", 1.0f);
+        Invoke(nameof(ReturnIdle), 1.0f);
         return 6;
     }
     public virtual IEnumerator JumpLand(float to, float speed = 2, float upSpeed = 2)

@@ -5156,15 +5156,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408402940}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48e32ec1292fdb04daa1d58177bdf905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1003228731}
   yasso: {fileID: 1408402940}
   player: {fileID: 2107434595}
   bFreeze: 0
+  bMove: 0
   _Transform: 0
+  healthBar: {fileID: 1088651225}
 --- !u!61 &1408402946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5219,7 +5222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408402940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b340b0a7f13343f4e8367b4b1f6c7cd1, type: 3}
   m_Name: 

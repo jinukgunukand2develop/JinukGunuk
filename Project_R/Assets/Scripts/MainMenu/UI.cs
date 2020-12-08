@@ -20,7 +20,7 @@ public class UI : MonoBehaviour
 
     public void OnClickOptionButton() 
     {
-        Option.SetActive(true);
+        SceneManager.LoadScene("BossEntry");
     }
     public void OnClickXBtn() 
     {

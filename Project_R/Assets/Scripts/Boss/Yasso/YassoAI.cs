@@ -165,13 +165,6 @@ public class YassoAI : MonoBehaviour
         // TODO : 지난번 상태도 idle 이었다면 idle 시간을 줄인다
         switch(YassoDetect.Instance.RangeDetect(player, QRANGE, EQRANGE, DETECTDISTANCE))
         {
-            case 0:
-                {
-                    YassoStatus.Instance.bJumping = true;
-                    MoveToRrdLoc();
-                    ++YassoStatus.Instance.beenIdleFor;
-                    return 0;
-                }
             case 1:
                 {
                     return 3;
@@ -184,7 +177,14 @@ public class YassoAI : MonoBehaviour
                 {
                     return 5;
                 }
-            default: ++YassoStatus.Instance.beenIdleFor;  return 0;
+            default:
+                {
+                    YassoStatus.Instance.bJumping = true;
+                    MoveToRrdLoc();
+                    ++YassoStatus.Instance.beenIdleFor;
+                    return 0;
+                }
+                //default: ++YassoStatus.Instance.beenIdleFor;  return 0;
         }
     }
 
